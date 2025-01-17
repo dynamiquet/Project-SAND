@@ -65,12 +65,17 @@ WIP dependent on group opinion and strengths
 Our team will be guided by the following expectations to ensure the production of our software is efficient while maintaining group trust:
 
 ##### Meetings:
-Our team will meet... set time, date, place, and duration
-##### Roles:
-In team meetings, we will have the following roles: discuss roles
-Roles will be rotated every two weeks to ensure every team member has experience in all roles and that work is delegated evenly.
+Our team will meet weekly on Wednesday from 4:30pm to 5:30 pm at Tree Lab. We will also use this time to discuss additional meetings if necessary. 
 
-**Who is responsible for setting agendas, taking notes, facilitating discussions, etc?**
+##### Roles:
+In team meetings, we will have the following roles: 
+- Notetaker
+- Discussion facilitator
+- Agenda leader
+- Lead communicator
+
+and the roles will be rotated weekly so that everyone gets ample chances in each role. 
+
 ##### Communication:
 Communication will remain constant through the use of a groupchat with all team members on Whatsapp. Questions, concerns, and updates can be made through text if not all members are present in person. Work, specifically code, will be shared and pushed to the group Github repository frequently, with comments, to ensure teammates have access to the most up-to-date work.
 
@@ -87,8 +92,7 @@ All notes taken during a group meeting will be shared in a Google Drive for all 
 ##### Decision-Making:
 Major decisions (such as significantly huge changes to features in the project) or any decisions requiring group input will only be made if all group members agree.
 ##### Delegation:
-The division of work will be decided based on team strengths and willingess to take on tasks. More stuff
->How will you ensure that everybody participates meaningfully? How will you make sure that everyone’s contribution is valued?
+Since each sprint will not be the exact same, we will allocate work based on each member's strengths and weaknesses to ensure that each member does not feel overwhelmed but also has sufficient work to do. We will make sure that everyone's contribution is valued by listening to all ideas and working as a team to refine and polish them.
 ##### Conflict Resolution:
 Satisfactory participation requires that all team members complete their given tasks by the assigned due date, with progress check-ins made as frequently as possible. If a task cannot be completed by the assigned due date, communication with the group must be made as soon as possible. Tasks need not be done completely alone, questions and calls for help can and are encouraged to be made to the group.
 
