@@ -1,0 +1,4 @@
+S: red panda
+Fr: turtle
+Fl: tiger
+D: panda

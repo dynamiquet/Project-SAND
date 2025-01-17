@@ -1,0 +1,4 @@
+S: fly
+Fr: panda
+Fl: snake
+D: reptiles
