@@ -77,7 +77,7 @@ Communication will remain constant through the use of a groupchat with all team 
 Trust and respect among team members is highly valued in our team. Respect within the purposes of our group and our goal statement can be defined as:
 > Respect is the recognition of each person's inherent worth, perspectives, and contributions. It involves treating others with kindness, fairness, and dignity, regardless of differences in opinions, backgrounds, or experiences.
 
-We plan to adhere to this definition by being active listeners, inclusive teammates, and understanding individuals
+We plan to adhere to this definition by being active listeners, inclusive teammates, and understanding individuals. Disagreement is bound to happen, but we will ensure to remain civil and empatheticin our discussions.
 
 Teammates should check-in with updates to their progress on individual or group tasks by both pushing updated code to Github and messaging the groupchat about the progress. If progress/task involves little code, a short description of work done can be expressed during group meeting. Check-ins need not be daily, but tasks should be done by agreed upon due dates with reasonable progress updates.
 
