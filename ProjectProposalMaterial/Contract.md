@@ -32,7 +32,10 @@ In short, our team goal is as follows:
 
 &nbsp; &nbsp; &nbsp; &nbsp; Our team of four consists of the following individuals with their respective strengths listed:
 - **Dynamique Twizere**
-  - [Input skills]
+   - Detail-oriented, especially pertaining to the group goals
+   - Can work well independently
+   - Good with seeking and providing help
+   - (Negative: Towards the end of the term, I tend to burn out)
 - **Shalim Montes Hernandez**
    - Can learn things quickly and adapt to new situations
    - Efficient troubleshooter who can find errors quickly
