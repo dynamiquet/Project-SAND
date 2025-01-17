@@ -34,9 +34,13 @@ In short, our team goal is as follows:
 - **Dynamique Twizere**
   - [Input skills]
 - **Shalim Montes Hernandez**
-   - [Input skills]
+   - Can learn things quickly and adapt to new situations
+   - Efficient troubleshooter who can find errors quickly
+   - Flexible in any environment; can work well with others as well as alone
 - **Floris Irakoze**
-   - [Input skills]
+   - Excellent at breaking down problems into manageable steps and creating structured plans to address them
+   - Strong communicator who ensures that all team members are on the same page
+   - Brings a collaborative mindset and excels in fostering consensus during disagreements
 - **Francisco Arenas**
    - I place attention to the asthetics of my submitted work
    - I write plenty of comments in my code for better readability & understanding
