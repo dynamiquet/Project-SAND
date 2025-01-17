@@ -8,6 +8,8 @@ Our datasets is composed of natural disaster data collected by FEMA (Federal Eme
 
 Data taken from FEMA
 
+Name of dataset: All Counties - County-level detail (Table)
+
 URL: https://hazards.fema.gov/nri/data-resources#csvDownload
 
 Downloaded on January 17, 2025
