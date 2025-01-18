@@ -24,3 +24,5 @@ By the Freedom of Information Act enacted in 1966, any person has a right of acc
 - They would interact with the data by inputting their desired county (level of locality may change), and then get a list of natural disasters that are common as well as links to government resources on how to prepare for specific natural disasters
 
 - Although natural disasters happen all the time, not everyone knows what they are or how to prepare for them. By interacting with this data, the hope is that they become more conscientious about weather and hopefully take steps to be better prepared for when they do happen.
+
+- Users outside of the US would feel excluded because the data contains every county in the US. The website would only be beneficial for someone who is living within the US. On a more indirect note, those who don't interact with the website could potentially be harmed by a disaster if they are not informed about them. Although a bit more extreme, it could be a possibility. 
