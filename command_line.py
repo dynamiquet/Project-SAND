@@ -1,24 +1,15 @@
 import sys
 
+from ProductionCode.helper import *
+
 def main():
 
     args = sys.argv[1:]
-
-    # if len(args) != 4:
-    #     print(f"Usage: {sys.argv[0]} --disaster <kind of disaster(s)> --county <us_county>")
     
-    try:
-        arg = sys.argv[1]
-    except IndexError:
-        raise SystemExit(f"Usage: {sys.argv[0]} --disaster <kind of disaster(s)> --county <us_county>")
+    if (args[0] != "--disaster" or args[2] != "--county" or len(args) != 4):
+        print(f"Usage: {sys.argv[0]} --disaster <kind of disaster(s)> --county <us_county>")
+        exit(1)
     
-    
-        
-
-    # counter = 0
-    # for arg in args:
-    #     counter = counter + 1
-    #     print(arg)
 
     # print(counter)
 
