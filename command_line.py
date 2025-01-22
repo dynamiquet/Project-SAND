@@ -4,8 +4,15 @@ def main():
 
     args = sys.argv[1:]
 
-    if len(args) != 4:
-        print(f"Usage: {sys.argv[0]} --disaster <kind of disaster(s)> --county <us_county>")
+    # if len(args) != 4:
+    #     print(f"Usage: {sys.argv[0]} --disaster <kind of disaster(s)> --county <us_county>")
+    
+    try:
+        arg = sys.argv[1]
+    except IndexError:
+        raise SystemExit(f"Usage: {sys.argv[0]} --disaster <kind of disaster(s)> --county <us_county>")
+    
+    
         
 
     # counter = 0
