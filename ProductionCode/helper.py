@@ -1,22 +1,23 @@
 import csv, sys
 
-def valid_disaster(string):
+def is_disaster(string):
     valid_disaster_list = ["avalanche", "coastal flooding", "cold wave", "drought", "earthquake", "hail",
                            "heat wave", "hurricane", "ice storm", "landslide", "lightning", "riverine flooding", 
                            "strong wind", "tornado", "tsunami", "volcanic activity", "wildfire", "winter weather"]
     
-    return 0
+    if string.lower() not in valid_disaster_list:
+        return False
+    else:
+        return True
 
-def valid_county(county):
+def is_us_county(county):
 
     with open('Data/County_and_Disasters_only.csv', 'r') as file:
         disasterdata = csv.reader(file)
         for row in disasterdata:
-            print(row[0])
-            if row[0] == county:
+            if str(row[0]).lower() == county.lower():
                 return True
-            else:
-                return False
-    
+
+        return False
     file.close()
     

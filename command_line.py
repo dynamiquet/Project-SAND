@@ -14,8 +14,15 @@ def main():
     disaster = args[1]
     county = args[3]
 
-    if (valid_county(county) == False):
+    if (is_us_county(county) == False):
         print("Not a valid county")
+    else:
+        print("Valid county")
+
+    if (is_disaster(disaster) == True):
+        print("Valid disaster")
+    else:
+        print("Not a valid disaster")
     # print(counter)
 
     #print(args)
