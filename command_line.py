@@ -50,8 +50,9 @@ def main():
             print("Not a valid county")
         else:
             print("Valid county")
+            print(get_top_five(county))
         
-        print(get_top_five(county))
+        return 0
 
 if __name__ == "__main__":
     main()
