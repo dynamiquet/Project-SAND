@@ -7,8 +7,9 @@ def main():
     args = sys.argv[1:]
     
     # Checks if Command Line input is valid
-    if (args[0] != "--disaster" or args[2] != "--county" or len(args) != 4):
-        print(f"Usage: {sys.argv[0]} --disaster <kind of disaster(s)> --county <us_county>")
+    if ((args[0] != "--disaster" and args[0] != "--disasters") or args[2] != "--county" or len(args) != 4):
+        print(f"Usage: {sys.argv[0]} --disaster or --disasters <kind of disaster(s)> --county <us_county>")
+        
         exit(1)
 
     disaster = args[1]
