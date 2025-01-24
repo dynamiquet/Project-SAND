@@ -1,31 +1,21 @@
 import csv, sys
 
-def is_disaster(disaster):
+def is_disaster(disaster_list):
     ''' Arguments: Takes in a disaster as a string
     Returns: True or False
-    Purpose: Checks to see if disaster inputted is a disaster in the data
+    Purpose: Checks to see if each disaster in the list inputted is a disaster in the data; takes care of singular entries and list of entries
     '''
     valid_disaster_list = ["avalanche", "coastal flooding", "cold wave", "drought", "earthquake", "hail",
                            "heat wave", "hurricane", "ice storm", "landslide", "lightning", "riverine flooding", 
                            "strong wind", "tornado", "tsunami", "volcanic activity", "wildfire", "winter weather"]
-       
-    if disaster.lower() not in valid_disaster_list:
-        return False
-    else:
-        return True
     
-def are_disasters(list_of_disasters):
-
-    valid_disaster_list = ["avalanche", "coastal flooding", "cold wave", "drought", "earthquake", "hail",
-                           "heat wave", "hurricane", "ice storm", "landslide", "lightning", "riverine flooding", 
-                           "strong wind", "tornado", "tsunami", "volcanic activity", "wildfire", "winter weather"]
-    
-    split_list = list_of_disasters.split(",")
+    split_list = disaster_list.split(",")
 
     for disaster in split_list:
+       
         if disaster.lower() not in valid_disaster_list:
             return False
-
+    
     return True
 
 def is_us_county(county):
