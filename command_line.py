@@ -9,17 +9,17 @@ def main():
     # Checks if Command Line input is valid
     if len(args) == 2:  # Check if it's the --top5 usage
         if args[0] != "--top5":
-            print(f"Usage: {sys.argv[0]} --disaster or --disasters <kind of disaster(s)> --county <us_county>")
+            print(f"Usage: {sys.argv[0]} --disaster <kind of disaster(s)> --county <us_county>")
             print(f"Alternative Usage: {sys.argv[0]} --top5 <us_county>")
             exit(1)
-    elif len(args) == 4:  # Check if it's the --disaster/--disasters usage
+    elif len(args) == 4:  # Check if it's the --disaster usage
         if args[0] not in ["--disaster", "--disasters", "--top5"] or args[2] != "--county":
-            print(f"Usage: {sys.argv[0]} --disaster or --disasters <kind of disaster(s)> --county <us_county>")
+            print(f"Usage: {sys.argv[0]} --disaster <kind of disaster(s)> --county <us_county>")
             print(f"Alternative Usage: {sys.argv[0]} --top5 <us_county>")
             exit(1)
     else:
         # Invalid number of arguments
-        print(f"Usage: {sys.argv[0]} --disaster or --disasters <kind of disaster(s)> --county <us_county>")
+        print(f"Usage: {sys.argv[0]} --disaster <kind of disaster(s)> --county <us_county>")
         print(f"Alternative Usage: {sys.argv[0]} --top5 <us_county>")
         exit(1)
         
@@ -29,17 +29,17 @@ def main():
         disaster = args[1]
         county = args[3]
 
-        if (is_us_county(county) == False):
-            print("Not a valid county")
-        else:
-            print("Valid county")
-
         if (is_disaster(disaster) == True):
             print("Valid disaster")
         else:
             print("Not a valid disaster")
 
-        return 0
+        if (is_us_county(county) == False):
+            print("Not a valid county")
+        else:
+            print("Valid county")
+
+        print(get_disaster_risk(disaster, county))
     
     # Running top5 flag
     if (args[0] == '--top5'):

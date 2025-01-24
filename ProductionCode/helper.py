@@ -1,18 +1,27 @@
 import csv, sys
 
-def is_disaster(string):
+def is_disaster(disaster_list):
     ''' Arguments: Takes in a disaster as a string
     Returns: True or False
-    Purpose: Checks to see if disaster inputted is a disaster in the data
+    Purpose: Checks to see if each disaster in the list inputted is a disaster in the data; takes care of singular entries and list of entries
     '''
     valid_disaster_list = ["avalanche", "coastal flooding", "cold wave", "drought", "earthquake", "hail",
                            "heat wave", "hurricane", "ice storm", "landslide", "lightning", "riverine flooding", 
                            "strong wind", "tornado", "tsunami", "volcanic activity", "wildfire", "winter weather"]
+    
+    split_list = disaster_list.split(",")
+
+    new_split_list = []
+    
+    for entry in split_list:
+        new_split_list.append(entry.strip())
+
+    for disaster in new_split_list:
        
-    if string.lower() not in valid_disaster_list:
-        return False
-    else:
-        return True
+        if disaster.lower() not in valid_disaster_list:
+            return False
+    
+    return True
 
 def is_us_county(county):
     ''' Arguments: Takes in a county as a string
@@ -27,6 +36,27 @@ def is_us_county(county):
 
         return False
     file.close()
+
+def get_disaster_risk(disasters, us_county):
+
+    with open('Data/County_and_Disasters_only.csv', 'r') as file:
+        disasterdata = csv.reader(file)
+        for row in disasterdata:
+            if str(row[0]).lower() == us_county.lower():
+                targetcountydata = row[0:]
+
+    file.close()
+
+    split_list = disasters.split(",")
+
+    dictionary = {}
+
+    for disaster in split_list:
+        dictionary[disaster] = 0
+
+    print(dictionary)
+
+    return 0
 
 def get_int_rating(table_rating):
     # Integer ratings for data hazards
