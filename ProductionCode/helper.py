@@ -11,7 +11,12 @@ def is_disaster(disaster_list):
     
     split_list = disaster_list.split(",")
 
-    for disaster in split_list:
+    new_split_list = []
+    
+    for entry in split_list:
+        new_split_list.append(entry.strip())
+
+    for disaster in new_split_list:
        
         if disaster.lower() not in valid_disaster_list:
             return False
@@ -31,6 +36,15 @@ def is_us_county(county):
 
         return False
     file.close()
+
+def get_disaster_risk(disasters, us_county):
+
+    with open('Data/County_and_Disasters_only.csv', 'r') as file:
+        disasterdata = csv.reader(file)
+        for row in disasterdata:
+            if str(row[0]).lower() == us_county.lower():
+                targetcountydata = row[0:]
+    return 0
 
 def get_int_rating(table_rating):
     # Integer ratings for data hazards
