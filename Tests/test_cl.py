@@ -103,5 +103,9 @@ class ProjectMethodsTests(unittest.TestCase):
         output, err = test4.communicate()
         self.assertEqual(output.strip(), "{'Winter Weather': 'Relatively High', 'Hail': 'Relatively High', 'Tornado': 'Relatively Moderate', 'Strong Wind': 'Relatively Moderate', 'Heat Wave': 'Relatively Moderate'}")
 
+        test5 = subprocess.Popen(['python3', 'command_line.py', '--top5', 'Rice'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
+        output, err = test5.communicate()
+        self.assertEqual(output.strip(), 'Not a valid county. Please check spelling and try again')
+
 if __name__ == "__main__":
     unittest.main()
