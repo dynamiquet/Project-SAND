@@ -37,7 +37,7 @@ class ProjectMethodsTests(unittest.TestCase):
         self.assertEqual(edgetest1, True)
 
     def test_get_top_five(self):
-        result = get_top_five("Los Angeles")
+        result = get_top_five("Los Angeles, CA")
         self.assertEqual(len(result), 5)  # Ensure exactly 5 disasters returned
 
         for disaster, rating in result.items():
@@ -85,6 +85,23 @@ class ProjectMethodsTests(unittest.TestCase):
         test3 = is_disaster("tornado,hurricane,alien")
         self.assertEqual(test3, False)
     
+    def test_main(self):
+        test1 = subprocess.Popen(['python3', 'command_line.py', '--disaster', 'tornado', '--county', 'Rice, MN'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
+        output, err = test1.communicate()
+        self.assertEqual(output.strip(), "{'tornado': 'Relatively Moderate'}")
+        test1.terminate()
+
+        test2 = subprocess.Popen(['python3', 'command_line.py', '--disaster', 'tornado', '--county', 'Rice'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
+        output, err = test2.communicate()
+        self.assertEqual(output.strip(), 'Not a valid county. Please check spelling and try again')
+
+        test3 = subprocess.Popen(['python3', 'command_line.py', '--disaster', 'torn', '--county', 'Rice, MN'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
+        output, err = test3.communicate()
+        self.assertEqual(output.strip(), 'At least one disaster is invalid. Please check spelling and try again')
+
+        test4 = subprocess.Popen(['python3', 'command_line.py', '--top5', 'Rice, MN'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
+        output, err = test4.communicate()
+        self.assertEqual(output.strip(), "{'Winter Weather': 'Relatively High', 'Hail': 'Relatively High', 'Tornado': 'Relatively Moderate', 'Strong Wind': 'Relatively Moderate', 'Heat Wave': 'Relatively Moderate'}")
 
 if __name__ == "__main__":
     unittest.main()
