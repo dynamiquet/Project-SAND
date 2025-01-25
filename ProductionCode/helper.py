@@ -28,21 +28,46 @@ def is_us_county(county):
     Returns: True or False
     Purpose: Checks to see if county inputted is in the US and thus in the data
     '''
+
+    split_list = county.split(",")
+
+    new_split_list = []
+
+    for entry in split_list:
+        new_split_list.append(entry.lstrip())
+
+    if (len(new_split_list) != 2):
+        return False
+        exit(1)
+    
+    uscounty = new_split_list[0]
+    usstate = new_split_list[1]
+
     with open('Data/County_and_Disasters_only.csv', 'r') as file:
         disasterdata = csv.reader(file)
         for row in disasterdata:
-            if str(row[0]).lower() == county.lower():
+            if str(row[0]).lower() == uscounty.lower() and str(row[1]).lower() == usstate.lower():
                 return True
 
         return False
     file.close()
 
-def get_disaster_risk(disasters, us_county):
+def get_disaster_risk(disasters, county):
+
+    split_list = county.split(",")
+
+    new_split_list = []
+
+    for entry in split_list:
+        new_split_list.append(entry.lstrip())
+
+    uscounty = new_split_list[0]
+    usstate = new_split_list[1]
 
     with open('Data/County_and_Disasters_only.csv', 'r') as file:
         disasterdata = csv.reader(file)
         for row in disasterdata:
-            if str(row[0]).lower() == us_county.lower():
+            if str(row[0]).lower() == uscounty.lower() and str(row[1]).lower() == usstate.lower():
                 targetcountydata = row[0:]
 
     file.close()
@@ -62,8 +87,6 @@ def get_disaster_risk(disasters, us_county):
     return userdictionary
 
 def get_disaster_risk_helper(disasterlist, countyrow):
-    
-    print(disasterlist)
 
     dictionary = {}
     
@@ -76,38 +99,36 @@ def get_disaster_risk_helper(disasterlist, countyrow):
             dictionary.update({disaster : countyrow[2]})
         elif (disaster.lower() == 'drought'):
             dictionary.update({disaster : countyrow[3]})
-        elif (disaster.lower() == 'drought'):
-            dictionary.update({disaster : countyrow[4]})
         elif (disaster.lower() == 'earthquake'):
-            dictionary.update({disaster : countyrow[5]})
+            dictionary.update({disaster : countyrow[4]})
         elif (disaster.lower() == 'hail'):
-            dictionary.update({disaster : countyrow[6]})
+            dictionary.update({disaster : countyrow[5]})
         elif (disaster.lower() == 'heat wave'):
-            dictionary.update({disaster : countyrow[7]})
+            dictionary.update({disaster : countyrow[6]})
         elif (disaster.lower() == 'hurricane'):
-            dictionary.update({disaster : countyrow[8]})
+            dictionary.update({disaster : countyrow[7]})
         elif (disaster.lower() == 'ice storm'):
-            dictionary.update({disaster : countyrow[9]})
+            dictionary.update({disaster : countyrow[8]})
         elif (disaster.lower() == 'landslide'):
-            dictionary.update({disaster : countyrow[10]})
+            dictionary.update({disaster : countyrow[9]})
         elif (disaster.lower() == 'lightning'):
-            dictionary.update({disaster : countyrow[11]})
+            dictionary.update({disaster : countyrow[10]})
         elif (disaster.lower() == 'riverine flooding'):
-            dictionary.update({disaster : countyrow[12]})
+            dictionary.update({disaster : countyrow[11]})
         elif (disaster.lower() == 'strong wind'):
-            dictionary.update({disaster : countyrow[13]})
+            dictionary.update({disaster : countyrow[12]})
         elif (disaster.lower() == 'tornado'):
-            dictionary.update({disaster : countyrow[14]})
+            dictionary.update({disaster : countyrow[13]})
         elif (disaster.lower() == 'tsunami'):
-            dictionary.update({disaster : countyrow[15]})
+            dictionary.update({disaster : countyrow[14]})
         elif (disaster.lower() == 'volcanic activity'):
-            dictionary.update({disaster : countyrow[16]})
+            dictionary.update({disaster : countyrow[15]})
         elif (disaster.lower() == 'wildfire'):
-            dictionary.update({disaster : countyrow[17]})
+            dictionary.update({disaster : countyrow[16]})
         elif (disaster.lower() == 'winter weather'):
-            dictionary.update({disaster : countyrow[18]})
+            dictionary.update({disaster : countyrow[17]})
         else:
-            print("Not a valid disaster 2")
+            print("Not a valid disaster")
 
     return dictionary
 
