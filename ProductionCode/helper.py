@@ -46,17 +46,33 @@ def get_disaster_risk(disasters, us_county):
                 targetcountydata = row[0:]
 
     file.close()
+    
+    targetcountydata.pop(0)
+    targetcountydata.pop(0)
 
     split_list = disasters.split(",")
 
+    userdictionary = get_disaster_risk_helper(split_list, targetcountydata)
+    
+   
+
+    return userdictionary
+
+def get_disaster_risk_helper(disasterlist, countyrow):
+
+    valid_disaster_list = ["avalanche", "coastal flooding", "cold wave", "drought", "earthquake", "hail",
+                           "heat wave", "hurricane", "ice storm", "landslide", "lightning", "riverine flooding", 
+                           "strong wind", "tornado", "tsunami", "volcanic activity", "wildfire", "winter weather"]
+    
     dictionary = {}
+    
+    for disaster in disasterlist:
+        if (disaster.lower() == 'avalanche'):
+            dictionary.update({disaster : countyrow[0]})
+        elif (disaster.lower() == 'coastal flooding'):
+            dictionary.update({disaster : countyrow[1]})
+    return dictionary
 
-    for disaster in split_list:
-        dictionary[disaster] = 0
-
-    print(dictionary)
-
-    return 0
 
 def get_int_rating(table_rating):
     # Integer ratings for data hazards
