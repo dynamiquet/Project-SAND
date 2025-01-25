@@ -26,9 +26,11 @@ def is_disaster(disaster_list):
 def is_us_county(county):
     ''' Arguments: Takes in a county as a string
     Returns: True or False
-    Purpose: Checks to see if county inputted is in the US and thus in the data
+    Purpose: Checks to see if county inputted is in the US and accounts for counties that share the same name
     '''
 
+    # Takes in the string and splits it so that county is the first entry and state is the second entry
+    # ['county', 'state']
     split_list = county.split(",")
 
     new_split_list = []
@@ -36,6 +38,7 @@ def is_us_county(county):
     for entry in split_list:
         new_split_list.append(entry.lstrip())
 
+    # Checking to ensure that the input is formatted correctly
     if (len(new_split_list) != 2):
         return False
     
@@ -49,10 +52,13 @@ def is_us_county(county):
                 return True
 
         return False
+    
     file.close()
 
 def get_disaster_risk(disasters, county):
 
+    # Takes in the string and splits it so that county is the first entry and state is the second entry
+    # ['county', 'state']
     split_list = county.split(",")
 
     new_split_list = []
@@ -63,6 +69,7 @@ def get_disaster_risk(disasters, county):
     uscounty = new_split_list[0]
     usstate = new_split_list[1]
 
+    # Finds the row in the data with the correct county
     with open('Data/County_and_Disasters_only.csv', 'r') as file:
         disasterdata = csv.reader(file)
         for row in disasterdata:
@@ -71,9 +78,11 @@ def get_disaster_risk(disasters, county):
 
     file.close()
     
+    # Removes the county column and state abbreviation column to isolate risk ratings
     targetcountydata.pop(0)
     targetcountydata.pop(0)
 
+    # Splitting the inputted disaster string so that each disaster is its own entry in the array
     split_list = disasters.split(",")
 
     new_split_list = []
@@ -126,8 +135,6 @@ def get_disaster_risk_helper(disasterlist, countyrow):
             dictionary.update({disaster : countyrow[16]})
         elif (disaster.lower() == 'winter weather'):
             dictionary.update({disaster : countyrow[17]})
-        else:
-            print("Not a valid disaster")
 
     return dictionary
 
@@ -181,10 +188,23 @@ def get_string_rating(int_rating):
 
 
 def get_top_five(county):
+
+    # Takes in the string and splits it so that county is the first entry and state is the second entry
+    # ['county', 'state']
+    split_list = county.split(",")
+
+    new_split_list = []
+
+    for entry in split_list:
+        new_split_list.append(entry.lstrip())
+
+    uscounty = new_split_list[0]
+    usstate = new_split_list[1]
+
     with open('Data/County_and_Disasters_only.csv', 'r') as file:
         disasterdata = csv.reader(file)
         for row_data in disasterdata:
-            if str(row_data[0]).lower() == county.lower():
+            if str(row_data[0]).lower() == uscounty.lower() and str(row_data[1]).lower() == usstate.lower():
                 # Store target county row data
                 county_data = row_data[0:]
     file.close()

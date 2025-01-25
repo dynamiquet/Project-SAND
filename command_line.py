@@ -29,18 +29,17 @@ def main():
         disaster = args[1]
         county = args[3]
 
-        if (is_disaster(disaster) == True):
-            print("Valid disaster")
-        else:
-            print("Not a valid disaster")
+        if (is_disaster(disaster) == False):
+            print("At least one disaster is invalid. Please check spelling and try again")
+            exit(1)
 
         if (is_us_county(county) == False):
-            print("Not a valid county")
+            print("Not a valid county. Please check spelling and try again")
             exit(1)
-        else:
-            print("Valid county")
 
         print(get_disaster_risk(disaster, county))
+
+        
     
     # Running top5 flag
     if (args[0] == '--top5'):
@@ -48,9 +47,8 @@ def main():
 
         # Check validity of county
         if (is_us_county(county) == False):
-            print("Not a valid county")
+            print("Not a valid county. Please check spelling and try again")
         else:
-            print("Valid county")
             print(get_top_five(county))
         
         return 0

@@ -27,13 +27,13 @@ class ProjectMethodsTests(unittest.TestCase):
         self.assertEqual(edgetest1, True)
 
     def test_is_us_county(self):
-        test1 = is_us_county("Los Angeles")
+        test1 = is_us_county("Los Angeles, CA")
         self.assertEqual(test1, True)
 
         test2 = is_us_county("Atlantis")
         self.assertEqual(test2, False)
 
-        edgetest1 = is_us_county("LOS ANGELES")
+        edgetest1 = is_us_county("LOS ANGELES, CA")
         self.assertEqual(edgetest1, True)
 
     def test_get_top_five(self):
@@ -84,6 +84,7 @@ class ProjectMethodsTests(unittest.TestCase):
 
         test3 = is_disaster("tornado,hurricane,alien")
         self.assertEqual(test3, False)
+    
 
 if __name__ == "__main__":
     unittest.main()
