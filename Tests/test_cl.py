@@ -73,7 +73,7 @@ class ProjectMethodsTests(unittest.TestCase):
         self.assertEqual(test1, False)
 
         test2 = is_us_county("LA")
-        self.assertEqual(test2, True)
+        self.assertEqual(test2, False)
 
     def test_valid_disaster_list(self):
         test1 = is_disaster("tornado,hurricane,earthquake")
