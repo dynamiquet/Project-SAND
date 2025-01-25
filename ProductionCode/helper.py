@@ -38,7 +38,6 @@ def is_us_county(county):
 
     if (len(new_split_list) != 2):
         return False
-        exit(1)
     
     uscounty = new_split_list[0]
     usstate = new_split_list[1]
