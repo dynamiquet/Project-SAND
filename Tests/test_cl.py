@@ -10,7 +10,7 @@ class ProjectMethodsTests(unittest.TestCase):
         self.assertEqual(edgetest1, True)
 
         test2 = is_disaster("United States")
-        self.assertEqual(test2, "False")
+        self.assertEqual(test2, False)
         
 ##
 
