@@ -44,6 +44,18 @@ def get_disaster_risk(disasters, us_county):
         for row in disasterdata:
             if str(row[0]).lower() == us_county.lower():
                 targetcountydata = row[0:]
+
+    file.close()
+
+    split_list = disasters.split(",")
+
+    dictionary = {}
+
+    for disaster in split_list:
+        dictionary[disaster] = 0
+
+    print(dictionary)
+
     return 0
 
 def get_int_rating(table_rating):
