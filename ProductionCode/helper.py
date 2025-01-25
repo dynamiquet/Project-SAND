@@ -14,7 +14,7 @@ def is_disaster(disaster_list):
     new_split_list = []
     
     for entry in split_list:
-        new_split_list.append(entry.strip())
+        new_split_list.append(entry.lstrip())
 
     for disaster in new_split_list:
        
@@ -52,18 +52,19 @@ def get_disaster_risk(disasters, us_county):
 
     split_list = disasters.split(",")
 
-    userdictionary = get_disaster_risk_helper(split_list, targetcountydata)
+    new_split_list = []
     
-   
+    for entry in split_list:
+        new_split_list.append(entry.lstrip())
 
+    userdictionary = get_disaster_risk_helper(new_split_list, targetcountydata)
+    
     return userdictionary
 
 def get_disaster_risk_helper(disasterlist, countyrow):
-
-    valid_disaster_list = ["avalanche", "coastal flooding", "cold wave", "drought", "earthquake", "hail",
-                           "heat wave", "hurricane", "ice storm", "landslide", "lightning", "riverine flooding", 
-                           "strong wind", "tornado", "tsunami", "volcanic activity", "wildfire", "winter weather"]
     
+    print(disasterlist)
+
     dictionary = {}
     
     for disaster in disasterlist:
@@ -71,6 +72,43 @@ def get_disaster_risk_helper(disasterlist, countyrow):
             dictionary.update({disaster : countyrow[0]})
         elif (disaster.lower() == 'coastal flooding'):
             dictionary.update({disaster : countyrow[1]})
+        elif (disaster.lower() == 'cold wave'):
+            dictionary.update({disaster : countyrow[2]})
+        elif (disaster.lower() == 'drought'):
+            dictionary.update({disaster : countyrow[3]})
+        elif (disaster.lower() == 'drought'):
+            dictionary.update({disaster : countyrow[4]})
+        elif (disaster.lower() == 'earthquake'):
+            dictionary.update({disaster : countyrow[5]})
+        elif (disaster.lower() == 'hail'):
+            dictionary.update({disaster : countyrow[6]})
+        elif (disaster.lower() == 'heat wave'):
+            dictionary.update({disaster : countyrow[7]})
+        elif (disaster.lower() == 'hurricane'):
+            dictionary.update({disaster : countyrow[8]})
+        elif (disaster.lower() == 'ice storm'):
+            dictionary.update({disaster : countyrow[9]})
+        elif (disaster.lower() == 'landslide'):
+            dictionary.update({disaster : countyrow[10]})
+        elif (disaster.lower() == 'lightning'):
+            dictionary.update({disaster : countyrow[11]})
+        elif (disaster.lower() == 'riverine flooding'):
+            dictionary.update({disaster : countyrow[12]})
+        elif (disaster.lower() == 'strong wind'):
+            dictionary.update({disaster : countyrow[13]})
+        elif (disaster.lower() == 'tornado'):
+            dictionary.update({disaster : countyrow[14]})
+        elif (disaster.lower() == 'tsunami'):
+            dictionary.update({disaster : countyrow[15]})
+        elif (disaster.lower() == 'volcanic activity'):
+            dictionary.update({disaster : countyrow[16]})
+        elif (disaster.lower() == 'wildfire'):
+            dictionary.update({disaster : countyrow[17]})
+        elif (disaster.lower() == 'winter weather'):
+            dictionary.update({disaster : countyrow[18]})
+        else:
+            print("Not a valid disaster 2")
+
     return dictionary
 
 
