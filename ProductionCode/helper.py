@@ -1,7 +1,8 @@
 import csv, sys
 
 def is_disaster(disaster_list):
-    ''' Arguments: Takes in a disaster as a string
+    ''' 
+    Arguments: Takes in a disaster as a string
     Returns: True or False
     Purpose: Checks to see if each disaster in the list inputted is a disaster in the data; takes care of singular entries and list of entries
     '''
@@ -24,7 +25,8 @@ def is_disaster(disaster_list):
     return True
 
 def is_us_county(county):
-    ''' Arguments: Takes in a county as a string
+    ''' 
+    Arguments: Takes in a county as a string
     Returns: True or False
     Purpose: Checks to see if county inputted is in the US and accounts for counties that share the same name
     '''
@@ -56,6 +58,11 @@ def is_us_county(county):
     file.close()
 
 def get_disaster_risk(disasters, county):
+    ''' 
+    Arguments: Takes in a string of disasters and county
+    Returns: A dictionary
+    Purpose: Seperates disaster(s) string into list and returns a hazard rating for each disaster
+    '''
 
     # Takes in the string and splits it so that county is the first entry and state is the second entry
     # ['county', 'state']
@@ -95,6 +102,11 @@ def get_disaster_risk(disasters, county):
     return userdictionary
 
 def get_disaster_risk_helper(disasterlist, countyrow):
+    ''' 
+    Arguments: String of disasters and a list of hazardous ratings
+    Returns: A dictionary
+    Purpose: Assigns a hazard rating for each disaster from the specified county's list of data
+    '''
 
     dictionary = {}
     
@@ -140,6 +152,11 @@ def get_disaster_risk_helper(disasterlist, countyrow):
 
 
 def get_int_rating(table_rating):
+    ''' 
+    Arguments: String of a hazard rating
+    Returns: A int
+    Purpose: Assigns a numerical value for each type of hazard rating for future sorting
+    '''
     # Integer ratings for data hazards
     if (table_rating == 'Insufficient Data'):
         int_rating = 0
@@ -165,6 +182,11 @@ def get_int_rating(table_rating):
     return int_rating
 
 def get_string_rating(int_rating):
+    ''' 
+    Arguments: A numerical value for a hazard rating
+    Returns: A string
+    Purpose: Reverts a numerical value for each type of hazard rating for user readability
+    '''
     # Revert ratings for back into data hazards rating labels
     if (int_rating == 0):
         string_rating = 'Insufficient Data'
@@ -188,6 +210,11 @@ def get_string_rating(int_rating):
 
 
 def get_top_five(county):
+    ''' 
+    Arguments: Takes in a county as a string
+    Returns: A dictionary
+    Purpose: Returns the top 5 most hazardous disaster's in a given county
+    '''
 
     # Takes in the string and splits it so that county is the first entry and state is the second entry
     # ['county', 'state']

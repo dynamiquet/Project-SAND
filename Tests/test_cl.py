@@ -6,14 +6,14 @@ class ProjectMethodsTests(unittest.TestCase):
         test1 = is_disaster("tornado")
         self.assertEqual(test1, True)
 
+        test2 = is_disaster("United States")
+        self.assertEqual(test2, False)
+
         edgetest1 = is_disaster("TORNADO")
         self.assertEqual(edgetest1, True)
 
-        test2 = is_disaster("United States")
-        self.assertEqual(test2, False)
-        
-##
-
+        edgetest2 = is_disaster(5)
+        self.assertEqual(edgetest2, False)
 
 
     def test_are_disasters(self):

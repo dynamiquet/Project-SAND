@@ -3,6 +3,14 @@ import sys
 from ProductionCode.helper import *
 
 def main():
+    '''
+    Accepts two Command Line inputs:
+    Usage One: --disaster <name of disaster(s)> --county <name of US county, State abbreviation>
+        Returns the hazard rating for the type of disaster(s) in the given county as recorded by FEMA's dataset
+
+    Usage Two: --top5 <name of US county, State abbreviation>
+        Returns the top five most hazardous disaster's in a given county
+    '''
 
     args = sys.argv[1:]
     
