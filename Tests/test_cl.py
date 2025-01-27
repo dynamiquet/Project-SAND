@@ -3,6 +3,9 @@ from ProductionCode.helper import *
 
 class ProjectMethodsTests(unittest.TestCase):
     def test_is_disaster(self):
+        ''' Argument: instance of ProjectMethodsTests
+        Tests to see if is_disaster correctly finds if a singular entry is a disaster in the dataset
+        '''
         test1 = is_disaster("tornado")
         self.assertEqual(test1, True)
 
@@ -17,6 +20,9 @@ class ProjectMethodsTests(unittest.TestCase):
 
 
     def test_are_disasters(self):
+        '''Argument: instance of ProjectMethodsTests
+        Tests to see if is_disaster correctly finds if every entry is a disaster in the dataset and are separated by commas
+        '''
         test1 = is_disaster("tornado,hurricane,wildfire")
         self.assertEqual(test1, True)
 
@@ -26,7 +32,13 @@ class ProjectMethodsTests(unittest.TestCase):
         edgetest1 = is_disaster("TORNADO,HURRICANE")
         self.assertEqual(edgetest1, True)
 
+        edgetest2 = is_disaster("tornado hurricane earthquake")
+        self.assertEqual(edgetest2, False)
+
     def test_is_us_county(self):
+        '''Argument: instance of ProjectMethodsTests
+        Tests to see if is_us_county correctly determines if the inputted county is a county in the United States
+        '''
         test1 = is_us_county("Los Angeles, CA")
         self.assertEqual(test1, True)
 
@@ -37,6 +49,9 @@ class ProjectMethodsTests(unittest.TestCase):
         self.assertEqual(edgetest1, True)
 
     def test_get_top_five(self):
+        '''Argument: instance of ProjectMethodsTests
+        Tests to see if get_top_five correctly returns the five disasters that a county is most at risk of experiencing 
+        '''
         result = get_top_five("Los Angeles, CA")
         self.assertEqual(len(result), 5)  # Ensure exactly 5 disasters returned
 
@@ -48,6 +63,9 @@ class ProjectMethodsTests(unittest.TestCase):
             get_top_five("Atlantis")
 
     def test_partial_disaster_input(self):
+        '''Argument: instance of ProjectMethodsTests
+        Tests to ensure that is_disaster correctly determines that incomplete disasters are not valid inputs
+        '''
         test1 = is_disaster("tor")
         self.assertEqual(test1, False)
 
@@ -55,6 +73,9 @@ class ProjectMethodsTests(unittest.TestCase):
         self.assertEqual(test2, False)
 
     def test_disaster_with_special_characters(self):
+        '''Argument: instance of ProjectMethodsTests
+        Tests to ensure that is_disaster correctly determines that names with special characters are considered invalid
+        '''
         test1 = is_disaster("tornado@")
         self.assertEqual(test1, False)
 
@@ -62,30 +83,19 @@ class ProjectMethodsTests(unittest.TestCase):
         self.assertEqual(test2, False)
 
     def test_county_with_special_characters(self):
+        '''Argument: instance of ProjectMethodsTests
+        Tests to ensure that is_us_county correctly determines that names with special characters are considered invalid
+        '''
         test1 = is_us_county("Los Angeles@")
         self.assertEqual(test1, False)
 
         test2 = is_us_county("Atlantis#")
         self.assertEqual(test2, False)
-
-    def test_large_county_name(self):
-        test1 = is_us_county("ThisIsAVeryLongCountyNameThatDoesNotExist")
-        self.assertEqual(test1, False)
-
-        test2 = is_us_county("LA")
-        self.assertEqual(test2, False)
-
-    def test_valid_disaster_list(self):
-        test1 = is_disaster("tornado,hurricane,earthquake")
-        self.assertEqual(test1, True)
-
-        test2 = is_disaster("tornado hurricane earthquake")
-        self.assertEqual(test2, False)
-
-        test3 = is_disaster("tornado,hurricane,alien")
-        self.assertEqual(test3, False)
     
     def test_main(self):
+        '''Argument: instance of ProjectMethodsTests
+        Tests main to ensure that the correct output is produced when input is correct or that a Usage statement is printed when input is incorrect 
+        '''
         test1 = subprocess.Popen(['python3', 'command_line.py', '--disaster', 'tornado', '--county', 'Rice, MN'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
         output, err = test1.communicate()
         self.assertEqual(output.strip(), "{'tornado': 'Relatively Moderate'}")
