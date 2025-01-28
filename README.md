@@ -1,4 +1,4 @@
-## Project X
+## Project S.A.N.D.
 
 ### Functionality
 This program allows the user to interact with our dataset that contains data about natural disasters in the United States collected by FEMA.
