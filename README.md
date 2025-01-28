@@ -8,5 +8,7 @@ You may use the program to obtain National Risk Index data about a particular di
 ```
 python3 command_line.py --disaster --<disaster_name> --county <county_name> 
 ```
+You can also run the following command which will retrieve the top 5 disasters that a particular county in the U.S. is most at risk of experiencing
 
+python3 command_line.py --top5 '<county_name>'
 
