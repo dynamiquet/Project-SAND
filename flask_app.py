@@ -32,3 +32,6 @@ def get_valid_county_and_disaster(disaster, county):
         return get_disaster_risk(disaster, county)
     
     return ErrorMessage
+
+if __name__ == '__main__':
+    app.run()
