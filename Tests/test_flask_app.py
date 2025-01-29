@@ -2,7 +2,19 @@ from flask_app import *
 import unittest
 
 class TestSANDPage(unittest.TestCase):
-   def test_homepage(self):
+    def test_page_not_found(self):
+        '''Argument: instance of the TestProjectSAND class
+        Tests to ensure that the proper message is displayed when a page not found error is encountered
+        '''
+        self.app = app.test_client()
+        response1 = self.app.get('/0', follow_redirects=True)
+        self.assertEqual(b'Page not found: Please ensure you follow the URL with: /&ltdisasters&gt/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt', response1.data)
+
+        self.app = app.test_client()
+        response2 = self.app.get('/disaster/tornado/county', follow_redirects=True)
+        self.assertEqual(b'Page not found: Please ensure you follow the URL with: /&ltdisasters&gt/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt', response2.data)
+
+    def test_homepage(self):
       ''' Argument: instance of TestSANDPage
         Tests to see if base route leads user to homepage with correct output
         '''
@@ -11,7 +23,7 @@ class TestSANDPage(unittest.TestCase):
 
       self.assertIn(b'Welcome to the homepage for Project S.A.N.D', response.data)
 
-   def test_disaster_county_pages(self):
+    def test_disaster_county_pages(self):
       ''' Argument: instance of TestSANDPage
         Tests to see if unique routes lead to correct pages for both correct and incorrect arguments
         '''
@@ -27,9 +39,9 @@ class TestSANDPage(unittest.TestCase):
       self.assertEqual(b'Either your county or disaster are not valid inputs. Please check homepage to see correct usage.', Edgetest1.data)
 
       Edgetest2 = self.app.get('/Earthquake/Rice,MN/POTATOES', follow_redirects=True)
-      self.assertEqual(b'Page not found. Please check homepage to see correct browser argument inputs! Thank you!', Edgetest2.data)
+      self.assertEqual(b'Page not found: Please ensure you follow the URL with: /&ltdisasters&gt/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt', Edgetest2.data)
 
-   def test_top5_pages(self):
+    def test_top5_pages(self):
       ''' Argument: instance of TestSANDPage
         Tests to see if unique routes lead to correct pages for both correct and incorrect arguments
         '''
@@ -42,4 +54,4 @@ class TestSANDPage(unittest.TestCase):
       self.assertEqual(b'Either your county or disaster are not valid inputs. Please check homepage to see correct usage.', Edgetest1.data)
 
       Edgetest2 = self.app.get('/top100/', follow_redirects=True)
-      self.assertEqual(b'Page not found. Please check homepage to see correct browser argument inputs! Thank you!', Edgetest2.data)
+      self.assertEqual(b'Page not found: Please ensure you follow the URL with: /&ltdisasters&gt/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt', Edgetest2.data)

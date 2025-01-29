@@ -10,6 +10,10 @@ def is_disaster(disaster_list):
                            "heat wave", "hurricane", "ice storm", "landslide", "lightning", "riverine flooding", 
                            "strong wind", "tornado", "tsunami", "volcanic activity", "wildfire", "winter weather"]
     
+    # Checks if input is a string
+    if (not isinstance(disaster_list, str)):
+        return False
+    
     split_list = disaster_list.split(",")
 
     new_split_list = []
