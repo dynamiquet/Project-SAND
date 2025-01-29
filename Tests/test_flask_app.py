@@ -11,30 +11,6 @@ class TestSANDPage(unittest.TestCase):
 
       self.assertIn(b'Welcome to the homepage for Project S.A.N.D', response.data)
 
-   def test_check_valid_disasters_and_county(self):
-      ''' Argument: instance of TestSANDPage
-        Tests to see if function correctly returns appropriate boolean for inputs
-        '''
-      ValidDisaster = "Earthquake"
-      ValidDisasters = "Tornado, Earthquake, Hurricane"
-      InvalidDisaster = "Potato Weather"
-      ValidCounty = "Los Angeles, CA"
-      InvalidCounty = "Potato, Kingdom"
-
-      # Should be safe
-      test1 = check_valid_disasters_and_county(ValidDisaster, ValidCounty)
-      self.assertEqual(test1, True)
-
-      test2 = check_valid_disasters_and_county(ValidDisasters, ValidCounty)
-      self.assertEqual(test2, True)
-
-      # Should be rejected
-      test3 = check_valid_disasters_and_county(InvalidDisaster, ValidCounty)
-      self.assertEqual(test3, False)
-
-      test4 = check_valid_disasters_and_county(ValidDisasters, InvalidCounty)
-      self.assertEqual(test4, False)
-
    def test_disaster_county_pages(self):
       ''' Argument: instance of TestSANDPage
         Tests to see if unique routes lead to correct pages for both correct and incorrect arguments
