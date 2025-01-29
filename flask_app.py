@@ -33,5 +33,16 @@ def get_valid_county_and_disaster(disaster, county):
     
     return ErrorMessage
 
+@app.route('/top5/<county>', strict_slashes = False)
+def get_valid_top5_county(county):
+    '''Arguments: String of county
+    Return: List of disaster's and ratings
+    Purpose: To get top 5 hazardous disasters in a county'''
+    
+    if (is_us_county(county)):
+        return get_top_five(county)
+    
+    return ErrorMessage
+
 if __name__ == '__main__':
     app.run()
