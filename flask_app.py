@@ -10,6 +10,13 @@ def page_not_found(e):
     '''
     return "Page not found: Please ensure you follow the URL with: /&ltdisasters&gt/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt"
 
+@app.errorhandler(500)
+def python_bug(e):
+   '''Arguments: None
+    Return: String of instructions
+    Purpose: In case of developer error, directs users back to homepage'''
+   return "Sorry for the error, we have a bug in our code! Please go back to the homepage!"
+
 @app.route('/')
 def homepage():
     '''Arguments: None
