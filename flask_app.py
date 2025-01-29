@@ -19,20 +19,7 @@ def homepage():
     This returns the top five most hazardous disaster's in a given county
     '''
     return message
-
-@app.route('/disasters/<disasters>/county/<county>', strict_slashes = False)
-def get_disaster_risk_flsk(disasters, county):
-    '''Argument(s): disasters (string), county (string)
-    Returns the dictionary with every inputted disaster and their respective risk values for the specific county
-    '''
-
-    if (is_disaster(disasters) == True and is_us_county(county) == True):
-        return get_disaster_risk(disasters, county)
-    else:
-        return "At least one disaster and/or the county are not valid. Please check spelling and try again. For information on formatting, check the homepage."
     
-# Francisco's version:
-# Error message for when browser arguments are invalid
 ErrorMessage = "Either your county or disaster are not valid inputs. Please check homepage to see correct usage."
 
 def check_valid_disasters_and_county(disaster, county):
