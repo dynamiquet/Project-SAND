@@ -22,13 +22,6 @@ def homepage():
     
 ErrorMessage = "Either your county or disaster are not valid inputs. Please check homepage to see correct usage."
 
-def check_valid_disasters_and_county(disaster, county):
-    '''Arguments: String of disaster(s), String of county
-    Return: Boolean
-    Purpose: To check if given disasters and county are valid'''
-
-    return (is_disaster(disaster) and is_us_county(county))
-
 @app.route('/<disaster>/<county>', strict_slashes = False)
 def get_valid_county_and_disaster(disaster, county):
     '''Arguments: String of disaster(s), String of county
