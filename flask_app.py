@@ -8,7 +8,7 @@ def page_not_found(e):
     '''Argument(s): 404 error
     Displays a usage statement to the user if what follows the URL is formatted incorrectly
     '''
-    return "Page not found: Please ensure you follow the URL with: /disasters/&ltdisasters&gt/county/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt"
+    return "Page not found: Please ensure you follow the URL with: /&ltdisasters&gt/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt"
 
 @app.errorhandler(500)
 def python_bug(e):
