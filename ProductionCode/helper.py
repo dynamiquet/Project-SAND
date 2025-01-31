@@ -197,24 +197,9 @@ def get_top_five(county):
 
     # Initialize disaster rating dictionary with disasters in order
     disaster_rating_dict = {
-        "Avalanche" : 0,
-        "Coastal Flooding" : 0,
-        "Cold Wave" : 0,
-        "Drought" : 0,
-        "Earthquake" : 0,
-        "Hail" : 0,
-        "Heat Wave" : 0,
-        "Hurricane": 0,
-        "Ice Storm": 0,
-        "Landslide": 0,
-        "Lightning" : 0,
-        "Riverine Flooding" : 0,
-        "Strong Wind" : 0,
-        "Tornado" : 0,
-        "Tsunami" : 0,
-        "Volcanic Activity" : 0,
-        "Wildfire" : 0,
-        "Winter Weather" : 0
+        "Avalanche" : 0, "Coastal Flooding" : 0, "Cold Wave" : 0, "Drought" : 0, "Earthquake" : 0, "Hail" : 0, "Heat Wave" : 0, "Hurricane": 0, 
+        "Ice Storm": 0, "Landslide": 0, "Lightning" : 0, "Riverine Flooding" : 0, "Strong Wind" : 0, "Tornado" : 0, "Tsunami" : 0,
+        "Volcanic Activity" : 0, "Wildfire" : 0, "Winter Weather" : 0
     }
 
     # Depending on rating, assign numerical value for later sorting
