@@ -132,26 +132,15 @@ def get_int_rating(table_rating):
     Returns: A int
     Purpose: Assigns a numerical value for each type of hazard rating for future sorting
     '''
-    # Integer ratings for data hazards
-    if (table_rating == 'Insufficient Data'):
-        int_rating = 0
-    elif (table_rating == 'Not Applicable'):
-        int_rating = 1
-    elif (table_rating == 'No Rating'):
-        int_rating = 2
-    elif (table_rating == 'Very Low'):
-        int_rating = 3
-    elif (table_rating == 'Relatively Low'):
-        int_rating = 4
-    elif (table_rating == 'Relatively Moderate'):
-        int_rating = 5
-    elif (table_rating == 'Relatively High'):
-        int_rating = 6
-    elif (table_rating == 'Very High'):
-        int_rating = 7
-    # Debugging purposes
+
+    # Each key is a rating from the dataset and is associated with an integer
+    stringratingdict = {"Insufficient Data":0, "Not Applicable":1, "No Rating":2, "Very Low":3, "Relatively Low":4, "Relatively Moderate":5,
+                        "Relatively High":6, "Very High":7}
+    
+    # Convert string rating into an integer for sorting
+    if table_rating in stringratingdict:
+        int_rating = stringratingdict[table_rating]
     else:
-        print(table_rating)
         print("Error, not a valid rating")
 
     return int_rating
@@ -162,27 +151,15 @@ def get_string_rating(int_rating):
     Returns: A string
     Purpose: Reverts a numerical value for each type of hazard rating for user readability
     '''
+
+    # Each key is an integer and is associated with a rating from the dataset
+    intratingdict = {0:"Insufficient Data", 1:"Not Applicable", 2:"No Rating", 3:"Very Low", 4:"Relatively Low", 5:"Relatively Moderate",
+                     6:"Relatively High", 7:"Very High"}
+    
     # Revert ratings for back into data hazards rating labels
-    if (int_rating == 0):
-        string_rating = 'Insufficient Data'
-    elif (int_rating == 1):
-        string_rating = 'Not Applicable'
-    elif (int_rating == 2):
-        string_rating = 'No Rating'
-    elif (int_rating == 3):
-        string_rating = 'Very Low'
-    elif (int_rating == 4):
-        string_rating = 'Relatively Low'
-    elif (int_rating == 5):
-        string_rating = 'Relatively Moderate'
-    elif (int_rating == 6):
-        string_rating = 'Relatively High'
-    elif (int_rating == 7):
-        string_rating = 'Very High'
+    string_rating = intratingdict[int_rating]
 
     return string_rating
-
-
 
 def get_top_five(county):
     ''' 
