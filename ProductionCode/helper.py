@@ -112,45 +112,16 @@ def get_disaster_risk_helper(disasterlist, countyrow):
     Purpose: Assigns a hazard rating for each disaster from the specified county's list of data
     '''
 
+    # Each key is a disaster and the value is what column their risk value is in the dataset
+    disasterandcolumndict = {"avalanche":0,"coastal flooding":1, "cold wave":2, "drought":3, "earthquake":4, "hail":5, "heat wave":6, "hurricane":7, 
+                         "ice storm":8, "landslide":9, "lightning":10, "riverine flooding":11, "strong wind":12, "tornado":13, "tsunami":14, 
+                         "volcanic activity":15, "wildfire":16, "winter weather":17}
+
     dictionary = {}
-    
+
     for disaster in disasterlist:
-        if (disaster.lower() == 'avalanche'):
-            dictionary.update({disaster : countyrow[0]})
-        elif (disaster.lower() == 'coastal flooding'):
-            dictionary.update({disaster : countyrow[1]})
-        elif (disaster.lower() == 'cold wave'):
-            dictionary.update({disaster : countyrow[2]})
-        elif (disaster.lower() == 'drought'):
-            dictionary.update({disaster : countyrow[3]})
-        elif (disaster.lower() == 'earthquake'):
-            dictionary.update({disaster : countyrow[4]})
-        elif (disaster.lower() == 'hail'):
-            dictionary.update({disaster : countyrow[5]})
-        elif (disaster.lower() == 'heat wave'):
-            dictionary.update({disaster : countyrow[6]})
-        elif (disaster.lower() == 'hurricane'):
-            dictionary.update({disaster : countyrow[7]})
-        elif (disaster.lower() == 'ice storm'):
-            dictionary.update({disaster : countyrow[8]})
-        elif (disaster.lower() == 'landslide'):
-            dictionary.update({disaster : countyrow[9]})
-        elif (disaster.lower() == 'lightning'):
-            dictionary.update({disaster : countyrow[10]})
-        elif (disaster.lower() == 'riverine flooding'):
-            dictionary.update({disaster : countyrow[11]})
-        elif (disaster.lower() == 'strong wind'):
-            dictionary.update({disaster : countyrow[12]})
-        elif (disaster.lower() == 'tornado'):
-            dictionary.update({disaster : countyrow[13]})
-        elif (disaster.lower() == 'tsunami'):
-            dictionary.update({disaster : countyrow[14]})
-        elif (disaster.lower() == 'volcanic activity'):
-            dictionary.update({disaster : countyrow[15]})
-        elif (disaster.lower() == 'wildfire'):
-            dictionary.update({disaster : countyrow[16]})
-        elif (disaster.lower() == 'winter weather'):
-            dictionary.update({disaster : countyrow[17]})
+        column = disasterandcolumndict[disaster.lower()]
+        dictionary.update({disaster : countyrow[column]})
 
     return dictionary
 

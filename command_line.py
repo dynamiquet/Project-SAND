@@ -22,7 +22,7 @@ def main():
             print(f"Alternative Usage: {sys.argv[0]} --top5 <us_county, state abbr.>")
             exit(1)
     elif len(args) == 4:  # Check if it's the --disaster usage
-        if args[0] not in ["--disaster", "--disasters", "--top5"] or args[2] != "--county":
+        if args[0] not in ["--disaster", "--top5"] or args[2] != "--county":
             print(f"Usage: {sys.argv[0]} --disaster <kind of disaster(s)> --county <us_county, state abbr.>")
             print(f"Alternative Usage: {sys.argv[0]} --top5 <us_county, state abbr.>")
             exit(1)
