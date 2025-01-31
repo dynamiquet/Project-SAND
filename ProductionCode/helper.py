@@ -241,5 +241,3 @@ def get_top_five(county):
         sorted_disasters_dict.popitem()
 
     return sorted_disasters_dict
-
-    
