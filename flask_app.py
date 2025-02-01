@@ -42,7 +42,7 @@ def get_valid_county_and_disaster(disaster, county):
     Return: List of disaster's
     Purpose: To get disaster's hazard ratings in a county'''
 
-    if (check_valid_disasters_and_county(disaster, county)):
+    if (is_disaster(disaster) and is_us_county(county)):
         return get_disaster_risk(disaster, county)
     
     return ErrorMessage
