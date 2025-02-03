@@ -1,14 +1,16 @@
 # **Team (AJ)^2's User Analysis**
 
+This file contains the continuing analysis of our software as we develop it through multiple sprints.
+
 ## Contents:
 
-- *CIDER Discussion*
-- *Command-Line Benefits*
+- *Command Line Interactions Analysis (Sprint 1)*
+- *Flask Web App User Analysis (Sprint 2)*
+<br>
+<hr>
+<br>
 
-
-This file contains the analysis of our command line app’s features’ potential users, as well as their potential benefits and harms/exclusion to the users using the CIDER assumption elicitation technique.
-
-
+## Command Line Interactions Analysis (Sprint 1)
 ### CIDER Discussion
 In coming together to discuss our program's embedded assumption's about the user, the most prominent ones #we agreed on are as followed:
 1. Our program assume the user is aware of the name of their county or desired area of interest
@@ -32,10 +34,12 @@ The following are some of the benefits we found our program's features to have:
 - The program uses precise information by using a really small area (county), instead of using, say state. That allows the user to obtain accurate information.
 - The program uses data from a trustworthy source (FEMA), which guarantees users easy access to technical information that is typically difficult to navigate.
 
+<br>
+
+## Flask Web App User Analysis (Sprint 2)
+
 ### User Analysis for Flask App Features. 
-Overview Of 
-This analysis builds upon our previous sprint, where we evaluated the potential users and their experiences with the command-line interface (CLI). Now, we extend our analysis to account for the shift from a CLI to a Flask-based web application, examining the benefits, harms, and exclusion risks posed by the new interaction mechanism.
-### Flask Web App User Analysis (Sprint 2)
+Overview of this analysis builds upon our previous sprint, where we evaluated the potential users and their experiences with the command-line interface (CLI). Now, we extend our analysis to account for the shift from a CLI to a Flask-based web application, examining the benefits, harms, and exclusion risks posed by the new interaction mechanism.
 
 Potential Users (Carried Over and Expanded):
 - Same users from CLI analysis: Users assessing disaster risks, researchers, emergency managers, and general users.
