@@ -1,28 +1,20 @@
 import csv, sys
 
-def is_disaster(disaster_list):
+def is_disaster(disasters_str):
     ''' 
-    Arguments: Takes in a disaster as a string
+    Arguments: Takes in user string of disaster(s)
     Returns: True or False
     Purpose: Checks to see if each disaster in the list inputted is a disaster in the data; takes care of singular entries and list of entries
     '''
-    valid_disaster_list = ["avalanche", "coastal flooding", "cold wave", "drought", "earthquake", "hail",
-                           "heat wave", "hurricane", "ice storm", "landslide", "lightning", "riverine flooding", 
-                           "strong wind", "tornado", "tsunami", "volcanic activity", "wildfire", "winter weather"]
-    
     # Checks if input is a string
-    if (not isinstance(disaster_list, str)):
+    if (not isinstance(disasters_str, str)):
         return False
     
-    split_list = disaster_list.split(",")
+    valid_disaster_list = return_alphabetical_disaster_list()
 
-    new_split_list = []
-    
-    for entry in split_list:
-        new_split_list.append(entry.lstrip())
+    split_disasters = split_and_strip_strings(disasters_str)
 
-    for disaster in new_split_list:
-       
+    for disaster in split_disasters:
         if disaster.lower() not in valid_disaster_list:
             return False
     
@@ -34,32 +26,13 @@ def is_us_county(county):
     Returns: True or False
     Purpose: Checks to see if county inputted is in the US and accounts for counties that share the same name
     '''
-
-    # Takes in the string and splits it so that county is the first entry and state is the second entry
-    # ['county', 'state']
-    split_list = county.split(",")
-
-    new_split_list = []
-
-    for entry in split_list:
-        new_split_list.append(entry.lstrip())
+    county_and_state = split_and_strip_strings(county)
 
     # Checking to ensure that the input is formatted correctly
-    if (len(new_split_list) != 2):
+    if (len(county_and_state) != 2):
         return False
-    
-    uscounty = new_split_list[0]
-    usstate = new_split_list[1]
 
-    with open('Data/County_and_Disasters_only.csv', 'r') as file:
-        disasterdata = csv.reader(file)
-        for row in disasterdata:
-            if str(row[0]).lower() == uscounty.lower() and str(row[1]).lower() == usstate.lower():
-                return True
-
-        return False
-    
-    file.close()
+    return validate_county_in_dataset(county_and_state)
 
 def get_disaster_risk(disasters, county):
     ''' 
@@ -67,41 +40,11 @@ def get_disaster_risk(disasters, county):
     Returns: A dictionary
     Purpose: Seperates disaster(s) string into list and returns a hazard rating for each disaster
     '''
+    target_county_data = get_filtered_county_data(county)
 
-    # Takes in the string and splits it so that county is the first entry and state is the second entry
-    # ['county', 'state']
-    split_list = county.split(",")
+    disasters_list = split_and_strip_strings(disasters)
 
-    new_split_list = []
-
-    for entry in split_list:
-        new_split_list.append(entry.lstrip())
-
-    uscounty = new_split_list[0]
-    usstate = new_split_list[1]
-
-    # Finds the row in the data with the correct county
-    with open('Data/County_and_Disasters_only.csv', 'r') as file:
-        disasterdata = csv.reader(file)
-        for row in disasterdata:
-            if str(row[0]).lower() == uscounty.lower() and str(row[1]).lower() == usstate.lower():
-                targetcountydata = row[0:]
-
-    file.close()
-    
-    # Removes the county column and state abbreviation column to isolate risk ratings
-    targetcountydata.pop(0)
-    targetcountydata.pop(0)
-
-    # Splitting the inputted disaster string so that each disaster is its own entry in the array
-    split_list = disasters.split(",")
-
-    new_split_list = []
-    
-    for entry in split_list:
-        new_split_list.append(entry.lstrip())
-
-    userdictionary = get_disaster_risk_helper(new_split_list, targetcountydata)
+    userdictionary = get_disaster_risk_helper(disasters_list, target_county_data)
     
     return userdictionary
 
@@ -140,8 +83,6 @@ def get_int_rating(table_rating):
     # Convert string rating into an integer for sorting
     if table_rating in stringratingdict:
         int_rating = stringratingdict[table_rating]
-    else:
-        print("Error, not a valid rating")
 
     return int_rating
 
@@ -167,62 +108,159 @@ def get_top_five(county):
     Returns: A dictionary
     Purpose: Returns the top 5 most hazardous disaster's in a given county
     '''
+    sorted_disasters_dict = get_sorted_dangerous_disasters_by_county(county)
 
-    # Takes in the string and splits it so that county is the first entry and state is the second entry
-    # ['county', 'state']
-    split_list = county.split(",")
+    top_5_disasters = get_top_num_items_in_dict(sorted_disasters_dict, 5)
 
+    return top_5_disasters
+
+def split_and_strip_strings(string):
+    ''' 
+    Arguments: Takes in user string
+    Returns: List of split disasters
+    Purpose: Cleans up user string for code usability
+    '''
     new_split_list = []
-
-    for entry in split_list:
+    split_string = string.split(',')
+    
+    for entry in split_string:
         new_split_list.append(entry.lstrip())
+    
+    return new_split_list
 
-    uscounty = new_split_list[0]
-    usstate = new_split_list[1]
+def return_alphabetical_disaster_list():
+    ''' 
+    Arguments: None
+    Returns: List of valid disasters in alphabetical order
+    Purpose: Remove clutter in functions requiring list of valid disasters
+    '''
+    return ["avalanche", "coastal flooding", "cold wave", "drought", "earthquake", "hail",
+            "heat wave", "hurricane", "ice storm", "landslide", "lightning", "riverine flooding", 
+            "strong wind", "tornado", "tsunami", "volcanic activity", "wildfire", "winter weather"]
 
+def validate_county_in_dataset(county_and_state):
+    ''' 
+    Arguments: County and state strings in list
+    Returns: Boolean
+    Purpose: Opens County and Disaster Dataset and validates user county and state
+    '''
     with open('Data/County_and_Disasters_only.csv', 'r') as file:
         disasterdata = csv.reader(file)
-        for row_data in disasterdata:
-            if str(row_data[0]).lower() == uscounty.lower() and str(row_data[1]).lower() == usstate.lower():
-                # Store target county row data
-                county_data = row_data[0:]
-    file.close()
+        for row in disasterdata:
+            if str(row[0]).lower() == county_and_state[0].lower() and str(row[1]).lower() == county_and_state[1].lower():
+                return True
+        return False
+    
+def get_county_row(county_and_state):
+    ''' 
+    Arguments: County and state strings in list
+    Returns: List of target data
+    Purpose: Opens County and Disaster Dataset and retrieves targeted county's row data as a list
+    '''
+    with open('Data/County_and_Disasters_only.csv', 'r') as file:
+        disasterdata = csv.reader(file)
+        for row in disasterdata:
+            if str(row[0]).lower() == county_and_state[0].lower() and str(row[1]).lower() == county_and_state[1].lower():
+                targetcountydata = row[0:]
 
-    # Isolate hazard ratings, remove county and general rating
-    county_data.pop(0)
-    county_data.pop(0)
+    return targetcountydata
 
-    # Variable to keep track of where in list of county data we are at
-    county_data_pos = 0
+def remove_county_and_state_columns(data):
+    ''' 
+    Arguments: List in the form of a row of data from dataset
+    Returns: List
+    Purpose: Removes the first two columns in a row of data
+    '''
+    data.pop(0)
+    data.pop(0)
 
-    # Initialize disaster rating dictionary with disasters in order
+def initialize_disaster_rating_dict():
+    ''' 
+    Arguments: None
+    Returns: Dictionary of disasters and ratings
+    Purpose: Initializes disaster dictionary with integer ratings set to zero
+    '''
     disaster_rating_dict = {
         "Avalanche" : 0, "Coastal Flooding" : 0, "Cold Wave" : 0, "Drought" : 0, "Earthquake" : 0, "Hail" : 0, "Heat Wave" : 0, "Hurricane": 0, 
         "Ice Storm": 0, "Landslide": 0, "Lightning" : 0, "Riverine Flooding" : 0, "Strong Wind" : 0, "Tornado" : 0, "Tsunami" : 0,
         "Volcanic Activity" : 0, "Wildfire" : 0, "Winter Weather" : 0
     }
 
+    return disaster_rating_dict
+
+def disaster_to_int_rating_dict(disaster_dict, county_data):
+    ''' 
+    Arguments: Disaster dictionary and county data list
+    Returns: Void
+    Purpose: Converts hazard ratings in county data to numerical values for disaster dict sorting
+    '''
+    # Variable to keep track of where in list of county data we are at
+    county_data_pos = 0
+
     # Depending on rating, assign numerical value for later sorting
-    for disaster in disaster_rating_dict:
+    for disaster in disaster_dict:
 
         county_disaster_rating = get_int_rating(county_data[county_data_pos])
 
-        disaster_rating_dict.update({disaster : county_disaster_rating})
+        disaster_dict.update({disaster : county_disaster_rating})
 
         county_data_pos += 1
+
+def disaster_to_str_rating_dict(disaster_dict):
+    ''' 
+    Arguments: Disaster dictionary
+    Returns: Void
+    Purpose: Converts hazard ratings from numerical values to string hazard ratings
+    '''
+    # Revert numerical values back to string value for user readability
+    for disaster in disaster_dict:
+
+        disaster_string_rating = get_string_rating(disaster_dict.get(disaster))
+
+        disaster_dict.update({disaster : disaster_string_rating})
+
+def get_filtered_county_data(county):
+    ''' 
+    Arguments: String of desired county
+    Returns: list of targeted county row data
+    Purpose: Returns list of county data with non-hazard rating items removed
+    '''
+    county_and_state = split_and_strip_strings(county)
+
+    targetcountydata = get_county_row(county_and_state)
+
+    remove_county_and_state_columns(targetcountydata)
+
+    return targetcountydata
+
+def get_top_num_items_in_dict(dict, num):
+    ''' 
+    Arguments: Dictionary and integer
+    Returns: Dictionary
+    Purpose: Pops the given amount of lowest items in the dictionary
+    '''
+    dict_length = len(dict)
+
+    for int in range(0, dict_length - num):
+        dict.popitem()
+
+    return dict
+
+def get_sorted_dangerous_disasters_by_county(county):
+    ''' 
+    Arguments: String of County
+    Returns: Sorted dictionary
+    Purpose: Returns a dictionary with most hazardous disasters in a county in descending order
+    '''
+    county_data = get_filtered_county_data(county)
+
+    disaster_rating_dict = initialize_disaster_rating_dict()
+
+    disaster_to_int_rating_dict(disaster_rating_dict, county_data)
 
     # Sort disasters by hazard rating in ascending order
     sorted_disasters_dict = dict(reversed(sorted(disaster_rating_dict.items(), key=lambda item: item[1])))
 
-    # Revert numerical values back to string value for user readability
-    for disaster in sorted_disasters_dict:
-
-        disaster_string_rating = get_string_rating(sorted_disasters_dict.get(disaster))
-
-        sorted_disasters_dict.update({disaster : disaster_string_rating})
-
-    # Pop lowest disasters from dictionary until 5 remain
-    for int in range(0,13):
-        sorted_disasters_dict.popitem()
+    disaster_to_str_rating_dict(sorted_disasters_dict)
 
     return sorted_disasters_dict
