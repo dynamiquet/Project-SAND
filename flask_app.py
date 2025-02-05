@@ -15,7 +15,7 @@ def python_bug(e):
    '''Arguments: None
     Return: String of instructions
     Purpose: In case of developer error, directs users back to homepage'''
-   return "Sorry for the error, we have a bug in our code! Please go back to the homepage!"
+   return "Sorry for the error, we have a bug in our code! Please go back to the homepage!" 
 
 @app.route('/')
 def homepage():
