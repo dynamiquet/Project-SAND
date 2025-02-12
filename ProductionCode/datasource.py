@@ -56,10 +56,11 @@ class DataSource:
 
                 cursor.execute(query, (county, state,))
 
-                listofriskvalues = cursor.fetchall()
+                listofriskvalues = list(cursor.fetchall()[0])
 
+                
                 # Removes the [] 
-                return listofriskvalues[0]
+                return listofriskvalues
             else:
                 return "Invalid county and/or invalid disaster(s)"
         except Exception as e:
