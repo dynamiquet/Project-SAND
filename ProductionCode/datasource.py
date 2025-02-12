@@ -1,5 +1,6 @@
 import psycopg2
 import ProductionCode.psqlConfig as config
+from ProductionCode.helper import *
 
 class DataSource:
 
@@ -17,6 +18,26 @@ class DataSource:
             print("Connection error: ", e)
             exit()
         return connection
+
+    def is_valid_us_county(self, county, state):
+
+        try:
+            cursor = self.connection.cursor()
+
+            query = f"SELECT EXISTS (SELECT 1 FROM county_and_riskvalues WHERE COUNTY = %s AND STATEABBRV = %s);"
+
+            cursor.execute(query, (county, state,))
+
+            result = cursor.fetchall()
+
+            if (result[0][0] == True):
+                return True
+            else:
+                return False
+        except Exception as e:
+            print("Something went wrong when executing the query:", e)
+
+            return None
     
     def getRiskValuesbyCounty(self, disasters, county, state):
         ''' Arguments: disasters (string), county (string), state (string)
@@ -24,33 +45,19 @@ class DataSource:
         displayed 
         '''
         try:
-            cursor = self.connection.cursor()
+            if (self.is_valid_us_county(county, state) == True and is_disaster(disasters) == True):
+                cursor = self.connection.cursor()
 
-            query = f"SELECT {disasters} FROM county_and_riskvalues WHERE COUNTY = %s AND STATEABBRV = %s;"
+                query = f"SELECT {disasters} FROM county_and_riskvalues WHERE COUNTY = %s AND STATEABBRV = %s;"
 
-            cursor.execute(query, (county, state,))
+                cursor.execute(query, (county, state,))
 
-            listofriskvalues = cursor.fetchall()
+                listofriskvalues = cursor.fetchall()
 
-            # Removes the [] 
-            print(listofriskvalues[0])
-        except Exception as e:
-            print("Something went wrong when executing the query:", e)
-
-            return None
-        
-    def test(self, county, state):
-        try:
-            cursor = self.connection.cursor()
-
-            query = f"SELECT * FROM county_and_riskvalues WHERE COUNTY = %s AND STATEABBRV = %s;"
-
-            cursor.execute(query, (county, state,))
-
-            listofriskvalues = cursor.fetchall()
-
-            # Removes the [] 
-            print(listofriskvalues[0])
+                # Removes the [] 
+                return listofriskvalues[0]
+            else:
+                return "Invalid county and/or invalid disaster(s)"
         except Exception as e:
             print("Something went wrong when executing the query:", e)
 

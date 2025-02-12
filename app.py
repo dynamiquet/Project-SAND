@@ -3,5 +3,4 @@ from ProductionCode.datasource import DataSource
 #A simple file to just demonstrate the DataSource functionality
 test = DataSource()
 test.connect()
-test.getRiskValuesbyCounty("TORNADO", "Rice", "MN")
-test.test("Rice", "MN")
+print(test.getRiskValuesbyCounty("TORNADO, HURRICANE, EARTHQUAKE", "Rice", "MN"))
