@@ -1,6 +1,8 @@
 from flask import Flask
 from ProductionCode.helper import *
+from ProductionCode.datasource import *
 
+# help
 app = Flask(__name__)
 
 @app.errorhandler(404)
@@ -42,8 +44,8 @@ def get_valid_county_and_disaster(disaster, county):
     Return: List of disaster's
     Purpose: To get disaster's hazard ratings in a county'''
 
-    if (is_disaster(disaster) and is_us_county(county)):
-        return get_disaster_risk(disaster, county)
+    if (test.is_valid_us_county()):
+        return test.getRiskValuesbyCounty(disaster, county)
     
     return ErrorMessage
 
@@ -53,10 +55,12 @@ def get_valid_top5_county(county):
     Return: List of disaster's and ratings
     Purpose: To get top 5 hazardous disasters in a county'''
     
-    if (is_us_county(county)):
-        return get_top_five(county)
+    if (test.is_valid_us_county()):
+        return test.getCountyRow(county)
     
     return ErrorMessage
 
 if __name__ == '__main__':
+    test = DataSource()
+    test.connect()
     app.run()
