@@ -20,6 +20,10 @@ class DataSource:
         return connection
 
     def is_valid_us_county(self, county, state):
+        '''Arguments: county (string), state (string)
+        Returns: Boolean
+        Checks to see if the inputted county exists by running a SQL query to scan for a row in the database that has the inputted county and state 
+        '''
 
         try:
             cursor = self.connection.cursor()
@@ -81,7 +85,7 @@ class DataSource:
                 # Removes the [] 
                 return top_five_disaster
             else:
-                return "Invalid county and/or invalid disaster(s)"
+                return "Invalid county"
         except Exception as e:
             print("Something went wrong when executing the query:", e)
 
