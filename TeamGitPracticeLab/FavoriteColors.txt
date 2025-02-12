@@ -1,4 +1,0 @@
-F : Green
-S : Black
-Fl : Black
-D : Black
