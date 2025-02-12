@@ -104,7 +104,7 @@ def get_string_rating(int_rating):
 
 def get_top_five(countyrow):
     ''' 
-    Arguments: Takes in a county as a string
+    Arguments: Takes in a countyrowdata as a list
     Returns: A dictionary
     Purpose: Returns the top 5 most hazardous disaster's in a given county
     '''
@@ -221,7 +221,7 @@ def disaster_to_str_rating_dict(disaster_dict):
 
 def get_filtered_county_data(targetcountydata):
     ''' 
-    Arguments: String of desired county
+    Arguments: List of county data
     Returns: list of targeted county row data
     Purpose: Returns list of county data with non-hazard rating items removed
     '''
@@ -248,7 +248,7 @@ def get_top_num_items_in_dict(dict, num):
 
 def get_sorted_dangerous_disasters_by_county(countyrow):
     ''' 
-    Arguments: String of County
+    Arguments: List of county row data
     Returns: Sorted dictionary
     Purpose: Returns a dictionary with most hazardous disasters in a county in descending order
     '''
