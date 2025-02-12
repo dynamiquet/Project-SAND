@@ -62,4 +62,29 @@ class DataSource:
             print("Something went wrong when executing the query:", e)
 
             return None
+    
+    def getCountyRow(self, county, state):
+        ''' Arguments: county (string), state (string)
+        Modify
+        '''
+        try:
+            if (self.is_valid_us_county(county, state) == True):
+                cursor = self.connection.cursor()
+
+                query = f"SELECT * FROM county_and_riskvalues WHERE COUNTY = %s AND STATEABBRV = %s;"
+
+                cursor.execute(query, (county, state,))
+
+                countyrowdata = list(cursor.fetchall()[0])
+
+                top_five_disaster = get_top_five(countyrowdata)
+                # Removes the [] 
+                return top_five_disaster
+            else:
+                return "Invalid county and/or invalid disaster(s)"
+        except Exception as e:
+            print("Something went wrong when executing the query:", e)
+
+            return None
+
         

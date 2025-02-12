@@ -4,3 +4,4 @@ from ProductionCode.datasource import DataSource
 test = DataSource()
 test.connect()
 print(test.getRiskValuesbyCounty("TORNADO, HURRICANE, EARTHQUAKE", "Rice", "MN")) 
+print(test.getCountyRow("Los Angeles", "CA")) 
