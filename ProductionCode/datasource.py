@@ -39,3 +39,20 @@ class DataSource:
 
             return None
         
+    def test(self, county, state):
+        try:
+            cursor = self.connection.cursor()
+
+            query = f"SELECT * FROM county_and_riskvalues WHERE COUNTY = %s AND STATEABBRV = %s;"
+
+            cursor.execute(query, (county, state,))
+
+            listofriskvalues = cursor.fetchall()
+
+            # Removes the [] 
+            print(listofriskvalues[0])
+        except Exception as e:
+            print("Something went wrong when executing the query:", e)
+
+            return None
+        
