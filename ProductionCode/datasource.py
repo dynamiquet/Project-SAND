@@ -63,9 +63,11 @@ class DataSource:
 
                 listofriskvalues = list(cursor.fetchall()[0])
 
+                disasterslist = split_and_strip_strings(disasters)
+
+                disasterriskdictionary = get_disaster_risk_dict(disasterslist, listofriskvalues)
                 
-                # Removes the [] 
-                return listofriskvalues
+                return disasterriskdictionary
             else:
                 return "Invalid county and/or invalid disaster(s)"
         except Exception as e:

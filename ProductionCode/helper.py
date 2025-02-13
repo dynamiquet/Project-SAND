@@ -264,3 +264,13 @@ def get_sorted_dangerous_disasters_by_county(countyrow):
     disaster_to_str_rating_dict(sorted_disasters_dict)
 
     return sorted_disasters_dict
+
+def get_disaster_risk_dict(disasterslist, riskvalueslist):
+    dictionary = {}
+    riskvaluelistindex = 0
+
+    for disaster in disasterslist:
+        dictionary.update({disaster.lower() : riskvalueslist[riskvaluelistindex]})
+        riskvaluelistindex += 1
+
+    return dictionary
