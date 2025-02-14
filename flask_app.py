@@ -50,9 +50,12 @@ def get_valid_county_and_disaster(disaster, county):
 
     if (is_formatted_county_and_state(countylist) == False):
         return ErrorMessage
+    
+    countyname = countylist[0]
+    stateabbrv = countylist[1]
 
-    if (test.is_valid_us_county(countylist[0], countylist[1]) and is_disaster(disaster)):
-        return test.getRiskValuesbyCounty(disaster, countylist[0], countylist[1])
+    if (test.is_valid_us_county(countyname, stateabbrv) and is_disaster(disaster)):
+        return test.getRiskValuesbyCounty(disaster, countyname, stateabbrv)
     
     return ErrorMessage
 
@@ -67,8 +70,11 @@ def get_valid_top5_county(county):
     if (is_formatted_county_and_state(countylist) == False):
         return ErrorMessage
     
-    if (test.is_valid_us_county(countylist[0], countylist[1])):
-        return test.getCountyRow(countylist[0], countylist[1])
+    countyname = countylist[0]
+    stateabbrv = countylist[1]
+    
+    if (test.is_valid_us_county(countyname, stateabbrv)):
+        return test.getCountyRow(countyname, stateabbrv)
     
     return ErrorMessage
 
