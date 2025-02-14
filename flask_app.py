@@ -2,7 +2,6 @@ from flask import Flask
 from ProductionCode.helper import *
 from ProductionCode.datasource import DataSource
 
-# help
 app = Flask(__name__)
 test = DataSource()
 test.connect()
@@ -74,7 +73,8 @@ def get_valid_top5_county(county):
     stateabbrv = countylist[1]
     
     if (test.is_valid_us_county(countyname, stateabbrv)):
-        return test.getCountyRow(countyname, stateabbrv)
+        countydata = test.getCountyRow(countyname, stateabbrv)
+        return get_top_five(countydata)
     
     return ErrorMessage
 
