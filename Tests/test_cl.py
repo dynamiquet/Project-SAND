@@ -107,7 +107,7 @@ class ProjectMethodsTests(unittest.TestCase):
 
         test2 = subprocess.Popen(['python3', 'command_line.py', '--disaster', 'tornado', '--county', 'Rice'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
         output, err = test2.communicate()
-        self.assertEqual(output.strip(), 'Not a valid county. Please check spelling and try again')
+        self.assertEqual(output.strip(), 'Not a valid county. Please ensure the county is formatted as <county>, <stateabbrv> and try again')
         test2.terminate()
 
         test3 = subprocess.Popen(['python3', 'command_line.py', '--disaster', 'torn', '--county', 'Rice, MN'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
@@ -122,7 +122,7 @@ class ProjectMethodsTests(unittest.TestCase):
 
         test5 = subprocess.Popen(['python3', 'command_line.py', '--top5', 'Rice'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
         output, err = test5.communicate()
-        self.assertEqual(output.strip(), 'Not a valid county. Please check spelling and try again')
+        self.assertEqual(output.strip(), 'Not a valid county. Please ensure the county is formatted as <county>, <stateabbrv> and try again')
         test5.terminate()
 
 if __name__ == "__main__":

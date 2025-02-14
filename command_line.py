@@ -43,7 +43,7 @@ def main():
         countylist = split_and_strip_strings(county)
 
         if (is_formatted_county_and_state(countylist) == False):
-            print("Not a valid county. Please check spelling and try again")
+            print("Not a valid county. Please ensure the county is formatted as <county>, <stateabbrv> and try again")
             exit(1)
 
         countyname = countylist[0]
@@ -66,7 +66,7 @@ def main():
         countylist = split_and_strip_strings(county)
 
         if (is_formatted_county_and_state(countylist) == False):
-            print("Not a valid county. Please check spelling and try again")
+            print("Not a valid county. Please ensure the county is formatted as <county>, <stateabbrv> and try again")
             exit(1)
         
         countyname = countylist[0]
