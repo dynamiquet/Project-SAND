@@ -46,18 +46,19 @@ def main():
             print("Not a valid county. Please check spelling and try again")
             exit(1)
 
+        countyname = countylist[0]
+        stateabbrv = countylist[1]
+
         if (is_disaster(disaster) == False):
             print("At least one disaster is invalid. Please check spelling and try again")
             exit(1)
 
-        if (test.is_valid_us_county(countylist[0], countylist[1]) == False):
+        if (test.is_valid_us_county(countyname, stateabbrv) == False):
             print("Not a valid county. Please check spelling and try again")
             exit(1)
 
-        print(test.getRiskValuesbyCounty(disaster, countylist[0], countylist[1]))
+        print(test.getRiskValuesbyCounty(disaster, countyname, stateabbrv))
 
-        
-    
     # Running top5 flag
     if (args[0] == '--top5'):
         county = args[1]
@@ -67,12 +68,15 @@ def main():
         if (is_formatted_county_and_state(countylist) == False):
             print("Not a valid county. Please check spelling and try again")
             exit(1)
+        
+        countyname = countylist[0]
+        stateabbrv = countylist[1]
 
         # Check validity of county
-        if (test.is_valid_us_county(countylist[0], countylist[1]) == False):
+        if (test.is_valid_us_county(countyname, stateabbrv) == False):
             print("Not a valid county. Please check spelling and try again")
         else:
-            print(test.getCountyRow(countylist[0], countylist[1]))
+            print(test.getCountyRow(countyname, stateabbrv))
         
         return 0
 
