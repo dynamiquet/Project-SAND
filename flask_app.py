@@ -1,6 +1,6 @@
 from flask import Flask
 from ProductionCode.helper import *
-from ProductionCode.datasource import *
+from ProductionCode.datasource import DataSource
 
 # help
 app = Flask(__name__)
@@ -43,9 +43,16 @@ def get_valid_county_and_disaster(disaster, county):
     '''Arguments: String of disaster(s), String of county
     Return: List of disaster's
     Purpose: To get disaster's hazard ratings in a county'''
+    test = DataSource()
+    test.connect()
 
-    if (test.is_valid_us_county()):
-        return test.getRiskValuesbyCounty(disaster, county)
+    countylist = split_and_strip_strings(county)
+
+    if (is_formatted_county_and_state(countylist) == False):
+        return ErrorMessage
+
+    if (test.is_valid_us_county(countylist[0], countylist[1]) and is_disaster(disaster)):
+        return test.getRiskValuesbyCounty(disaster, countylist[0], countylist[1])
     
     return ErrorMessage
 
@@ -54,13 +61,18 @@ def get_valid_top5_county(county):
     '''Arguments: String of county
     Return: List of disaster's and ratings
     Purpose: To get top 5 hazardous disasters in a county'''
+    test = DataSource()
+    test.connect()
+
+    countylist = split_and_strip_strings(county)
+
+    if (is_formatted_county_and_state(countylist) == False):
+        return ErrorMessage
     
-    if (test.is_valid_us_county()):
-        return test.getCountyRow(county)
+    if (test.is_valid_us_county(countylist[0], countylist[1])):
+        return test.getCountyRow(countylist[0], countylist[1])
     
     return ErrorMessage
 
 if __name__ == '__main__':
-    test = DataSource()
-    test.connect()
-    app.run()
+    app.run(host='0.0.0.0', port=5138)

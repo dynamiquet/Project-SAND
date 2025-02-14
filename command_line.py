@@ -1,6 +1,6 @@
 import sys
-
 from ProductionCode.helper import *
+from ProductionCode.datasource import DataSource
 
 
 def main():
@@ -38,15 +38,17 @@ def main():
         disaster = args[1]
         county = args[3]
 
+        countylist = split_and_strip_strings(county)
+
         if (is_disaster(disaster) == False):
             print("At least one disaster is invalid. Please check spelling and try again")
             exit(1)
 
-        if (is_us_county(county) == False):
+        if (test.is_valid_us_county(countylist[0], countylist[1]) == False):
             print("Not a valid county. Please check spelling and try again")
             exit(1)
 
-        print(get_disaster_risk(disaster, county))
+        print(test.getRiskValuesbyCounty(disaster, countylist[0], countylist[1]))
 
         
     
@@ -54,13 +56,16 @@ def main():
     if (args[0] == '--top5'):
         county = args[1]
 
+        countylist = split_and_strip_strings(county)
         # Check validity of county
-        if (is_us_county(county) == False):
+        if (test.is_valid_us_county(countylist[0], countylist[1]) == False):
             print("Not a valid county. Please check spelling and try again")
         else:
-            print(get_top_five(county))
+            print(test.getCountyRow(countylist[0], countylist[1]))
         
         return 0
 
 if __name__ == "__main__":
+    test = DataSource()
+    test.connect()
     main()

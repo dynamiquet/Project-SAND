@@ -91,7 +91,7 @@ class DataSource:
                 countyrowdata = list(cursor.fetchall()[0])
 
                 top_five_disaster = get_top_five(countyrowdata)
-                # Removes the [] 
+                
                 return top_five_disaster
             else:
                 return "Invalid county"

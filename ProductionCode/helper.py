@@ -266,6 +266,12 @@ def get_sorted_dangerous_disasters_by_county(countyrow):
     return sorted_disasters_dict
 
 def get_disaster_risk_dict(disasterslist, riskvalueslist):
+    '''
+    Arguments: disasterslist (string), riskvalueslist (string)
+    Returns: a dictionary
+    This function takes in a list of disasters and their associated risk values and creates a dictionary where the key is the disaster and the value
+    is its respective risk value
+    '''
     dictionary = {}
     riskvaluelistindex = 0
 
@@ -274,3 +280,15 @@ def get_disaster_risk_dict(disasterslist, riskvalueslist):
         riskvaluelistindex += 1
 
     return dictionary
+
+def is_formatted_county_and_state(countylist):
+    '''
+    Arguments: countylist (string)
+    Returns: boolean
+    Checks to see if the inputted county is formatted as follows <county>, <state>. The legitimacy of the inputs is checked by is_valid_us_county
+    '''
+
+    if (len(countylist) == 2):
+        return True
+    else:
+        return False
