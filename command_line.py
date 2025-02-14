@@ -12,6 +12,8 @@ def main():
     Usage Two: --top5 <name of US county, State abbreviation>
         Returns the top five most hazardous disaster's in a given county
     '''
+    test = DataSource()
+    test.connect()
 
     args = sys.argv[1:]
     
@@ -40,6 +42,10 @@ def main():
 
         countylist = split_and_strip_strings(county)
 
+        if (is_formatted_county_and_state(countylist) == False):
+            print("Not a valid county. Please check spelling and try again")
+            exit(1)
+
         if (is_disaster(disaster) == False):
             print("At least one disaster is invalid. Please check spelling and try again")
             exit(1)
@@ -57,6 +63,11 @@ def main():
         county = args[1]
 
         countylist = split_and_strip_strings(county)
+
+        if (is_formatted_county_and_state(countylist) == False):
+            print("Not a valid county. Please check spelling and try again")
+            exit(1)
+
         # Check validity of county
         if (test.is_valid_us_county(countylist[0], countylist[1]) == False):
             print("Not a valid county. Please check spelling and try again")
@@ -66,6 +77,4 @@ def main():
         return 0
 
 if __name__ == "__main__":
-    test = DataSource()
-    test.connect()
     main()
