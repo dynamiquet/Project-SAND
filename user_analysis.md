@@ -78,7 +78,7 @@ een sizes.
 The transition from CLI to a Flask-based web application introduces new interaction mechanisms, broadening accessibility but also introducing new usability challenges. By addressing these through improved input handling, navigation, mobile compatibility, and accessibility features, we can enhance the inclusivity and effectiveness of the application. 
 
 
-# User Analysis: Database Sprint
+#  Database Sprint
 
 
 
