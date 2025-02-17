@@ -82,7 +82,7 @@ The transition from CLI to a Flask-based web application introduces new interact
 
 
 
-### Critique: Assumptions Embedded in Data Collection Methods
+###  Assumptions Embedded in Data Collection Methods
 1. **Assumption: Data is Comprehensive and Unbiased**
    - The dataset assumes that all counties in the United States are equally represented in the risk assessments.
    - However, some counties may have better data collection mechanisms, leading to overrepresentation or underrepresentation of certain disaster risks.
@@ -92,7 +92,7 @@ The transition from CLI to a Flask-based web application introduces new interact
    - The dataset assumes that historical risk values are a reliable predictor of future disaster occurrences.
    - This does not account for climate change, urban development, or other dynamic factors that could alter risk levels over time.
 
-### Imagine: Alternative Data Collection Approaches
+###  Alternative Data Collection Approaches
 1. **Improving Representation:**
    - Instead of relying solely on historical records, the dataset could incorporate real-time climate models and remote sensing data to enhance risk predictions.
    
@@ -100,7 +100,7 @@ The transition from CLI to a Flask-based web application introduces new interact
    - A model that includes projected climate patterns, urban expansion, and human activity could refine risk predictions.
    - Machine learning techniques could be used to identify correlations between non-traditional data sources (e.g., social media posts during disasters, insurance claims) and actual disaster occurrences.
 
-### Design: Mitigating Embedded Biases in the Database
+###  Mitigating Embedded Biases in the Database
 1. **Ensuring Geographic Representation:**
    - Implementing data validation checks to identify and address underrepresented regions.
    - Using external databases (e.g. NOAA climate models,...) to cross-check risk values.
