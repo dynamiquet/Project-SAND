@@ -77,3 +77,39 @@ een sizes.
 ### Conclusion
 The transition from CLI to a Flask-based web application introduces new interaction mechanisms, broadening accessibility but also introducing new usability challenges. By addressing these through improved input handling, navigation, mobile compatibility, and accessibility features, we can enhance the inclusivity and effectiveness of the application. 
 
+
+#  Database Sprint
+
+
+
+###  Assumptions Embedded in Data Collection Methods
+1. **Assumption: Data is Comprehensive and Unbiased**
+   - The dataset assumes that all counties in the United States are equally represented in the risk assessments.
+   - However, some counties may have better data collection mechanisms, leading to overrepresentation or underrepresentation of certain disaster risks.
+   - Historical data might be biased toward regions with better reporting infrastructure, potentially skewing the risk values.
+   
+2. **Assumption: Risk Values Accurately Represent Future Risks**
+   - The dataset assumes that historical risk values are a reliable predictor of future disaster occurrences.
+   - This does not account for climate change, urban development, or other dynamic factors that could alter risk levels over time.
+
+###  Alternative Data Collection Approaches
+1. **Improving Representation:**
+   - Instead of relying solely on historical records, the dataset could incorporate real-time climate models and remote sensing data to enhance risk predictions.
+   
+2. **Accounting for Future Risk Variables:**
+   - A model that includes projected climate patterns, urban expansion, and human activity could refine risk predictions.
+   - Machine learning techniques could be used to identify correlations between non-traditional data sources (e.g., social media posts during disasters, insurance claims) and actual disaster occurrences.
+
+###  Mitigating Embedded Biases in the Database
+1. **Ensuring Geographic Representation:**
+   - Implementing data validation checks to identify and address underrepresented regions.
+   - Using external databases (e.g. NOAA climate models,...) to cross-check risk values.
+  
+2. **Handling Missing Data:**
+   - Implementing an interpolation model that estimates missing values based on neighboring counties' data.
+   - Using uncertainty scoring to flag counties where risk values may be unreliable due to missing or outdated data.
+
+### Conclusion
+While the current dataset provides a structured way to assess disaster risks, embedded assumptions about data comprehensiveness and predictive accuracy need to be addressed. Future iterations of the database should incorporate additional data sources and real-time updates to improve reliability. By implementing these strategies, the database can better serve disaster preparedness efforts and provide more accurate insights for risk assessment.
+
+

@@ -1,7 +1,10 @@
 from flask import Flask
 from ProductionCode.helper import *
+from ProductionCode.datasource import DataSource
 
 app = Flask(__name__)
+test = DataSource()
+test.connect()
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -42,8 +45,16 @@ def get_valid_county_and_disaster(disaster, county):
     Return: List of disaster's
     Purpose: To get disaster's hazard ratings in a county'''
 
-    if (is_disaster(disaster) and is_us_county(county)):
-        return get_disaster_risk(disaster, county)
+    countylist = split_and_strip_strings(county)
+
+    if (is_formatted_county_and_state(countylist) == False):
+        return ErrorMessage
+    
+    countyname = countylist[0]
+    stateabbrv = countylist[1]
+
+    if (test.is_valid_us_county(countyname, stateabbrv) and is_disaster(disaster)):
+        return test.getRiskValuesbyCounty(disaster, countyname, stateabbrv)
     
     return ErrorMessage
 
@@ -52,11 +63,20 @@ def get_valid_top5_county(county):
     '''Arguments: String of county
     Return: List of disaster's and ratings
     Purpose: To get top 5 hazardous disasters in a county'''
+
+    countylist = split_and_strip_strings(county)
+
+    if (is_formatted_county_and_state(countylist) == False):
+        return ErrorMessage
     
-    if (is_us_county(county)):
-        return get_top_five(county)
+    countyname = countylist[0]
+    stateabbrv = countylist[1]
+    
+    if (test.is_valid_us_county(countyname, stateabbrv)):
+        countydata = test.getCountyRow(countyname, stateabbrv)
+        return get_top_five(countydata)
     
     return ErrorMessage
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5138)

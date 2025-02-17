@@ -1,6 +1,6 @@
 import sys
-
 from ProductionCode.helper import *
+from ProductionCode.datasource import DataSource
 
 
 def main():
@@ -12,6 +12,8 @@ def main():
     Usage Two: --top5 <name of US county, State abbreviation>
         Returns the top five most hazardous disaster's in a given county
     '''
+    test = DataSource()
+    test.connect()
 
     args = sys.argv[1:]
     
@@ -38,27 +40,44 @@ def main():
         disaster = args[1]
         county = args[3]
 
+        countylist = split_and_strip_strings(county)
+
+        if (is_formatted_county_and_state(countylist) == False):
+            print("Not a valid county. Please ensure the county is formatted as <county>, <stateabbrv> and try again")
+            exit(1)
+
+        countyname = countylist[0]
+        stateabbrv = countylist[1]
+
         if (is_disaster(disaster) == False):
             print("At least one disaster is invalid. Please check spelling and try again")
             exit(1)
 
-        if (is_us_county(county) == False):
+        if (test.is_valid_us_county(countyname, stateabbrv) == False):
             print("Not a valid county. Please check spelling and try again")
             exit(1)
 
-        print(get_disaster_risk(disaster, county))
+        print(test.getRiskValuesbyCounty(disaster, countyname, stateabbrv))
 
-        
-    
     # Running top5 flag
     if (args[0] == '--top5'):
         county = args[1]
 
+        countylist = split_and_strip_strings(county)
+
+        if (is_formatted_county_and_state(countylist) == False):
+            print("Not a valid county. Please ensure the county is formatted as <county>, <stateabbrv> and try again")
+            exit(1)
+        
+        countyname = countylist[0]
+        stateabbrv = countylist[1]
+
         # Check validity of county
-        if (is_us_county(county) == False):
+        if (test.is_valid_us_county(countyname, stateabbrv) == False):
             print("Not a valid county. Please check spelling and try again")
         else:
-            print(get_top_five(county))
+            countydata = test.getCountyRow(countyname, stateabbrv)
+            print(get_top_five(countydata))
         
         return 0
 

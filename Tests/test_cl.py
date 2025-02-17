@@ -1,5 +1,9 @@
 import unittest, subprocess
 from ProductionCode.helper import *
+from ProductionCode.datasource import DataSource
+
+test = DataSource()
+test.connect()
 
 class ProjectMethodsTests(unittest.TestCase):
     def test_is_disaster(self):
@@ -39,20 +43,21 @@ class ProjectMethodsTests(unittest.TestCase):
         '''Argument: instance of ProjectMethodsTests
         Tests to see if is_us_county correctly determines if the inputted county is a county in the United States
         '''
-        test1 = is_us_county("Los Angeles, CA")
+        test1 = test.is_valid_us_county("Los Angeles", "CA")
         self.assertEqual(test1, True)
 
-        test2 = is_us_county("Atlantis")
+        test2 = test.is_valid_us_county("Atlantis", "BH")
         self.assertEqual(test2, False)
 
-        edgetest1 = is_us_county("LOS ANGELES, CA")
+        edgetest1 = test.is_valid_us_county("LOS ANGELES", "CA")
         self.assertEqual(edgetest1, True)
 
     def test_get_top_five(self):
         '''Argument: instance of ProjectMethodsTests
         Tests to see if get_top_five correctly returns the five disasters that a county is most at risk of experiencing 
         '''
-        result = get_top_five("Los Angeles, CA")
+        countydata = test.getCountyRow("Los Angeles", "CA")
+        result = get_top_five(countydata)
         self.assertEqual(len(result), 5)  # Ensure exactly 5 disasters returned
 
         for disaster, rating in result.items():
@@ -60,7 +65,7 @@ class ProjectMethodsTests(unittest.TestCase):
             self.assertIsInstance(rating, str)
 
         with self.assertRaises(Exception):
-            get_top_five("Atlantis")
+            test.getCountyRow("Atlantis")
 
     def test_partial_disaster_input(self):
         '''Argument: instance of ProjectMethodsTests
@@ -86,10 +91,10 @@ class ProjectMethodsTests(unittest.TestCase):
         '''Argument: instance of ProjectMethodsTests
         Tests to ensure that is_us_county correctly determines that names with special characters are considered invalid
         '''
-        test1 = is_us_county("Los Angeles@")
+        test1 = test.is_valid_us_county("Los Angeles@", "CA")
         self.assertEqual(test1, False)
 
-        test2 = is_us_county("Atlantis#")
+        test2 = test.is_valid_us_county("Atlantis#", "BH")
         self.assertEqual(test2, False)
     
     def test_main(self):
@@ -103,7 +108,7 @@ class ProjectMethodsTests(unittest.TestCase):
 
         test2 = subprocess.Popen(['python3', 'command_line.py', '--disaster', 'tornado', '--county', 'Rice'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
         output, err = test2.communicate()
-        self.assertEqual(output.strip(), 'Not a valid county. Please check spelling and try again')
+        self.assertEqual(output.strip(), 'Not a valid county. Please ensure the county is formatted as <county>, <stateabbrv> and try again')
         test2.terminate()
 
         test3 = subprocess.Popen(['python3', 'command_line.py', '--disaster', 'torn', '--county', 'Rice, MN'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
@@ -118,7 +123,7 @@ class ProjectMethodsTests(unittest.TestCase):
 
         test5 = subprocess.Popen(['python3', 'command_line.py', '--top5', 'Rice'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
         output, err = test5.communicate()
-        self.assertEqual(output.strip(), 'Not a valid county. Please check spelling and try again')
+        self.assertEqual(output.strip(), 'Not a valid county. Please ensure the county is formatted as <county>, <stateabbrv> and try again')
         test5.terminate()
 
 if __name__ == "__main__":
