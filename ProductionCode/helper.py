@@ -83,9 +83,9 @@ def return_alphabetical_disaster_list():
     Returns: List of valid disasters in alphabetical order
     Purpose: Remove clutter in functions requiring list of valid disasters
     '''
-    return ["avalanche", "coastal flooding", "cold wave", "drought", "earthquake", "hail",
-            "heat wave", "hurricane", "ice storm", "landslide", "lightning", "riverine flooding", 
-            "strong wind", "tornado", "tsunami", "volcanic activity", "wildfire", "winter weather"]
+    return ["avalanche", "coastalflooding", "coldwave", "drought", "earthquake", "hail",
+            "heatwave", "hurricane", "icestorm", "landslide", "lightning", "riverineflooding", 
+            "strongwind", "tornado", "tsunami", "volcanicactivity", "wildfire", "winterweather"]
 
 def remove_county_and_state_columns(data):
     ''' 

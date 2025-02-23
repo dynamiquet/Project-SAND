@@ -87,9 +87,10 @@ def display_data():
     disasters = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
     data = test.getRiskValuesbyCounty(disasters, county, state)
     print(disasters)
+    print(".\n")
     print(county)
+    print(".\n")
     print(state)
-    print(data)
     return render_template('displaydata.html', results = data, state = state, county=county)
 
 @app.route('/')
