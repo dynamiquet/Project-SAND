@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 from ProductionCode.helper import *
 from ProductionCode.datasource import DataSource
 
@@ -20,8 +20,8 @@ def python_bug(e):
     Purpose: In case of developer error, directs users back to homepage'''
    return "Sorry for the error, we have a bug in our code! Please go back to the homepage!" 
 
-@app.route('/')
-def homepage():
+@app.route('/prevhome')
+def prevhomepage():
     '''Arguments: None
     Return: String
     Purpose: To provide instructions on how to use homepage'''
@@ -77,6 +77,19 @@ def get_valid_top5_county(county):
         return get_top_five(countydata)
     
     return ErrorMessage
+
+@app.route('/displaydata')
+def display_data():
+    county = str(request.args['county'])
+    state = str(request.args['state'])
+    disasters = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
+    data = get_limited_county_and_disasters(county, state, disasters)
+    print(data)
+    return render_template('displaydata.html', results = data, state = state, county=county)
+
+@app.route('/')
+def homepage():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5138)

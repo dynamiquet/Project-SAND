@@ -1,0 +1,143 @@
+h1 {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-color: #afe38c;
+	color: #000000;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	margin-bottom: -1.1em;  
+	border-top: 5px solid #2E8B57;
+	border-left: 5px solid #2E8B57;
+	border-right: 5px solid #2E8B57;
+}
+
+body{
+	background-color: #F5F5DC;
+}
+
+h2 {
+	color: #2E8B57;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	text-shadow: 2px 2px 3px #afe38c;
+}
+
+ul{
+	list-style-type: none;
+	margin: 0;
+  	padding: 0;
+  	overflow: hidden;
+	background-color: #2E8B57;
+	margin-bottom: 1em;
+	box-shadow: 0 5px 5px 0 #296b46;
+}
+
+li{
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	padding: 14px 16px;
+  	text-decoration: none;
+  }
+
+li a:hover {
+	background-color: #D2691E;
+}
+
+.titleSub{
+	text-align: center;
+	margin-bottom: 1em;
+	color: rgb(32, 32, 32);
+}
+
+#getData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: 30px;
+}
+
+#inputContainer {
+    display: flex;
+    gap: 15px; /* Space between State and County */
+}
+
+#inputContainer input {
+    width: 150px; /* Adjust width of inputs */
+    padding: 8px;
+    text-align: center;
+}
+
+#Submit {
+    display: flex;
+	padding-top: 1em;
+    justify-content: center;
+}
+
+#Submit input {
+    width: 120px;
+    padding: 10px;
+    background-color: #FFC107;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#Submit input:hover {
+    background-color: #D2691E;
+}
+
+.ALLDS {
+	display: flex;
+	flex-direction: row;
+	background-color: #afe38c;
+	border-radius: 15px;
+}
+
+.disaster-container{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 10px;
+	align-items: left;
+}
+
+.searchoptions {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 10em;
+    right: 3%;
+}
+
+#searchtitle {
+	margin-bottom: -18px;
+	color: #2E8B57
+}
+
+#searchcontainer {
+	display: flex;
+	background-color: #afe38c;
+	padding: 10px;
+}
+
+#countyResults {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: #afe38c;
+	padding: 10px;
+	width: 35%;
+	border-radius: 10px;
+	margin: auto;
+}
+
+body {
+    margin-left: 3%;
+    margin-right: 3%;
+}

@@ -5,6 +5,131 @@
     </head>
 
     <body>
+        <a href = "/" style="text-decoration: none; color: inherit;"><h1>Project S.A.N.D.</h1></a>
+        <div class = 'titleSub'><em>Spreading Awareness of Natural Disasters</em></div>
 
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/currlocation">My Current Location</a></li>
+          <li><a href="/resources">Resources</a></li>
+          <li><a href="/top5">Top 5 County Disasters</a></li>
+          <li><a href="/about">About Us</a></li>
+        </ul>
+
+        <h2>Search for your county!</h2>
+        <!-- Text input form for Desired County, State, and Disaster(s)-->
+        <!-- Button form for searching-->
+        <form action="displaydata" id = "getData" onsubmit="GetCheckedBoxes()">
+            <div id = "inputContainer">
+            <input type="text" id="state" name="state" value = "" placeholder="State Abbreviation">
+
+            <input type="text" id="county" name="county" value = "" placeholder="County"></div><br>
+
+            <div class = 'ALLDS'>
+            <div class = 'disaster-container'>
+              <div>
+                <input type = "checkbox" name = "disaster" value = "avalanche">
+                <img src = '../static/images/avalanche.png' alt = "Icon image for avalanche" style="width:25px;height:25px;"> 
+                <label> Avalanche</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "coldwave">
+                  <img src = '../static/images/Cold_wave.png' alt = "Icon image for cold wave" style="width:25px;height:25px;">
+                  <label> Cold Wave</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "drought">
+                  <img src = '../static/images/drought.png' alt = "Icon image for drought" style="width:25px;height:25px;">
+                  <label> Drought</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "earthquake">
+                  <img src = '../static/images/earthquake.png' alt = "Icon image for earthquake" style="width:25px;height:25px;">
+                  <label> Earthquake</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "coastalflooding">
+                  <img src = '../static/images/Flooding.png' alt = "Icon image for coastalflooding" style="width:25px;height:25px;">
+                  <label> Coastal Flooding</label></div>
+            </div>
+            <div class = 'disaster-container'>
+              <div>
+                <input type = "checkbox" name = "disaster" value = "hail">
+                <img src = '../static/images/hail.png' alt = "Icon image for hail" style="width:25px;height:25px;"> 
+                <label> Hail</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "heatwave">
+                  <img src = '../static/images/heatwave.png' alt = "Icon image for heatwave" style="width:25px;height:25px;">
+                  <label> Heat Wave</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "hurricane">
+                  <img src = '../static/images/hurricane.png' alt = "Icon image for hurricane" style="width:25px;height:25px;">
+                  <label> Hurricane</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "icestorm">
+                  <img src = '../static/images/ice-storm.png' alt = "Icon image for icestorm" style="width:25px;height:25px;">
+                  <label> Ice Storm</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "landslide">
+                  <img src = '../static/images/landslide.png' alt = "Icon image for landslide" style="width:25px;height:25px;">
+                  <label> Landslide</label></div>
+            </div>
+            <div class = 'disaster-container'>
+              <div>
+                <input type = "checkbox" name = "disaster" value = "lightning">
+                <img src = '../static/images/lightning.png' alt = "Icon image for lightning" style="width:25px;height:25px;"> 
+                <label> Lightning</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "strongwind">
+                  <img src = '../static/images/strongwind.png' alt = "Icon image for strongwind" style="width:25px;height:25px;">
+                  <label"> Strong Wind</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "tornado">
+                  <img src = '../static/images/Tornado.png' alt = "Icon image for Tornado" style="width:25px;height:25px;">
+                  <label> Tornado</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "tsunami">
+                  <img src = '../static/images/tsunami.png' alt = "Icon image for tsunami" style="width:25px;height:25px;">
+                  <label> Tsunami</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "volcano">
+                  <img src = '../static/images/volcano.png' alt = "Icon image for volcano" style="width:25px;height:25px;">
+                  <label> Volcano</label></div>
+            </div>
+            <div class = "disaster-container"> 
+              <div>
+                <input type = "checkbox" name = "disaster" value = "wildfire">
+                <img src = '../static/images/wildfire.png' alt = "Icon image for wildfire" style="width:25px;height:25px;"> 
+                <label> Wildfire</label></div>
+              <div>
+                <input type = "checkbox" name = "disaster" value = "winterweather">
+                <img src = '../static/images/winterweather.png' alt = "Icon image for winterweather" style="width:25px;height:25px;"> 
+                <label for="winterweather"> Winter Weather</label></div>
+              <div>
+                  <input type = "checkbox" name = "disaster" value = "riverineflooding">
+                  <img src = '../static/images/Flooding.png' alt = "Icon image for riverineflooding" style="width:25px;height:25px;"> 
+                  <label> Riverine Flooding</label></div>
+            </div>
+            </div>
+
+            <input type = "hidden" id = "hiddenSelectedDisasters" name = "hiddenSelectedDisaster" value = "">
+
+            <div id = "Submit"><input type="submit" value="Submit"></div><br>
+
+        </form>
+
+        <div class = 'searchoptions'>
+
+            <div id = 'searchtitle'> <h3>Search Options</h3></div>
+
+            <div id = searchcontainer> 
+
+            <div class = 'searchoption'>
+
+              <input type = "checkbox" id = "top5" name = "top5" value = "top5">
+
+              <label for="top5"> Top Five County Disasters</label></div></div></div>
+
+        </div>
+        <div><h4>Sources</h4></div>
+
+        <div><h4>Help Box</h4></div>
+        
     </body>
 </html>
