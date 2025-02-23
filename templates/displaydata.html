@@ -9,16 +9,21 @@
         <a href = "/" style="text-decoration: none; color: inherit;"><h1>Project S.A.N.D.</h1></a>
             <div class = 'titleSub'><em>Spreading Awareness of Natural Disasters</em></div>
 
-            <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/currlocation">Current Location</a></li>
-            <li><a href="/resources">Resources</a></li>
-            <li><a href="/top5">Top 5</a></li>
-            <li><a href="/about">About Us</a></li>
+            <ul id = "navigationBar_ul">
+                <li class = "navigationBar_li"><a href="/">Home</a></li>
+                <li class = "navigationBar_li"><a href="/currlocation">My Current Location</a></li>
+                <li class = "navigationBar_li"><a href="/resources">Resources</a></li>
+                <li class = "navigationBar_li"><a href="/top5">Top 5 County Disasters</a></li>
+                <li class = "navigationBar_li"><a href="/about">About Us</a></li>
             </ul>
-        <div id = 'countyResults'>
-            <div><p>Here are the disaster ratings you searched for in {{county}}, {{state}}:<p></div>
-            <div><p>{{results}}</p></div>
+
+        <div id = "countyResults">
+            <h2>The risks of the disasters for {{county}}, {{state}} are:</h2>
+            <ul>
+                {% for key, value in data.items() %}
+                    <li>The risk for {{ key }} is {{ value }}</li>
+                {% endfor %}
+            </ul>
         </div>
     </body>
 </html>
