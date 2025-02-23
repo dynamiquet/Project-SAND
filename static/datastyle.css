@@ -141,3 +141,12 @@ body {
     margin-left: 3%;
     margin-right: 3%;
 }
+
+div.highlight2 {
+    background-color: azure;
+    width: 300px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 auto;
+}

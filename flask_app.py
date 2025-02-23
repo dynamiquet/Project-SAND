@@ -93,6 +93,15 @@ def display_data():
     print(state)
     return render_template('displaydata.html', results = data, state = state, county=county)
 
+@app.route('/top5')
+def getTop5RiskValuesForCounty():
+    requested_state = request.args['stateabbrv']
+    requested_county = request.args['county']
+
+    rowdata = test.getCountyRow(requested_county, requested_state)
+
+    return render_template("displaytop5data.html", county=requested_county, state=requested_state, data=get_top_five(rowdata))
+
 @app.route('/')
 def homepage():
     return render_template('index.html')
