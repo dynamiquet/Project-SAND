@@ -78,18 +78,39 @@ def get_valid_top5_county(county):
     
     return ErrorMessage
 
+
+# New URLs 
 @app.route('/displaydata')
 def display_data():
     county = str(request.args['county'])
     state = str(request.args['state'])
     disasters = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
-    data = get_limited_county_and_disasters(county, state, disasters)
+    data = test.getRiskValuesbyCounty(disasters, county, state)
+    print(disasters)
+    print(county)
+    print(state)
     print(data)
     return render_template('displaydata.html', results = data, state = state, county=county)
 
 @app.route('/')
 def homepage():
     return render_template('index.html')
+
+@app.route('/currlocation')
+def deadhomepage():
+    return render_template('getlocation.html')
+
+@app.route('/resources')
+def deadnews():
+    return "Will include links to gov or local resources."
+
+@app.route('/top5')
+def deadcontact():
+    return "Will be for our top5 functionality."
+
+@app.route('/about')
+def deadabout():
+    return "Page describing who we are and what our mission is."
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5138)
