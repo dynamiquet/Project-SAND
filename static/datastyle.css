@@ -5,7 +5,7 @@ h1 {
 	color: #000000;
 	text-align: center;
 	font-family: Verdana, Geneva, sans-serif;
-	margin-bottom: -1.1em;  
+	margin-bottom: -1.1em;
 	border-top: 5px solid #2E8B57;
 	border-left: 5px solid #2E8B57;
 	border-right: 5px solid #2E8B57;
@@ -22,7 +22,7 @@ h2 {
 	text-shadow: 2px 2px 3px #afe38c;
 }
 
-ul{
+#navigationBar_ul{
 	list-style-type: none;
 	margin: 0;
   	padding: 0;
@@ -32,18 +32,18 @@ ul{
 	box-shadow: 0 5px 5px 0 #296b46;
 }
 
-li{
+.navigationBar_li{
 	float: left;
 }
 
-li a {
+.navigationBar_li a {
 	display: block;
 	color: white;
 	padding: 14px 16px;
   	text-decoration: none;
   }
 
-li a:hover {
+.navigationBar_li a:hover {
 	background-color: #D2691E;
 }
 
@@ -130,11 +130,13 @@ li a:hover {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	background-color: #afe38c;
+	background-color: #B5E2FA;
 	padding: 10px;
 	width: 35%;
 	border-radius: 10px;
 	margin: auto;
+    border: #000000;
+    border-width: 10px;
 }
 
 body {
