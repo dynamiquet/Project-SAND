@@ -129,10 +129,9 @@ The front-end design of Project S.A.N.D. aims to reach a wide audience by making
 The front-end design improves accessibility and usability compared to the previous command-line and Flask-based interfaces. Key benefits include:  
 
 1. User-Friendly Interface – Unlike command-line interactions, users no longer need to memorize syntax; they can navigate through a structured GUI.  
-2. Visual Representation of Data – Icons, color-coded risk levels, and charts improve readability.  
-3. Accessibility Features – Enhanced usability for users with disabilities, including proper contrast, alternative text for images, and structured headings.  
-4. Mobile Compatibility – Users can access disaster data on smartphones, making it more convenient.  
-5. Improved Error Handling – Clear error messages help users understand mistakes and navigate correctly.  
+2. Visual Representation of Data – Icons, color-coded risk levels, and charts improve readability.   
+3. Mobile Compatibility – Users can access disaster data on smartphones, making it more convenient.  
+4. Improved Error Handling – Clear error messages help users understand mistakes and navigate correctly.  
 
 #### **CIDER Analysis of Embedded Assumptions**  
 
@@ -140,8 +139,7 @@ The front-end design improves accessibility and usability compared to the previo
 -  This assumption does not account for individuals with low digital literacy or those unfamiliar with disaster-related terminology.  
 -  A user with minimal technology experience may struggle to interpret the results or navigate through dropdowns and checkboxes.  
 - **Design:**  
-  - Implement tooltips and hover explanations** for disaster-related terms.  
-  - Include a guided tutorial or "How to Use" page to help users navigate the platform.  
+  - Implement tooltips and hover explanations for disaster-related terms (We have some resources on the resources page).    
   - Ensure tab-based navigation and keyboard shortcuts for accessibility.  
 
 ##### **Assumption 2: The Website is Accessible Across All Devices and Internet Speeds**  
