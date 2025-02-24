@@ -113,4 +113,42 @@ The transition from CLI to a Flask-based web application introduces new interact
 ### Conclusion
 While the current dataset provides a structured way to assess disaster risks, embedded assumptions about data comprehensiveness and predictive accuracy need to be addressed. Future iterations of the database should incorporate additional data sources and real-time updates to improve reliability. By implementing these strategies, the database can better serve disaster preparedness efforts and provide more accurate insights for risk assessment.
 
+### **User Analysis for the Front-End**  
 
+#### **Potential Users**  
+The front-end design of Project S.A.N.D. aims to reach a wide audience by making natural disaster data easily accessible. The potential users include:  
+
+1. General Public – Individuals concerned about the disaster risks in their county or state.  
+2. Researchers & Environmental Analysts – Those studying the impact of natural disasters on different regions.  
+3. Emergency Responders & Government Officials – People involved in disaster preparedness and response planning.  
+4. Homeowners & Insurance Companies – Those assessing risks for insurance policies and property investments.  
+5. Students & Educators – Those using disaster risk data for academic research and educational purposes.  
+
+#### **Potential Benefits**  
+The front-end design improves accessibility and usability compared to the previous command-line and Flask-based interfaces. Key benefits include:  
+
+1. User-Friendly Interface – Unlike command-line interactions, users no longer need to memorize syntax; they can navigate through a structured GUI.  
+2. Visual Representation of Data – Icons, color-coded risk levels, and charts improve readability.  
+3. Accessibility Features – Enhanced usability for users with disabilities, including proper contrast, alternative text for images, and structured headings.  
+4. Mobile Compatibility – Users can access disaster data on smartphones, making it more convenient.  
+5. Improved Error Handling – Clear error messages help users understand mistakes and navigate correctly.  
+
+#### **CIDER Analysis of Embedded Assumptions**  
+
+##### **Assumption 1: Users Can Understand and Navigate the Web Interface**  
+-  This assumption does not account for individuals with low digital literacy or those unfamiliar with disaster-related terminology.  
+-  A user with minimal technology experience may struggle to interpret the results or navigate through dropdowns and checkboxes.  
+- **Design:**  
+  - Implement tooltips and hover explanations** for disaster-related terms.  
+  - Include a guided tutorial or "How to Use" page to help users navigate the platform.  
+  - Ensure tab-based navigation and keyboard shortcuts for accessibility.  
+
+##### **Assumption 2: The Website is Accessible Across All Devices and Internet Speeds**  
+-  The site may be optimized for desktops but could face performance issues on mobile devices or slow internet connections.  
+-  A user on a low-bandwidth connection or an older mobile device may experience slow load times or broken UI elements.  
+- **Design:**  
+  - Use responsive design to ensure a seamless experience across different screen sizes.  
+  - Optimize images and scripts to reduce load time, especially for mobile users.  
+  
+### **Conclusion**  
+The front-end interface of Project S.A.N.D. significantly enhances usability and accessibility, making disaster risk data more accessible to a broader audience. However, assumptions about user digital literacy and device compatibility must be addressed to ensure inclusivity. Implementing guided tutorials, optimized design for low-bandwidth users, and accessibility features will improve user experience and make the platform more effective for diverse audiences. 🚀
