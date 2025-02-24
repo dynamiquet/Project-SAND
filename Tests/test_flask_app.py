@@ -14,17 +14,6 @@ class TestSANDPage(unittest.TestCase):
         response2 = self.app.get('/disaster/tornado/county', follow_redirects=True)
         self.assertEqual(b'Page not found: Please ensure you follow the URL with: /&ltdisasters&gt/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt', response2.data)
 
-  ## MAY NEED TO REMOVE LATER SINCE OUR HOMEPAGE CHANGED ##
-
-    # def test_homepage(self):
-    #   ''' Argument: instance of TestSANDPage
-    #     Tests to see if base route leads user to homepage with correct output
-    #     '''
-    #   self.app = app.test_client()
-    #   response = self.app.get('/', follow_redirects=True)
-
-    #   self.assertIn(b'Welcome to the homepage for Project S.A.N.D', response.data)
-
     def test_disaster_county_pages(self):
       ''' Argument: instance of TestSANDPage
         Tests to see if unique routes lead to correct pages for both correct and incorrect arguments
