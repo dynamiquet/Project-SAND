@@ -111,11 +111,11 @@ def deadhomepage():
 
 @app.route('/resources')
 def deadnews():
-    return "Will include links to gov or local resources."
+    return render_template("resources.html")
 
 @app.route('/about')
 def deadabout():
     return "Page describing who we are and what our mission is."
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5138)
+    app.run()

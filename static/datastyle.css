@@ -1,3 +1,22 @@
+* {
+	box-sizing: border-box;
+}
+
+.column {
+	float: left;
+	width: 50%;
+	padding: 10px;
+}
+
+.row:after {
+	content: "";
+	clear: both;
+}
+
+.resourcestext {
+	text-align: center;
+}
+
 h1 {
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -11,13 +30,19 @@ h1 {
 	border-right: 5px solid #2E8B57;
 }
 
+.resources {
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	color: black;
+}
+
 body{
 	background-color: #F5F5DC;
 }
 
 h2 {
 	color: #2E8B57;
-	text-align: center;
+	text-align: left;
 	font-family: Verdana, Geneva, sans-serif;
 	text-shadow: 2px 2px 3px #afe38c;
 }
