@@ -89,7 +89,7 @@ def display_data():
     return render_template('displaydata.html', results = data, state = state, county=county, data=data)
 
 @app.route('/top5')
-def getTop5RiskValuesForCounty():
+def get_top5_risk_values_for_county():
     requested_state = request.args['stateabbrv']
     requested_county = request.args['county']
 
