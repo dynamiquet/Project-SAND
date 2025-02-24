@@ -144,11 +144,11 @@ body {
     margin-right: 3%;
 }
 
-div.highlight2 {
-    background-color: azure;
-    width: 300px;
-    border: 2px solid blue;
-    border-radius: 10px;
+div.top5box {
+    background-color: #afe38c;
+    width: 700px;
+    border: 2px solid green;
+    border-radius: 15px;
     padding: 10px;
     margin: 0 auto;
 }
