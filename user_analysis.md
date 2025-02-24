@@ -151,4 +151,4 @@ The front-end design improves accessibility and usability compared to the previo
   - Optimize images and scripts to reduce load time, especially for mobile users.  
   
 ### **Conclusion**  
-The front-end interface of Project S.A.N.D. significantly enhances usability and accessibility, making disaster risk data more accessible to a broader audience. However, assumptions about user digital literacy and device compatibility must be addressed to ensure inclusivity. Implementing guided tutorials, optimized design for low-bandwidth users, and accessibility features will improve user experience and make the platform more effective for diverse audiences. 🚀
+The front-end interface of Project S.A.N.D. significantly enhances usability and accessibility, making disaster risk data more accessible to a broader audience. However, assumptions about user digital literacy and device compatibility must be addressed to ensure inclusivity. Implementing guided tutorials, optimized design for low-bandwidth users, and accessibility features will improve user experience and make the platform more effective for diverse audiences. 
