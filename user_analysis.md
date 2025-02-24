@@ -147,7 +147,20 @@ The front-end design improves accessibility and usability compared to the previo
 -  A user on a low-bandwidth connection or an older mobile device may experience slow load times or broken UI elements.  
 - **Design:**  
   - Use responsive design to ensure a seamless experience across different screen sizes.  
-  - Optimize images and scripts to reduce load time, especially for mobile users.  
+  - Optimize images and scripts to reduce load time, especially for mobile users.
+
+#### **Assumption 3: The Website is Accessible to All Users, Including Those with Disabilities**
+- Critique:
+1. The site assumes that all users can see colors and images clearly, navigate with a mouse, and read small text.
+2. Screen reader users might face issues if form elements aren’t labeled properly.
+Imagine:
+A visually impaired user navigating with a screen reader might struggle if labels are missing.
+
+- **Design Fixes**:
+1. Ensure high color contrast for readability.
+2. Provide text descriptions for risk levels and have a ressources pages for more informations.
+
+
   
 ### **Conclusion**  
 The front-end interface of our Project S.A.N.D. significantly enhances usability and accessibility, making disaster risk data more accessible to a broader audience. However, assumptions about user digital literacy and device compatibility must be addressed to ensure inclusivity. Implementing guided tutorials, optimized design for low-bandwidth users, and accessibility features will improve user experience and make the platform more effective for diverse audiences. 
