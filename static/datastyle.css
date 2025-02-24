@@ -177,3 +177,13 @@ div.top5box {
     padding: 10px;
     margin: 0 auto;
 }
+
+.errorDisplay {
+	background-color: #afe38c;
+    width: 700px;
+    border: 2px solid green;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 0 auto;
+	text-align: center;
+}

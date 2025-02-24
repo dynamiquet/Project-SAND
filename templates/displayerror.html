@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='datastyle.css') }}">
+    </head>
+
+<body>
+    <a href = "/" style="text-decoration: none; color: inherit;"><h1>Project S.A.N.D.</h1></a>
+        <div class = 'titleSub'><em>Spreading Awareness of Natural Disasters</em></div>
+
+        <ul id = "navigationBar_ul">
+          <li class = "navigationBar_li"><a href="/">Home</a></li>
+          <li class = "navigationBar_li"><a href="/currlocation">My Current Location</a></li>
+          <li class = "navigationBar_li"><a href="/resources">Resources</a></li>
+          <li class = "navigationBar_li"><a href="/top5page">Top 5 County Disasters</a></li>
+          <li class = "navigationBar_li"><a href="/about">About Us</a></li>
+        </ul>
+
+    <div class = "errorDisplay"><p>Sorry for the error!<br> Please make sure to input a <strong>valid U.S. County and State </strong>!<br><br>
+         To go back to the homepage click the Home button in the navigation bar or click the Web title "Project S.A.N.D."</p></div>
+</body>
+</html>
