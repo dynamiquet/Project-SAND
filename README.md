@@ -35,6 +35,29 @@ python3 command_line.py --top5 'name_of_US_county, State_abbreviation'
 
 Purpose: Returns the top 5 most hazardous disaster's in a given county
 
+## Webpage "Don't Make Me Think" implementations
+### Scanability
+
+My page enables scanability by being simple and following standard webpage practices. 
+
+At the top center, the home page title is bolded and has the largest font size of all texts. Below it, is a navigation bar with short and explicit names for what pages they direct you to.
+
+Continuing the top-down scan, huge text describes what a user should search for. The text boxes also have placeholders for the kind of accepted searches.
+
+The available disasters are neatly placed in a box with icons visually describing the kind of disaster.
+
+At the end, a big orange submit button is there catching user attention.
+
+### Satisficing
+
+My web page hopefully encourages no thinking! Given the explicit names of titles, buttons, and input forms a user should be easily able to get what they are searching for. 
+
+### Muddling through
+
+Given the simple layout, users can click and input anything and be directed to proper usage or other resources. 
+
+If they get lost, the first option in the navigation bar is a "Home" page for quick and easy access to the original homepage to start over! If they are otherwise used to clicking the title to go back to the homepage, that is also available! (Currently only for displaying data, but will be integrated to all pages)
+
 
 
 
