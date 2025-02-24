@@ -7,6 +7,7 @@ This file contains the continuing analysis of our software as we develop it thro
 - *Command Line Interactions Analysis (Sprint 1)*
 - *Flask Web App User Analysis (Sprint 2)*
 - *Database Sprint*
+- *User Analysis and CIDER for the Front-End*  
 <br>
 <hr>
 <br>
@@ -113,7 +114,7 @@ The transition from CLI to a Flask-based web application introduces new interact
 ### Conclusion
 While the current dataset provides a structured way to assess disaster risks, embedded assumptions about data comprehensiveness and predictive accuracy need to be addressed. Future iterations of the database should incorporate additional data sources and real-time updates to improve reliability. By implementing these strategies, the database can better serve disaster preparedness efforts and provide more accurate insights for risk assessment.
 
-### **User Analysis for the Front-End**  
+### **User Analysis and CIDER for the Front-End**  
 
 #### **Potential Users**  
 The front-end design of Project S.A.N.D. aims to reach a wide audience by making natural disaster data easily accessible. The potential users include:  
