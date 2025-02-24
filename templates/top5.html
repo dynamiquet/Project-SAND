@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='datastyle.css') }}">
+        <script src="../static/scripts/script.js"></script>
+    </head>
+
+    <body>
+        <a href = "/" style="text-decoration: none; color: inherit;"><h1>Project S.A.N.D.</h1></a>
+        <div class = 'titleSub'><em>Spreading Awareness of Natural Disasters</em></div>
+
+        <ul id = "navigationBar_ul">
+          <li class = "navigationBar_li"><a href="/">Home</a></li>
+          <li class = "navigationBar_li"><a href="/currlocation">My Current Location</a></li>
+          <li class = "navigationBar_li"><a href="/resources">Resources</a></li>
+          <li class = "navigationBar_li"><a href="/top5page">Top 5 County Disasters</a></li>
+          <li class = "navigationBar_li"><a href="/about">About Us</a></li>
+        </ul>
+
+        <h2>Search for your county!</h2>
+
+        <div class="highlight2">
+          <h3>Top 5 disasters a county is most at risk of experiencing</h3>
+          <form action="top5">
+              <label for="State Abbreviation">State Abbreviation:</label><br>
+              <input type="text" id="stateabbrv" name="stateabbrv"><br>
+              <label for="County">County:</label><br>
+              <input type="text" id="county" name="county"><br><br>
+              <input type="submit" value="Submit">
+          </form>
+        </div>
+
+        <div><h4>Sources</h4></div>
+
+        <div><h4>Help Box</h4></div>
+        
+    </body>
+</html>

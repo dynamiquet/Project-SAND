@@ -97,6 +97,10 @@ def get_top5_risk_values_for_county():
 
     return render_template("displaytop5data.html", county=requested_county, state=requested_state, data=get_top_five(rowdata))
 
+@app.route('/top5page')
+def display_top5_page():
+    return render_template("top5.html")
+
 @app.route('/')
 def homepage():
     return render_template('index.html')
@@ -108,10 +112,6 @@ def deadhomepage():
 @app.route('/resources')
 def deadnews():
     return "Will include links to gov or local resources."
-
-@app.route('/top5')
-def deadcontact():
-    return "Will be for our top5 functionality."
 
 @app.route('/about')
 def deadabout():
