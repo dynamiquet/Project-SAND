@@ -81,13 +81,13 @@ def get_valid_top5_county(county):
 
 
 # New URLs 
-@app.route('/displaydata')
-def display_data():
-    county = str(request.args['county'])
-    state = str(request.args['state'])
-    disasters = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
-    data = test.getRiskValuesbyCounty(disasters, county, state)
-    return render_template('displaydata.html', results = data, state = state, county=county, data=data)
+@app.route('/displaycountydata')
+def display_county_disaster_data():
+    requested_county = str(request.args['county'])
+    requested_state = str(request.args['state'])
+    requested_disasters = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
+    data = test.getRiskValuesbyCounty(requested_disasters, requested_county, requested_state)
+    return render_template('displaydata.html', results = data, state = requested_state, county=requested_county, data=data)
 
 @app.route('/top5')
 def get_top5_risk_values_for_county():
