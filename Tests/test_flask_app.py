@@ -8,22 +8,11 @@ class TestSANDPage(unittest.TestCase):
         '''
         self.app = app.test_client()
         response1 = self.app.get('/0', follow_redirects=True)
-        self.assertEqual(b'Page not found: Please ensure you follow the URL with: /&ltdisasters&gt/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt', response1.data)
+        self.assertIn(b'Sorry for the error!', response1.data)
 
         self.app = app.test_client()
         response2 = self.app.get('/disaster/tornado/county', follow_redirects=True)
-        self.assertEqual(b'Page not found: Please ensure you follow the URL with: /&ltdisasters&gt/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt', response2.data)
-
-  ## MAY NEED TO REMOVE LATER SINCE OUR HOMEPAGE CHANGED ##
-
-    # def test_homepage(self):
-    #   ''' Argument: instance of TestSANDPage
-    #     Tests to see if base route leads user to homepage with correct output
-    #     '''
-    #   self.app = app.test_client()
-    #   response = self.app.get('/', follow_redirects=True)
-
-    #   self.assertIn(b'Welcome to the homepage for Project S.A.N.D', response.data)
+        self.assertIn(b'Sorry for the error!', response2.data)
 
     def test_disaster_county_pages(self):
       ''' Argument: instance of TestSANDPage
@@ -41,7 +30,7 @@ class TestSANDPage(unittest.TestCase):
       self.assertEqual(b'Either your county or disaster are not valid inputs. Please check homepage to see correct usage.', Edgetest1.data)
 
       Edgetest2 = self.app.get('/Earthquake/Rice,MN/POTATOES', follow_redirects=True)
-      self.assertEqual(b'Page not found: Please ensure you follow the URL with: /&ltdisasters&gt/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt', Edgetest2.data)
+      self.assertIn(b'Sorry for the error!', Edgetest2.data)
 
     def test_top5_pages(self):
       ''' Argument: instance of TestSANDPage
@@ -56,4 +45,4 @@ class TestSANDPage(unittest.TestCase):
       self.assertEqual(b'Either your county or disaster are not valid inputs. Please check homepage to see correct usage.', Edgetest1.data)
 
       Edgetest2 = self.app.get('/top100/', follow_redirects=True)
-      self.assertEqual(b'Page not found: Please ensure you follow the URL with: /&ltdisasters&gt/&ltcounty, state abbr.&gt or /&ltrow&gt/&ltcolumn&gt', Edgetest2.data)
+      self.assertIn(b'Sorry for the error!', Edgetest2.data)
