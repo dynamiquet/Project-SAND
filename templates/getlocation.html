@@ -2,7 +2,7 @@
     <head>
         <title>Project S.A.N.D.</title>
         <link rel="stylesheet" href="../static/datastyle.css">
-        <script src="../static/scripts/scripts.js"></script>
+        <script src="../static/scripts/script.js"></script>
     </head>
     <body>
         <a href = "/" style="text-decoration: none; color: inherit;"><h1>Project S.A.N.D.</h1></a>
@@ -15,8 +15,7 @@
                 <li class = "navigationBar_li"><a href="/top5page">Top 5 County Disasters</a></li>
                 <li class = "navigationBar_li"><a href="/about">About Us</a></li>
             </ul>
-        <form onsubmit="GetCurrentLocation">
-            <button type = 'button'>Get my Location!</button>
-        </form>
+            <button type = 'button' onclick="GetCurrentLocation()">Get my Location!</button>
+            <p id = "UserCoordinates"> Your Coordinate are: Empty</p>
     </body>
 </html>

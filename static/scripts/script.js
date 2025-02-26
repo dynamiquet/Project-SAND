@@ -15,3 +15,19 @@ function GetCheckedBoxes(){
     let disasterlist = document.getElementById("hiddenSelectedDisasters");
     disasterlist.value = selectedDisasters;
 }
+
+function GetCurrentLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else{
+        text.textContent = "Geolocation is not being supported."
+    }
+}
+
+function showPosition(position) {
+    let text = document.getElementById("UserCoordinates");
+    let user_latitude = position.coords.latitude
+    let user_longitude = position.coords.longitude
+    text.textContent = "Your Coordinates are: Latitude: " + user_latitude + "Longitude: " + user_longitude
+}
