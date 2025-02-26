@@ -22,7 +22,7 @@ def python_bug(e):
    return render_template('displayerror.html')
 
 @app.route('/prevhome')
-def prevhomepage():
+def display_prev_homepage():
     '''Arguments: None
     Return: String
     Purpose: To provide instructions on how to use homepage'''
@@ -60,7 +60,7 @@ def get_valid_county_and_disaster(disaster, county):
     return ErrorMessage
 
 @app.route('/top5/<county>', strict_slashes = False)
-def get_valid_top5_county(county):
+def get_top5_disasters_for_county(county):
     '''Arguments: String of county
     Return: List of disaster's and ratings
     Purpose: To get top 5 hazardous disasters in a county'''
@@ -85,8 +85,8 @@ def get_valid_top5_county(county):
 def display_county_disaster_data():
     requested_county = str(request.args['county'])
     requested_state = str(request.args['state'])
-    requested_disasters = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
-    risk_values_for_disasters_dictionary = test.getRiskValuesbyCounty(requested_disasters, requested_county, requested_state)
+    requested_disasters_list = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
+    risk_values_for_disasters_dictionary = test.getRiskValuesbyCounty(requested_disasters_list, requested_county, requested_state)
     return render_template('displaydata.html', results = risk_values_for_disasters_dictionary, state = requested_state, county=requested_county, data=risk_values_for_disasters_dictionary)
 
 @app.route('/top5')
