@@ -25,13 +25,13 @@ def get_int_rating(table_rating):
     Purpose: Assigns a numerical value for each type of hazard rating for future sorting
     '''
 
-    # Each key is a rating from the dataset and is associated with an integer
-    stringratingdict = {"Insufficient Data":0, "Not Applicable":1, "No Rating":2, "Very Low":3, "Relatively Low":4, "Relatively Moderate":5,
+    # Each key is a rating from the dataset and is associated with an integer value
+    string_rating_dict = {"Insufficient Data":0, "Not Applicable":1, "No Rating":2, "Very Low":3, "Relatively Low":4, "Relatively Moderate":5,
                         "Relatively High":6, "Very High":7}
     
     # Convert string rating into an integer for sorting
-    if table_rating in stringratingdict:
-        int_rating = stringratingdict[table_rating]
+    if table_rating in string_rating_dict:
+        int_rating = string_rating_dict[table_rating]
 
     return int_rating
 
@@ -117,17 +117,15 @@ def disaster_to_int_rating_dict(disaster_dict, county_data):
     Returns: Void
     Purpose: Converts hazard ratings in county data to numerical values for disaster dict sorting
     '''
-    # Variable to keep track of where in list of county data we are at
-    county_data_pos = 0
+    county_data_position_in_list = 0
 
-    # Depending on rating, assign numerical value for later sorting
     for disaster in disaster_dict:
 
-        county_disaster_rating = get_int_rating(county_data[county_data_pos])
+        county_disaster_rating = get_int_rating(county_data[county_data_position_in_list])
 
         disaster_dict.update({disaster : county_disaster_rating})
 
-        county_data_pos += 1
+        county_data_position_in_list += 1
 
 def disaster_to_str_rating_dict(disaster_dict):
     ''' 
@@ -135,25 +133,24 @@ def disaster_to_str_rating_dict(disaster_dict):
     Returns: Void
     Purpose: Converts hazard ratings from numerical values to string hazard ratings
     '''
-    # Revert numerical values back to string value for user readability
     for disaster in disaster_dict:
 
         disaster_string_rating = get_string_rating(disaster_dict.get(disaster))
 
         disaster_dict.update({disaster : disaster_string_rating})
 
-def get_filtered_county_data(targetcountydata):
+def get_filtered_county_data(target_county_data):
     ''' 
     Arguments: List of county data
     Returns: list of targeted county row data
     Purpose: Returns list of county data with non-hazard rating items removed
     '''
 
-    remove_county_and_state_columns(targetcountydata)
+    remove_county_and_state_columns(target_county_data)
 
-    return targetcountydata
+    return target_county_data
 
-def get_top_num_items_in_dict(dict, num):
+def get_top_num_items_in_dict(dict, requested_num):
     ''' 
     Arguments: Dictionary and integer
     Returns: Dictionary
@@ -161,7 +158,7 @@ def get_top_num_items_in_dict(dict, num):
     '''
     dict_length = len(dict)
 
-    for int in range(0, dict_length - num):
+    for int in range(0, dict_length - requested_num):
         dict.popitem()
 
     return dict
@@ -185,30 +182,30 @@ def get_sorted_dangerous_disasters_by_county(countyrow):
 
     return sorted_disasters_dict
 
-def get_disaster_risk_dict(disasterslist, riskvalueslist):
+def get_disaster_risk_dict(disasters_list, risk_values_list):
     '''
     Arguments: disasterslist (string), riskvalueslist (string)
     Returns: a dictionary
     This function takes in a list of disasters and their associated risk values and creates a dictionary where the key is the disaster and the value
     is its respective risk value
     '''
-    dictionary = {}
-    riskvaluelistindex = 0
+    disasters_and_risks = {}
+    risk_value_list_index = 0
 
-    for disaster in disasterslist:
-        dictionary.update({disaster.lower() : riskvalueslist[riskvaluelistindex]})
-        riskvaluelistindex += 1
+    for disaster in disasters_list:
+        disasters_and_risks.update({disaster.lower() : risk_values_list[risk_value_list_index]})
+        risk_value_list_index += 1
 
-    return dictionary
+    return disasters_and_risks
 
-def is_formatted_county_and_state(countylist):
+def is_formatted_county_and_state(county_list):
     '''
-    Arguments: countylist (string)
+    Arguments: county_list (string)
     Returns: boolean
     Checks to see if the inputted county is formatted as follows <county>, <state>. The legitimacy of the inputs is checked by is_valid_us_county
     '''
 
-    if (len(countylist) == 2):
+    if (len(county_list) == 2):
         return True
     else:
         return False
