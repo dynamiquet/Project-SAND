@@ -1,3 +1,5 @@
+/* Contains every US state/territory and their counties/municipalities. 
+Lists were used and modified from https://github.com/kimyu92/us_counties/tree/main/dist */
 const counties_by_state = {
     "AL": ["Autauga", "Baldwin", "Barbour", "Bibb", "Blount", "Bullock", "Butler", "Calhoun", 
         "Chambers", "Cherokee", "Chilton", "Choctaw", "Clarke", "Clay", "Cleburne", "Coffee", 
