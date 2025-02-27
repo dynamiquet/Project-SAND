@@ -194,3 +194,36 @@ div.top5box {
     margin: 0 auto;
 	text-align: center;
 }
+
+#GoogleMap {
+    height: 400px;
+    width: 60%; /* The width is the width of the web page */
+	margin: 0 auto;
+    border: 3px solid green;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 0 auto;
+	margin-bottom: 2em;
+	margin-top: 1em;
+	display: none;
+  }
+
+#GetLocationButton {
+	width: 120px;
+    padding: 10px;
+    background-color: #FFC107;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+#GetLocationButton:hover {
+    background-color: #D2691E;
+}
+
+#UserCoordinates {
+	text-align: center;
+}
