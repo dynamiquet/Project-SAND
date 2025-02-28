@@ -87,10 +87,6 @@ def display_county_disaster_data():
     requested_state = request.args['stateabbrv']
     requested_disasters_list = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
 
-    print(requested_county)
-    print(requested_state)
-    print(requested_disasters_list)
-    
     risk_values_for_disasters_dictionary = test.getRiskValuesbyCounty(requested_disasters_list, requested_county, requested_state)
     return render_template('displaydata.html', results = risk_values_for_disasters_dictionary, state = requested_state, county=requested_county, data=risk_values_for_disasters_dictionary)
 
