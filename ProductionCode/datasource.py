@@ -3,7 +3,7 @@ import ProductionCode.psqlConfig as config
 from ProductionCode.helper import *
 
 class DataSource:
-
+    
     def __init__(self):
         '''
         Constructor that initiates connection to database

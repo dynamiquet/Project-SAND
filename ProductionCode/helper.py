@@ -85,7 +85,7 @@ def return_alphabetical_disaster_list():
     '''
     return ["avalanche", "coastalflooding","coastal flooding", "coldwave", "cold wave", "drought", "earthquake", "hail",
             "heatwave", "hurricane", "icestorm", "ice storm", "landslide", "lightning", "riverineflooding", "riverine flooding",  
-            "strongwind", "strong wind", "tornado", "tsunami", "volcanicactivity","volcanic activity", "wildfire",
+            "strongwind", "strong wind", "tornado", "tsunami", "volcano", "wildfire",
             "winterweather", "winter weather"]
 
 def remove_county_and_state_columns(data):

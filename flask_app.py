@@ -83,9 +83,14 @@ def get_top5_disasters_for_county(county):
 # New URLs 
 @app.route('/displaycountydata')
 def display_county_disaster_data():
-    requested_county = str(request.args['county'])
-    requested_state = str(request.args['stateabbrv'])
+    requested_county = request.args['county']
+    requested_state = request.args['stateabbrv']
     requested_disasters_list = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
+
+    print(requested_county)
+    print(requested_state)
+    print(requested_disasters_list)
+    
     risk_values_for_disasters_dictionary = test.getRiskValuesbyCounty(requested_disasters_list, requested_county, requested_state)
     return render_template('displaydata.html', results = risk_values_for_disasters_dictionary, state = requested_state, county=requested_county, data=risk_values_for_disasters_dictionary)
 
@@ -119,4 +124,4 @@ def deadabout():
     return "Page describing who we are and what our mission is."
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5138)
