@@ -108,16 +108,16 @@ def homepage():
     return render_template('index.html')
 
 @app.route('/currlocation')
-def deadhomepage():
+def get_current_location_page():
     return render_template('getlocation.html')
 
 @app.route('/resources')
-def deadnews():
+def display_resources_page():
     return render_template("resources.html")
 
 @app.route('/about')
-def deadabout():
+def display_about_me_page():
     return "Page describing who we are and what our mission is."
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5138)
+    app.run()
