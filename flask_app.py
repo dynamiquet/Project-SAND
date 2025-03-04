@@ -55,7 +55,7 @@ def get_valid_county_and_disaster(disaster, county):
     state_abbrv = county_list[1]
 
     if (test.is_valid_us_county(county_name, state_abbrv) and is_disaster(disaster)):
-        return test.getRiskValuesbyCounty(disaster, county_name, state_abbrv)
+        return test.get_risk_values_by_county(disaster, county_name, state_abbrv)
     
     return ErrorMessage
 
@@ -74,7 +74,7 @@ def get_top5_disasters_for_county(county):
     state_abbrv = county_list[1]
     
     if (test.is_valid_us_county(county_name, state_abbrv)):
-        county_data = test.getCountyRow(county_name, state_abbrv)
+        county_data = test.get_county_row(county_name, state_abbrv)
         return get_top_five(county_data)
     
     return ErrorMessage
@@ -87,7 +87,7 @@ def display_county_disaster_data():
     requested_state = request.args['state']
     requested_disasters_list = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
 
-    risk_values_for_disasters_dictionary = test.getRiskValuesbyCounty(requested_disasters_list, requested_county, requested_state)
+    risk_values_for_disasters_dictionary = test.get_risk_values_by_county(requested_disasters_list, requested_county, requested_state)
     return render_template('displaydata.html', results = risk_values_for_disasters_dictionary, state = requested_state, county=requested_county, data=risk_values_for_disasters_dictionary)
 
 @app.route('/top5')
@@ -95,7 +95,7 @@ def get_top5_risk_values_for_county():
     requested_state = request.args['state']
     requested_county = request.args['county']
 
-    county_data = test.getCountyRow(requested_county, requested_state)
+    county_data = test.get_county_row(requested_county, requested_state)
 
     return render_template("displaytop5data.html", county=requested_county, state=requested_state, data=get_top_five(county_data))
 

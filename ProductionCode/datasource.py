@@ -48,7 +48,7 @@ class DataSource:
 
             return None
     
-    def getRiskValuesbyCounty(self, disasters, county, state):
+    def get_risk_values_by_county(self, disasters, county, state):
         ''' 
         Arguments: disasters (string), county (string), state (string)
         Executes a SQL query by taking in the disasters list which are the columns of the database and retrieving the risk values for the specified US county which are then
@@ -76,7 +76,7 @@ class DataSource:
 
             return None
     
-    def getCountyRow(self, county, state):
+    def get_county_row(self, county, state):
         ''' 
         Arguments: county (string), state (string)
         Returns: the entire row of a county in the database
