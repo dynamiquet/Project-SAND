@@ -84,7 +84,7 @@ def get_top5_disasters_for_county(county):
 @app.route('/displaycountydata')
 def display_county_disaster_data():
     requested_county = request.args['county']
-    requested_state = request.args['stateabbrv']
+    requested_state = request.args['state']
     requested_disasters_list = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
 
     risk_values_for_disasters_dictionary = test.getRiskValuesbyCounty(requested_disasters_list, requested_county, requested_state)
@@ -92,7 +92,7 @@ def display_county_disaster_data():
 
 @app.route('/top5')
 def get_top5_risk_values_for_county():
-    requested_state = request.args['stateabbrv']
+    requested_state = request.args['state']
     requested_county = request.args['county']
 
     county_data = test.getCountyRow(requested_county, requested_state)
@@ -120,4 +120,4 @@ def display_about_me_page():
     return "Page describing who we are and what our mission is."
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5138)

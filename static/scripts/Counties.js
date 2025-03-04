@@ -389,7 +389,7 @@ const counties_by_state = {
         Returns: List of counties for a US state/territory
         Purpose: When a user changes the inputted state, the list of counties will update accordingly
         */
-        let inputtedState = document.getElementById("stateabbrv");
+        let inputtedState = document.getElementById("state");
         let inputtedCounty = document.getElementById("county");
         let selectedState = inputtedState.value;
 
