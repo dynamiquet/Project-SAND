@@ -162,10 +162,10 @@ h2#HelpfulTextAboveSearchInput {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	background-color: #B5E2FA;
+	background-color: #afe38c;
 	padding: 10px;
 	width: 35%;
-	border-radius: 10px;
+	border-radius: 15px;
 	margin: auto;
     border: #000000;
     border-width: 10px;
@@ -177,12 +177,45 @@ body {
 }
 
 div.top5box {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
     background-color: #afe38c;
     width: 700px;
     border: 2px solid green;
     border-radius: 15px;
     padding: 10px;
     margin: 0 auto;
+}
+
+div.RiskInfo {
+	background-color: #afe38c;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 15px;
+	width: 70%;
+	text-align: center;
+	bottom: 0;
+	margin-bottom: 10px;
+	left: 15%;
+	position: fixed;
+}
+
+div.RiskInfo h3 {
+	color: green;
+    margin: 5px 0;
+    font-size: 1.2em;
+}
+
+div.RiskInfo p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+div.RiskInfo strong {
+    margin: 5px 0;
 }
 
 .errorDisplay {
@@ -197,7 +230,7 @@ div.top5box {
 
 #GoogleMap {
     height: 400px;
-    width: 60%; /* The width is the width of the web page */
+    width: 60%;
 	margin: 0 auto;
     border: 3px solid green;
     border-radius: 15px;
