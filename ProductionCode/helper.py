@@ -198,6 +198,11 @@ def get_disaster_risk_dict(disasters_list, risk_values_list):
     return disasters_and_risks
 
 def pluralize_disaster_names(disaster_dictionary):
+    '''
+    Arguments: disaster_dictionary (dictionary)
+    Returns: dictionary
+    Updates the key of the dictionary to be in plural form. This is only used when displaying the disasters to the user on our website to align with grammatical conventions
+    '''
     plural_disaster_names_dict = {
         "avalanche" : "avalanches", "coastalflooding" : "coastal floodings", "coldwave" : "cold waves", "drought" : "droughts", "earthquake" : "earthquakes",
         "hail" : "hail", "heatwave" : "heat waves", "hurricane": "hurricanes", "icestorm": "ice storms", "landslide": "landslides", "lightning" : "lightning", 
@@ -211,7 +216,7 @@ def pluralize_disaster_names(disaster_dictionary):
 
 def is_formatted_county_and_state(county_list):
     '''
-    Arguments: county_list (string)
+    Arguments: county_list (list)
     Returns: boolean
     Checks to see if the inputted county is formatted as follows <county>, <state>. The legitimacy of the inputs is checked by is_valid_us_county
     '''
