@@ -197,6 +197,18 @@ def get_disaster_risk_dict(disasters_list, risk_values_list):
 
     return disasters_and_risks
 
+def pluralize_disaster_names(disaster_dictionary):
+    plural_disaster_names_dict = {
+        "avalanche" : "avalanches", "coastalflooding" : "coastal floodings", "coldwave" : "cold waves", "drought" : "droughts", "earthquake" : "earthquakes",
+        "hail" : "hail", "heatwave" : "heat waves", "hurricane": "hurricanes", "icestorm": "ice storms", "landslide": "landslides", "lightning" : "lightning", 
+        "riverineflooding" : "riverine floodings", "strongwind" : "strong wind", "tornado" : "tornadoes", "tsunami" : "tsunamis", "volcano" : "volcanoes", 
+        "wildfire" : "wildfires", "winterweather" : "winter weather"
+        }
+
+    pluralized_dictionary = {}
+    for disaster in disaster_dictionary.keys():
+        pluralized_dictionary.update({plural_disaster_names_dict[disaster] : disaster_dictionary[disaster]})
+
 def is_formatted_county_and_state(county_list):
     '''
     Arguments: county_list (string)

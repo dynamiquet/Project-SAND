@@ -22,7 +22,27 @@
             <h2>The risks of the disasters for {{county}}, {{state}} are:</h2>
             <ul>
                 {% for key, value in data.items() %}
-                    <li>The risk for {{ key }} is {{ value }}</li>
+                    {% if value == "Insufficient Data" or value == "No Rating" %}
+                        <li> Unfortunately, there is not enough data on {{key}}s for {{county}}, {{state}}. </li>
+                    {% elif value == "Not Applicable" %}
+                        <li> {{county}}, {{state}} is not considered at risk for {{key}}s. </li>
+                    {% elif value == "Very Low" %}
+                        <li> The risk for {{key}}s is very low. {{county}}, {{state}} is not very likely to experience {{key}}s. </li>
+                    {% elif value == "Relatively Low" %}
+                        <li> The risk for {{key}}s is relatively low. {{county}}, {{state}} is not likely to experience {{key}}s. </li>
+                    {% elif value == "Relatively Moderate" %}
+                        <li> The risk for {{key}}s is relatively moderate. {{county}}, {{state}} is somewhat likely to experience {{key}}s. It is
+                            advised that you head over to our <a href="/resources">resoures</a> page to learn more about {{key}}s. </li>
+                    {% elif value == "Relatively High" %}
+                        <li> The risk for {{key}}s is relatively high. {{county}}, {{state}} is very likely to experience {{key}}s. It is 
+                            strongly advised that you head over to our <a href="/resources">resources</a> page to learn more about {{key}} awareness and preparation. </li>
+                    {% elif value == "Very High" %}
+                        <li> The risk for {{key}}s is very high. {{county}}, {{state}} is extremely likely to experience {{key}}s. Please 
+                            head over to our <a href="/resources">resources</a> page to learn more about {{key}} awareness and preparation.
+                        </li>
+                    {% else %}
+                        <li>The risk for {{ key }} is {{ value }}</li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </div>
