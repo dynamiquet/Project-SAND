@@ -40,7 +40,7 @@ let map;
 async function initMap(user_latitude, user_longitude) {
   document.getElementById("GoogleMap").style.display = "block";
   text = document.getElementById("HelpfulTextAboveMaps");
-  text.innerHTML = "&#128073 Please click on the pin to get the name of your county! &#128072"
+  text.innerHTML = "&#128073 Please click on the center red pin to get the name of your county! &#128072"
 
   // The location of the User
   const position = { lat: user_latitude, lng: user_longitude };
