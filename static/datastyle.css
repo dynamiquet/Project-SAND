@@ -52,6 +52,8 @@ h2#HelpfulTextAboveSearchInput {
 	text-align: center;
 	font-family: Verdana, Geneva, sans-serif;
 	text-shadow: 2px 2px 3px #afe38c;
+	border-bottom: 10px;
+	border-top: 10px;
 }
 
 #navigationBar_ul{
@@ -169,8 +171,6 @@ h2#HelpfulTextAboveSearchInput {
 	margin: auto;
     border: #000000;
     border-width: 10px;
-	font-size: 15px;
-	font-family: Verdana, Geneva, sans-serif;
 }
 
 body {
@@ -197,11 +197,11 @@ div.RiskInfo {
 	flex-direction: column;
 	align-items: center;
 	border-radius: 15px;
-	width: 70%;
+	width: 20%;
 	text-align: center;
-	bottom: 0;
 	margin-bottom: 10px;
-	left: 15%;
+	left: 3%;
+	top: 25%;
 	position: fixed;
 }
 

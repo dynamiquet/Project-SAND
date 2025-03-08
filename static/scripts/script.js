@@ -30,7 +30,7 @@ function showPosition(position) {
     let text = document.getElementById("UserCoordinates");
     let user_latitude = position.coords.latitude
     let user_longitude = position.coords.longitude
-    text.innerHTML = "Your Coordinates are:<br> Latitude: " + user_latitude + "<br> Longitude: " + user_longitude
+    text.innerHTML = "If you were curious, your coordinates are:<br> Latitude: " + user_latitude + "<br> Longitude: " + user_longitude
     initMap(user_latitude, user_longitude)
 }
 
@@ -40,7 +40,7 @@ let map;
 async function initMap(user_latitude, user_longitude) {
   document.getElementById("GoogleMap").style.display = "block";
   text = document.getElementById("HelpfulTextAboveMaps");
-  text.innerHTML = "Please click on the pin to get the name of your county!"
+  text.innerHTML = "&#128073 Please click on the pin to get the name of your county! &#128072"
 
   // The location of the User
   const position = { lat: user_latitude, lng: user_longitude };
