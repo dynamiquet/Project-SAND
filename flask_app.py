@@ -88,11 +88,10 @@ def display_county_disaster_data():
     requested_disasters_list = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
 
     risk_values_for_disasters_dictionary = test.get_risk_values_by_county(requested_disasters_list, requested_county, requested_state)
-    updated_risk_values_for_disasters_dictionary = pluralize_disaster_names(risk_values_for_disasters_dictionary)
 
-    print(updated_risk_values_for_disasters_dictionary)
+    updated_risk_values_for_disasters_dictionary = pluralize_disaster_names(risk_values_for_disasters_dictionary)
     
-    return render_template('displaydata.html', results = risk_values_for_disasters_dictionary, state = requested_state, county=requested_county, data=risk_values_for_disasters_dictionary)
+    return render_template('displaydata.html', state = requested_state, county=requested_county, data=updated_risk_values_for_disasters_dictionary)
 
 @app.route('/top5')
 def get_top5_risk_values_for_county():

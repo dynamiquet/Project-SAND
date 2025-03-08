@@ -213,6 +213,8 @@ def pluralize_disaster_names(disaster_dictionary):
     pluralized_dictionary = {}
     for disaster in disaster_dictionary.keys():
         pluralized_dictionary.update({plural_disaster_names_dict[disaster] : disaster_dictionary[disaster]})
+    
+    return pluralized_dictionary
 
 def is_formatted_county_and_state(county_list):
     '''

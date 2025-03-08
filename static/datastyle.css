@@ -173,6 +173,11 @@ h2#HelpfulTextAboveSearchInput {
     border-width: 10px;
 }
 
+#countyResults p {
+	margin: 8px 0;
+    font-size: 18px;
+}
+
 body {
     margin-left: 3%;
     margin-right: 3%;
@@ -201,8 +206,8 @@ div.RiskInfo {
 	text-align: center;
 	margin-bottom: 10px;
 	left: 3%;
-	top: 25%;
-	position: fixed;
+	top: 26%;
+	position: absolute;
 }
 
 div.RiskInfo h3 {
@@ -213,7 +218,7 @@ div.RiskInfo h3 {
 
 div.RiskInfo p {
     margin: 5px 0;
-    font-size: 0.9em;
+    font-size: 18px;
 }
 
 div.RiskInfo strong {
@@ -261,4 +266,33 @@ div.RiskInfo strong {
 
 #UserCoordinates {
 	text-align: center;
+}
+
+.risk-images {
+	display: flex;
+}
+
+div.rating-breakdown {
+	background-color: #afe38c;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 15px;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 10px;
+	left: 3%;
+	top: 62%;
+	position: absolute;
+}
+
+div.rating-breakdown p {
+	margin: 5px 0;
+    font-size: 18px;
+}
+
+div.rating-breakdown h3 {
+	color: green;
+    margin: 5px 0;
+    font-size: 1.2em;
 }
