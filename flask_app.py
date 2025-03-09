@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from ProductionCode.helper import *
 from ProductionCode.datasource import DataSource
-# comment
+
 app = Flask(__name__)
 test = DataSource()
 test.connect()
@@ -17,8 +17,8 @@ def page_not_found(e):
 def python_bug(e):
    '''Arguments: None
     Return: String of instructions
-    Purpose: In case of developer error, directs users back to homepage'''
-   #"Sorry for the error, we have a bug in our code! Please go back to the homepage!" 
+    Purpose: In case of developer error, directs users back to homepage
+    '''
    return render_template('displayerror.html')
 
 @app.route('/prevhome')
