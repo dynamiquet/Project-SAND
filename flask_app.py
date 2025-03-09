@@ -100,7 +100,11 @@ def get_top5_risk_values_for_county():
 
     county_data = test.get_county_row(requested_county, requested_state)
 
-    return render_template("displaytop5data.html", county=requested_county, state=requested_state, data=get_top_five(county_data))
+    top5_risk_values_dictionary = get_top_five(county_data)
+
+    updated_risk_values = pluralize_disaster_names(top5_risk_values_dictionary)
+
+    return render_template("displaytop5data.html", county=requested_county, state=requested_state, data=updated_risk_values)
 
 @app.route('/top5page')
 def display_top5_page():
