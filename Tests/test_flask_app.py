@@ -39,7 +39,7 @@ class TestSANDPage(unittest.TestCase):
       self.app = app.test_client()
 
       test1 = self.app.get('/top5/Los Angeles, CA', follow_redirects=True)
-      self.assertEqual(b'{"Earthquake":"Very High","Landslide":"Relatively High","Lightning":"Relatively High","Tornado":"Relatively High","Wildfire":"Very High"}\n', test1.data)
+      self.assertEqual(b'{"earthquake":"Very High","landslide":"Relatively High","lightning":"Relatively High","tornado":"Relatively High","wildfire":"Very High"}\n', test1.data)
 
       Edgetest1 = self.app.get('/top5/LosAngel', follow_redirects=True)
       self.assertEqual(b'Either your county or disaster are not valid inputs. Please check homepage to see correct usage.', Edgetest1.data)

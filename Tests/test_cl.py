@@ -56,7 +56,7 @@ class ProjectMethodsTests(unittest.TestCase):
         '''Argument: instance of ProjectMethodsTests
         Tests to see if get_top_five correctly returns the five disasters that a county is most at risk of experiencing 
         '''
-        countydata = test.getCountyRow("Los Angeles", "CA")
+        countydata = test.get_county_row("Los Angeles", "CA")
         result = get_top_five(countydata)
         self.assertEqual(len(result), 5)  # Ensure exactly 5 disasters returned
 
@@ -65,7 +65,7 @@ class ProjectMethodsTests(unittest.TestCase):
             self.assertIsInstance(rating, str)
 
         with self.assertRaises(Exception):
-            test.getCountyRow("Atlantis")
+            test.get_county_row("Atlantis")
 
     def test_partial_disaster_input(self):
         '''Argument: instance of ProjectMethodsTests
@@ -108,7 +108,7 @@ class ProjectMethodsTests(unittest.TestCase):
 
         test2 = subprocess.Popen(['python3', 'command_line.py', '--disaster', 'tornado', '--county', 'Rice'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
         output, err = test2.communicate()
-        self.assertEqual(output.strip(), 'Not a valid county. Please ensure the county is formatted as <county>, <stateabbrv> and try again')
+        self.assertEqual(output.strip(), 'Not a valid county. Please ensure the county is formatted as <county>, <state_abbrv> and try again')
         test2.terminate()
 
         test3 = subprocess.Popen(['python3', 'command_line.py', '--disaster', 'torn', '--county', 'Rice, MN'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
@@ -118,12 +118,12 @@ class ProjectMethodsTests(unittest.TestCase):
 
         test4 = subprocess.Popen(['python3', 'command_line.py', '--top5', 'Rice, MN'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
         output, err = test4.communicate()
-        self.assertEqual(output.strip(), "{'Winter Weather': 'Relatively High', 'Hail': 'Relatively High', 'Tornado': 'Relatively Moderate', 'Strong Wind': 'Relatively Moderate', 'Heat Wave': 'Relatively Moderate'}")
+        self.assertEqual(output.strip(), "{'winterweather': 'Relatively High', 'hail': 'Relatively High', 'tornado': 'Relatively Moderate', 'strongwind': 'Relatively Moderate', 'heatwave': 'Relatively Moderate'}")
         test4.terminate()
 
         test5 = subprocess.Popen(['python3', 'command_line.py', '--top5', 'Rice'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf8')
         output, err = test5.communicate()
-        self.assertEqual(output.strip(), 'Not a valid county. Please ensure the county is formatted as <county>, <stateabbrv> and try again')
+        self.assertEqual(output.strip(), 'Not a valid county. Please ensure the county is formatted as <county>, <state_abbrv> and try again')
         test5.terminate()
 
 if __name__ == "__main__":
