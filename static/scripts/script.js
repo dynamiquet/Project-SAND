@@ -16,6 +16,66 @@ function getCheckedBoxes(){
   disasterlist.value = selectedDisasters;
 }
 
+function setAllDisasterCheckedBoxes() {
+  /*
+  Arguments: None
+  Returns: None
+  Purpose: Sets all disaster checkboxes as checked or unchecked
+  */
+  if (isAllDisastersChecked()) {
+    setUncheckAllDisasterCheckedBoxes();
+  }
+
+  else {
+    document.querySelectorAll('[name = "disaster"]').forEach(item =>{
+    item.checked = true
+    })
+  }
+}
+
+function getTotalSelectedCheckboxes() {
+  /*
+  Arguments: None
+  Returns: Integer
+  Purpose: Counts total number of disaster checkboxes that are checked
+  */
+  let totalSelectedDisasters = 0
+
+  document.querySelectorAll('[name = "disaster"]').forEach(item =>{
+    if (item.checked === true){
+      totalSelectedDisasters++;
+    }
+  })
+  return totalSelectedDisasters;
+}
+
+function isAllDisastersChecked() {
+  /*
+  Arguments: None
+  Returns: Boolean
+  Purpose: Determines if all disaster checkboxes are checked
+  */
+  let totalDisasterCheckboxes = 18
+  let totalSelectedDisasters = getTotalSelectedCheckboxes();
+  if (totalSelectedDisasters === totalDisasterCheckboxes){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+function setUncheckAllDisasterCheckedBoxes() {
+  /*
+  Arguments: None
+  Returns: None
+  Purpose: If "check all disasters" checkbox is unchecked by user, then all disaster checkboxes will be unchecked
+  */
+  document.querySelectorAll('[name = "disaster"]').forEach(item =>{
+    item.checked = false
+  })
+}
+
 function getCurrentLocation() {
   /*
   Arguments: None

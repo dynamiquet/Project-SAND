@@ -19,7 +19,7 @@
         </ul>
 
         <h2 id = "HelpfulTextAboveSearchInput">Learn about disaster risks for your county!</h2>
-        <form action="displaycountydata" id = "getData" onsubmit="GetCheckedBoxes()">
+        <form action="displaycountydata" id = "getData" onsubmit="getCheckedBoxes()">
             <div id = "inputContainer">
             <label for="state">State:</label>
             <!-- Drop down menu for states-->
@@ -170,6 +170,11 @@
                   <img src = '../static/images/Flooding.png' alt = "Icon image for riverineflooding" style="width:25px;height:25px;"> 
                   <label> Riverine Flooding</label></div>
             </div>
+            </div>
+
+            <div id = CheckAllDisasters>
+                <input type = "checkbox" name = "checkall" onclick="setAllDisasterCheckedBoxes()">
+                <label for="checkall"> Check All Disasters!</label><br>
             </div>
 
             <input type = "hidden" id = "hiddenSelectedDisasters" name = "hiddenSelectedDisaster" value = "">

@@ -97,11 +97,11 @@ h2#HelpfulTextAboveSearchInput {
 
 #inputContainer {
     display: flex;
-    gap: 15px; /* Space between State and County */
+    gap: 15px;
 }
 
 #inputContainer input {
-    width: 150px; /* Adjust width of inputs */
+    width: 150px;
     padding: 8px;
     text-align: center;
 }
@@ -126,6 +126,7 @@ h2#HelpfulTextAboveSearchInput {
 }
 
 .ALLDS {
+	margin-top: 10px;
 	display: flex;
 	flex-direction: row;
 	background-color: #afe38c;
@@ -295,4 +296,11 @@ div.rating-breakdown h3 {
 	color: green;
     margin: 5px 0;
     font-size: 1.2em;
+}
+
+div#CheckAllDisasters {
+	margin-top: 20px;
+	background-color: #afe38c;
+	padding: 10px;
+	border-radius: 10px;
 }
