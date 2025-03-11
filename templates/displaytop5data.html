@@ -3,6 +3,7 @@
         <title>Project S.A.N.D.</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='datastyle.css') }}">
         <script src="../static/scripts/Counties.js"></script>
+        <script src="../static/scripts/CollapsibleElements.js"></script>
     </head>
 
     <body>
@@ -63,20 +64,24 @@
         </div>
 
         <div class = "RiskInfo">
-            <h3 id = "RiskInfoHeader"> Risk Analysis</h3>
+            <button type="button" class="collapsible">Risk Methodology</button>
+            <div class = "content">
             <p> Our natural hazard risk ratings are calculated by multiplying the likelihood of a natural hazard event 
                 ocurring with the consequences of the natural hazard event on the area</p>
             <strong> Risk = Likelihood x Consequences</strong>
             <p>Our rating categories range from "Very Low" up to "Very High"</p>
+            </div>
         </div>
 
         <div class="rating-breakdown">
-            <h3> Rating Breakdown </h3>
+            <button type="button" class="collapsible">Rating Breakdown</button>
+            <div class = "content">
             <p> Very Low: It is extremely unlikely for the disaster to occur</p>
             <p> Relatively Low: It is unlikely for the disaster to occur</p>
             <p> Relatively Moderate: It is likely for the disaster to occur </p>
             <p> Relatively High: It is somewhat likely for the disaster to occur</p>
-            <p> Very High: It is extremely likely for the disaster to occur</p>     
+            <p> Very High: It is extremely likely for the disaster to occur</p>
+            </div>
         </div>
     </body>
 </html>
