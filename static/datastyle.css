@@ -17,7 +17,7 @@
 	text-align: center;
 }
 
-h1 {
+#project-title {
 	padding-top: 1em;
 	padding-bottom: 1em;
 	background-color: #afe38c;
@@ -184,17 +184,25 @@ body {
     margin-right: 3%;
 }
 
-div.top5box {
-	text-align: center;
+#top5box {
+	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
+	background-color: #afe38c;
+	border-radius: 15px;
+	text-align: center;
 	align-items: center;
-    background-color: #afe38c;
     width: 700px;
-    border: 2px solid green;
-    border-radius: 15px;
     padding: 10px;
     margin: 0 auto;
+}
+
+#userinput {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	padding: 10px;
+	align-items: center;
 }
 
 div.RiskInfo {
