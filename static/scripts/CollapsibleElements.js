@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function setCollapsibles() {
     Returns: None
     Purpose: Waits for a button with class "collapsible" to be clicked on and displays content
     */
-    var coll = document.querySelectorAll(".collapsible");
+    var allCollapsibles = document.querySelectorAll(".collapsible");
 
-    coll.forEach(function (button) { // Loop through each collapsible button
+    allCollapsibles.forEach(function (button) { // Loop through each collapsible button
         button.addEventListener("click", function () {
             this.classList.toggle("active");
             
