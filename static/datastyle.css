@@ -219,12 +219,6 @@ div.RiskInfo {
 	position: absolute;
 }
 
-div.RiskInfo h3 {
-	color: green;
-    margin: 5px 0;
-    font-size: 1.2em;
-}
-
 div.RiskInfo p {
     margin: 5px 0;
     font-size: 18px;
@@ -311,4 +305,39 @@ div#CheckAllDisasters {
 	background-color: #afe38c;
 	padding: 10px;
 	border-radius: 10px;
+}
+
+div.content {
+	padding: 0 18px;
+  	max-height: 0;
+  	overflow: hidden;
+  	transition: max-height 0.2s ease-out;
+  	background-color: #afe38c;
+	border-radius: 15px;
+}
+
+button.collapsible {
+	color: green;
+    margin: 5px 0;
+    font-size: 1.2em;
+	font-weight: bold;
+	width: 100%;
+	border-radius: 15px;
+	border: none;
+	background-color: #afe38c;
+	text-align: center;
+}
+
+.collapsible:after {
+	content: '\002B';
+	font-size: 1.2em;
+	color: green;
+	float: right;
+}
+
+.collapsible.active:after {
+	content: '\2212';
+	font-size: 1.2em;
+	color: green;
+	float: right;
 }
