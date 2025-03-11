@@ -2,19 +2,32 @@
 	box-sizing: border-box;
 }
 
-.column {
+div.column a {
 	float: left;
 	width: 50%;
-	padding: 10px;
+	padding: 15px;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+	color: black;
+	text-decoration: none;
+	text-shadow: 2px 2px 3px #afe38c;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;	
+}
+
+div.loneelement {
+	color: black;
+	text-decoration: none;
+	text-shadow: 2px 2px 3px #afe38c;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	text-align: center;
 }
 
 .row:after {
 	content: "";
 	clear: both;
-}
-
-.resourcestext {
-	text-align: center;
 }
 
 #project-title {
@@ -195,14 +208,6 @@ body {
     width: 700px;
     padding: 10px;
     margin: 0 auto;
-}
-
-#userinput {
-	display: flex;
-	flex-direction: row;
-	gap: 10px;
-	padding: 10px;
-	align-items: center;
 }
 
 div.RiskInfo {
