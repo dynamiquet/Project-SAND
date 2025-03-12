@@ -20,7 +20,7 @@
             </ul>
 
         <div id = "countyResults">
-            <h2>The risks of the disasters for {{county}}, {{state}} are:</h2>
+            <h2 id="HelpfulTextAboveSearchInput">The risks of the disasters for {{county}}, {{state}} are:</h2>
             <ul>
                 {% for key, value in data.items() %}
                     {% if value == "Insufficient Data" or value == "No Rating" %}
@@ -95,7 +95,7 @@
             </div>
         </div>
 
-        <div class="colorblindbutton"  id="getColorblindMode"> 
+        <div id="getColorblindMode"> 
             <input type="checkbox" id="colorblind-mode" onclick="colorblindMode()">
             <label for="colorblind-mode"> Check for Colorblind Mode (Beta)</label>
         </div>

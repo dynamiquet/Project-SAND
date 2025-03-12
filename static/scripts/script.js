@@ -266,8 +266,6 @@ function colorblindMode() {
     document.getElementById("navigationBar_ul").style.boxShadow = "none";
     document.getElementById("project-title").style.backgroundColor = "#DC267F";
     document.getElementById("project-title").style.borderColor = "#785EF0";
-    document.getElementById("HelpfulTextAboveSearchInput").style.color = "#648FFF";
-    document.getElementById("HelpfulTextAboveSearchInput").style.textShadow = "none";
 
     if (document.getElementById("input")) {
       document.getElementById("input").style.backgroundColor = "#FE6100";
@@ -285,7 +283,16 @@ function colorblindMode() {
       document.getElementById("top5box").style.backgroundColor = "#DC267F";
     }
 
+    if (document.getElementById("countyResults")) {
+      document.getElementById("countyResults").style.backgroundColor = "#DC267F";
+    }
+
     /* WILL BE CHANGED AFTER CLASS WORKSHOP */
+    if (document.getElementById("HelpfulTextAboveSearchInput")) {
+      document.getElementById("HelpfulTextAboveSearchInput").style.color = "#648FFF";
+      document.getElementById("HelpfulTextAboveSearchInput").style.textShadow = "none";
+    }
+
     if (document.getElementById("HelpfulTextAboveSearchInput2")) {
       document.getElementById("HelpfulTextAboveSearchInput2").style.color = "#648FFF";
       document.getElementById("HelpfulTextAboveSearchInput2").style.textShadow = "none";
@@ -307,8 +314,6 @@ function colorblindMode() {
     document.getElementById("navigationBar_ul").style.boxShadow = "0 5px 5px 0 #296b46";
     document.getElementById("project-title").style.backgroundColor = "#afe38c";
     document.getElementById("project-title").style.borderColor = "#2E8B57";
-    document.getElementById("HelpfulTextAboveSearchInput").style.color = "#2E8B57";
-    document.getElementById("HelpfulTextAboveSearchInput").style.textShadow = "2px 2px 3px #afe38c";
 
     if (document.getElementById("input")) {
       document.getElementById("input").style.backgroundColor = "#FFC107";
@@ -326,7 +331,16 @@ function colorblindMode() {
       document.getElementById("top5box").style.backgroundColor = "#afe38c";
     }
 
+    if (document.getElementById("countyResults")) {
+      document.getElementById("countyResults").style.backgroundColor = "#afe38c";
+    }
+
     /* WILL BE CHANGED AFTER CLASS WORKSHOP */
+    if (document.getElementById("HelpfulTextAboveSearchInput")) {
+      document.getElementById("HelpfulTextAboveSearchInput").style.color = "#2E8B57";
+      document.getElementById("HelpfulTextAboveSearchInput").style.textShadow = "2px 2px 3px #afe38c";
+    }
+
     if (document.getElementById("HelpfulTextAboveSearchInput2")) {
       document.getElementById("HelpfulTextAboveSearchInput2").style.color = "#2E8B57";
       document.getElementById("HelpfulTextAboveSearchInput2").style.textShadow = "2px 2px 3px #afe38c";
