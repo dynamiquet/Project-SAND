@@ -127,4 +127,4 @@ def display_about_me_page():
     return render_template("about.html")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5138)
+    app.run(host='0.0.0.0', port=5134)

@@ -145,7 +145,7 @@ function setMapText() {
   Returns: None
   Purpose: Updates supporting instructional text when user map is generated
   */
-  let text = document.getElementById("HelpfulTextAboveMaps");
+  let text = document.getElementById("HelpfulTextAboveSearchInput");
   text.innerHTML = "&#128073 Please click on the center red pin to get the name of your county! &#128072"
 }
 
