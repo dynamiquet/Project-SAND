@@ -34,8 +34,7 @@ class DataSource:
 
             query = f"SELECT EXISTS (SELECT 1 FROM county_and_riskvalues WHERE COUNTY = %s AND STATEABBRV = %s);"
 
-            # .title() accounts for counties that are not inputted with only the first letter capitalized
-            cursor.execute(query, (county.title(), state,))
+            cursor.execute(query, (county, state,))
 
             result = cursor.fetchall()
 

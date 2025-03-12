@@ -2,6 +2,7 @@
     <head>
         <title>Project S.A.N.D.</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='datastyle.css') }}">
+        <script src="../static/scripts/script.js"></script>
         <script src="../static/scripts/Counties.js"></script>
         <script src="../static/scripts/CollapsibleElements.js"></script>
     </head>
@@ -23,7 +24,7 @@
         </div>
         
         <div id="countyResults">
-            <h2>The five disasters {{county}}, {{state}} is most at risk for are:</h2>
+            <h2 id="HelpfulTextAboveSearchInput">The five disasters {{county}}, {{state}} is most at risk for are:</h2>
             <ul>
                 {% for key, value in data.items() %}
                     {% if value == "Insufficient Data" or value == "No Rating" %}
@@ -81,6 +82,20 @@
             <p> Relatively Moderate: It is likely for the disaster to occur </p>
             <p> Relatively High: It is somewhat likely for the disaster to occur</p>
             <p> Very High: It is extremely likely for the disaster to occur</p>
+            </div>
+        </div>
+
+        <div class="rating-legend">
+            <button type="button" class="collapsible">Risk Icon Legend</button>
+            <div class="content">
+                <img src='../static/images/redwarningsign.jpg' alt="Red warning sign" style="width:30px;height:30px;">
+                <p>It is <strong>absolutely imperative</strong> for your safety that you visit the resources page for the disaster. Awareness and preparation should be a <strong>top priority.</strong></p>
+                <img src='../static/images/orangewarningsign.png' alt="Orange warning sign" style="width:30px;height:30px;">
+                <p>It is <strong>strongly</strong> advised that you visit the resources page for the disaster. Awareness and preparation is necessary.</p>
+                <img src='../static/images/yellowarningsign.png' alt="Yellow warning sign" style="width:30px;height:30px;">
+                <p>It is advised that you visit the resources page for the disaster. Awareness is recommended but immediate preparation is not needed. </p>
+                <img src='../static/images/greencheckmark.png' alt="Green check mark" style="width:30px;height:30px;">
+                <p>Awareness and prepartion is not necessary, but there is a lot of interesting information available on our resources page.</p>
             </div>
         </div>
 
