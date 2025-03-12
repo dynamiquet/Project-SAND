@@ -2,12 +2,13 @@
     <head>
         <title>Project S.A.N.D.</title>
         <link rel="stylesheet" href="../static/datastyle.css">
-        <script src="../static/scripts/scripts.js"></script>
+        <script src="../static/scripts/script.js"></script>
         <script src="../static/scripts/Counties.js"></script>
+        <script src="../static/scripts/CollapsibleElements.js"></script>
     </head>
     <body>
 
-        <a href = "/" style="text-decoration: none; color: inherit;"><h1>Project S.A.N.D.</h1></a>
+        <a href = "/" style="text-decoration: none; color: inherit;"><h1 id="project-title">Project S.A.N.D.</h1></a>
             <div class = 'titleSub'><em>Spreading Awareness of Natural Disasters</em></div>
 
             <ul id = "navigationBar_ul">
@@ -23,36 +24,67 @@
             <ul>
                 {% for key, value in data.items() %}
                     {% if value == "Insufficient Data" or value == "No Rating" %}
-                        <li> Unfortunately, there is not enough data on {{key}}s for {{county}}, {{state}}. </li>
+                        <p> Unfortunately, there is not enough data on {{key}} for {{county}}, {{state}} </p>
                     {% elif value == "Not Applicable" %}
-                        <li> {{county}}, {{state}} is not considered at risk for {{key}}s. </li>
+                        <div class="risk-images">
+                            <img src='../static/images/greencheckmark.png' alt="Green check mark" style="width:30px;height:30px;">
+                            <p> {{county}}, {{state}} is not considered at risk for {{key}}. </p>
+                        </div>
                     {% elif value == "Very Low" %}
-                        <li> The risk for {{key}}s is very low. {{county}}, {{state}} is not very likely to experience {{key}}s. </li>
+                        <div class="risk-images">
+                            <img src='../static/images/greencheckmark.png' alt="Green check mark" style="width:30px;height:30px;">
+                            <p> The risk for {{key}} is very low </p>
+                        </div>
                     {% elif value == "Relatively Low" %}
-                        <li> The risk for {{key}}s is relatively low. {{county}}, {{state}} is not likely to experience {{key}}s. </li>
+                        <div class="risk-images">
+                            <img src='../static/images/yellowarningsign.png' alt="Yellow warning sign" style="width:34px;height:34px;">
+                            <p> The risk for {{key}} is relatively low </p>
+                        </div>                        
                     {% elif value == "Relatively Moderate" %}
-                        <li> The risk for {{key}}s is relatively moderate. {{county}}, {{state}} is somewhat likely to experience {{key}}s. It is
-                            advised that you head over to our <a href="/resources">resoures</a> page to learn more about {{key}}s. </li>
+                        <div class="risk-images">
+                            <img src='../static/images/yellowarningsign.png' alt="Yellow warning sign" style="width:34px;height:34px;">
+                            <p> The risk for {{key}} is relatively moderate </p>
+                        </div>                        
                     {% elif value == "Relatively High" %}
-                        <li> The risk for {{key}}s is relatively high. {{county}}, {{state}} is very likely to experience {{key}}s. It is 
-                            strongly advised that you head over to our <a href="/resources">resources</a> page to learn more about {{key}} awareness and preparation. </li>
+                        <div class="risk-images">
+                            <img src='../static/images/orangewarningsign.png' alt="Orange warning sign" style="width:28px;height:28px;">
+                            <p> The risk for {{key}} is relatively high </p>
+                        </div>                        
                     {% elif value == "Very High" %}
-                        <li> The risk for {{key}}s is very high. {{county}}, {{state}} is extremely likely to experience {{key}}s. Please 
-                            head over to our <a href="/resources">resources</a> page to learn more about {{key}} awareness and preparation.
-                        </li>
-                    {% else %}
-                        <li>The risk for {{ key }} is {{ value }}</li>
+                        <div class="risk-images">
+                            <img src='../static/images/redwarningsign.jpg' alt="Red warning sign" style="width:30px;height:30px;">
+                            <p> The risk for {{key}} is very high </p>
+                        </div>                        
                     {% endif %}
                 {% endfor %}
             </ul>
         </div>
 
         <div class = "RiskInfo">
-            <h3 id = "RiskInfoHeader"> Risk Analysis</h3>
+            <button type="button" class="collapsible">Risk Methodology</button>
+            <div class = "content">
             <p> Our natural hazard risk ratings are calculated by multiplying the likelihood of a natural hazard event 
-                ocurring with the consequences of the natural hazard event on the area.</p>
+                ocurring with the consequences of the natural hazard event on the area</p>
             <strong> Risk = Likelihood x Consequences</strong>
-            <p>Our rating categories range from "Very Low" to "Very High"</p>
+            <p>Our rating categories range from "Very Low" up to "Very High"</p>
+            </div>
+        </div>
+
+        <div class="rating-breakdown">
+            <button type="button" class="collapsible">Rating Breakdown</button>
+            <div class = "content">
+            <p> Very Low: It is extremely unlikely for the disaster to occur</p>
+            <p> Relatively Low: It is unlikely for the disaster to occur</p>
+            <p> Relatively Moderate: It is likely for the disaster to occur </p>
+            <p> Relatively High: It is somewhat likely for the disaster to occur</p>
+            <p> Very High: It is extremely likely for the disaster to occur</p>
+            </div>
+        </div>
+
+        <div id="getColorblindMode"> 
+            <input type="checkbox" id="colorblind-mode" onclick="colorblindMode()">
+            <label for="colorblind-mode"> Check for Colorblind Mode</label>
+            <!-- <button onclick="colorblindMode()"> Click here for colorblind mode </button> -->
         </div>
     </body>
 </html>

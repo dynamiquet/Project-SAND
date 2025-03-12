@@ -57,7 +57,7 @@ def main():
             print("Not a valid county. Please check spelling and try again")
             exit(1)
 
-        print(test.getRiskValuesbyCounty(disaster, county_name, state_abbrv))
+        print(test.get_risk_values_by_county(disaster, county_name, state_abbrv))
 
     # Running top5 flag
     if (args[0] == '--top5'):
@@ -76,7 +76,7 @@ def main():
         if (test.is_valid_us_county(county_name, state_abbrv) == False):
             print("Not a valid county. Please check spelling and try again")
         else:
-            countydata = test.getCountyRow(county_name, state_abbrv)
+            countydata = test.get_county_row(county_name, state_abbrv)
             print(get_top_five(countydata))
         
         return 0

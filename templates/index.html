@@ -3,10 +3,11 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='datastyle.css') }}">
         <script src="../static/scripts/script.js"></script>
         <script src="../static/scripts/Counties.js"></script>
+        <title> Project S.A.N.D. </title>
     </head>
 
     <body>
-        <a href = "/" style="text-decoration: none; color: inherit;"><h1>Project S.A.N.D.</h1></a>
+        <a href = "/" style="text-decoration: none; color: inherit;"><h1 id="project-title">Project S.A.N.D.</h1></a>
         <div class = 'titleSub'><em>Spreading Awareness of Natural Disasters</em></div>
 
         <ul id = "navigationBar_ul">
@@ -17,8 +18,8 @@
           <li class = "navigationBar_li"><a href="/about">About Us</a></li>
         </ul>
 
-        <h2 id = "HelpfulTextAboveSearchInput">Search for your county!</h2>
-        <form action="displaycountydata" id = "getData" onsubmit="GetCheckedBoxes()">
+        <h2 id = "HelpfulTextAboveSearchInput">Learn about disaster risks for your county!</h2>
+        <form action="displaycountydata" id = "getData" onsubmit="getCheckedBoxes()">
             <div id = "inputContainer">
             <label for="state">State:</label>
             <!-- Drop down menu for states-->
@@ -88,8 +89,8 @@
            </select> 
            </div>
 
-            <div class = 'ALLDS'>
-            <div class = 'disaster-container'>
+            <div class = 'ALLDS' id="ALLDS">
+            <div class='disaster-container'>
               <div>
                 <input type = "checkbox" name = "disaster" value = "avalanche">
                 <img src = '../static/images/avalanche.png' alt = "Icon image for avalanche" style="width:25px;height:25px;"> 
@@ -171,11 +172,22 @@
             </div>
             </div>
 
+            <div id = "CheckAllDisasters">
+                <input type = "checkbox" name = "checkall" onclick="setAllDisasterCheckedBoxes()">
+                <label for="checkall"> Check All Disasters!</label><br>
+            </div>
+
             <input type = "hidden" id = "hiddenSelectedDisasters" name = "hiddenSelectedDisaster" value = "">
 
-            <div id = "Submit"><input type="submit" value="Submit"></div><br>
+            <div id = "Submit"><input type="submit" value="Submit" id="input"></div><br>
 
         </form>
+
+        <div id="getColorblindMode"> 
+            <input type="checkbox" id="colorblind-mode" onclick="colorblindMode()">
+            <label for="colorblind-mode"> Check for Colorblind Mode</label>
+            <!-- <button onclick="colorblindMode()"> Click here for colorblind mode </button> -->
+        </div>
 
         <div><h4>Sources</h4></div>
 

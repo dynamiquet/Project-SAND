@@ -6,7 +6,7 @@
         <script src="../static/scripts/Counties.js"></script>
     </head>
     <body>
-        <a href = "/" style="text-decoration: none; color: inherit;"><h1>Project S.A.N.D.</h1></a>
+        <a href = "/" style="text-decoration: none; color: inherit;"><h1 id="project-title">Project S.A.N.D.</h1></a>
             <div class = 'titleSub'><em>Spreading Awareness of Natural Disasters</em></div>
 
             <ul id = "navigationBar_ul">
@@ -21,7 +21,7 @@
 
             <div id = "GoogleMap"> </div>
 
-            <button type = 'button' onclick="GetCurrentLocation()" id = "GetLocationButton">Get my Location!</button>
+            <button type = 'button' onclick="getCurrentLocation()" id = "GetLocationButton">Get my Location!</button>
 
             <p id = "UserCoordinates"> Your Coordinate are: Currently Unkown <br>...scary</p>
 
@@ -56,5 +56,10 @@
                   v: "weekly",
                 });
             </script>
+
+        <div id="getColorblindMode"> 
+            <input type="checkbox" id="colorblind-mode" onclick="colorblindMode()">
+            <label for="colorblind-mode"> Check for Colorblind Mode</label>
+        </div>
     </body>
 </html>

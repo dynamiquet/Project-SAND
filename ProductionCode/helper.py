@@ -103,9 +103,9 @@ def initialize_disaster_rating_dict():
     Purpose: Initializes disaster dictionary with integer ratings set to zero
     '''
     disaster_rating_dict = {
-        "Avalanche" : 0, "Coastal Flooding" : 0, "Cold Wave" : 0, "Drought" : 0, "Earthquake" : 0, "Hail" : 0, "Heat Wave" : 0, "Hurricane": 0, 
-        "Ice Storm": 0, "Landslide": 0, "Lightning" : 0, "Riverine Flooding" : 0, "Strong Wind" : 0, "Tornado" : 0, "Tsunami" : 0,
-        "Volcanic Activity" : 0, "Wildfire" : 0, "Winter Weather" : 0
+        "avalanche" : 0, "coastalflooding" : 0, "coldwave" : 0, "drought" : 0, "earthquake" : 0, "hail" : 0, "heatwave" : 0, "hurricane": 0, 
+        "icestorm": 0, "landslide": 0, "lightning" : 0, "riverineflooding" : 0, "strongwind" : 0, "tornado" : 0, "tsunami" : 0,
+        "volcano" : 0, "wildfire" : 0, "winterweather" : 0
     }
 
     return disaster_rating_dict
@@ -213,6 +213,8 @@ def pluralize_disaster_names(disaster_dictionary):
     pluralized_dictionary = {}
     for disaster in disaster_dictionary.keys():
         pluralized_dictionary.update({plural_disaster_names_dict[disaster] : disaster_dictionary[disaster]})
+    
+    return pluralized_dictionary
 
 def is_formatted_county_and_state(county_list):
     '''

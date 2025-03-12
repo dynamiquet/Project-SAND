@@ -1,23 +1,138 @@
-* {
-	box-sizing: border-box;
-}
-
-.column {
-	float: left;
-	width: 50%;
-	padding: 10px;
-}
-
-.row:after {
-	content: "";
-	clear: both;
-}
-
-.resourcestext {
+.resourcestable a {
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 25px;
 	text-align: center;
 }
 
-h1 {
+.resourcestable a:hover {
+	color: #afe38c;
+	font-weight: bold;
+}
+
+.resourcestable {
+	width: 100%;
+	border-collapse: collapse;
+	border: none;
+}
+
+td {
+	text-align: center;
+}
+
+.avalanche {
+	background-image: url('../static/images/avalanche.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.coastalflooding {
+	background-image: url('../static/images/coastalflooding.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.coldwave {
+	background-image: url('../static/images/coldwave.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.drought {
+	background-image: url('../static/images/drought.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.earthquake {
+	background-image: url('../static/images/earthquake.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.hail {
+	background-image: url('../static/images/hail.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.heatwave {
+	background-image: url('../static/images/heatwave.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.hurricane {
+	background-image: url('../static/images/hurricane.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.icestorm {
+	background-image: url('../static/images/icestorm.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.landslide {
+	background-image: url('../static/images/landslide.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.lightning {
+	background-image: url('../static/images/lightning.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.strongwind {
+	background-image: url('../static/images/strongwind.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.tornado {
+	background-image: url('../static/images/tornado.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.tsunami {
+	background-image: url('../static/images/tsunami.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.volcano {
+	background-image: url('../static/images/volcano.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.wildfire {
+	background-image: url('../static/images/wildfire.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.winterweather {
+	background-image: url('../static/images/winterweather.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+tr:nth-child(even) {
+	background-color: #afe38c;
+}
+
+tr {
+	height: 125px;
+}
+
+#project-title {
 	padding-top: 1em;
 	padding-bottom: 1em;
 	background-color: #afe38c;
@@ -52,6 +167,8 @@ h2#HelpfulTextAboveSearchInput {
 	text-align: center;
 	font-family: Verdana, Geneva, sans-serif;
 	text-shadow: 2px 2px 3px #afe38c;
+	border-bottom: 10px;
+	border-top: 10px;
 }
 
 #navigationBar_ul{
@@ -95,11 +212,11 @@ h2#HelpfulTextAboveSearchInput {
 
 #inputContainer {
     display: flex;
-    gap: 15px; /* Space between State and County */
+    gap: 15px;
 }
 
 #inputContainer input {
-    width: 150px; /* Adjust width of inputs */
+    width: 150px;
     padding: 8px;
     text-align: center;
 }
@@ -124,6 +241,7 @@ h2#HelpfulTextAboveSearchInput {
 }
 
 .ALLDS {
+	margin-top: 10px;
 	display: flex;
 	flex-direction: row;
 	background-color: #afe38c;
@@ -169,8 +287,11 @@ h2#HelpfulTextAboveSearchInput {
 	margin: auto;
     border: #000000;
     border-width: 10px;
-	font-size: 15px;
-	font-family: Verdana, Geneva, sans-serif;
+}
+
+#countyResults p {
+	margin: 8px 0;
+    font-size: 18px;
 }
 
 body {
@@ -178,15 +299,15 @@ body {
     margin-right: 3%;
 }
 
-div.top5box {
-	text-align: center;
+#top5box {
+	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
+	background-color: #afe38c;
+	border-radius: 15px;
+	text-align: center;
 	align-items: center;
-    background-color: #afe38c;
     width: 700px;
-    border: 2px solid green;
-    border-radius: 15px;
     padding: 10px;
     margin: 0 auto;
 }
@@ -197,23 +318,17 @@ div.RiskInfo {
 	flex-direction: column;
 	align-items: center;
 	border-radius: 15px;
-	width: 70%;
+	width: 20%;
 	text-align: center;
-	bottom: 0;
 	margin-bottom: 10px;
-	left: 15%;
-	position: fixed;
-}
-
-div.RiskInfo h3 {
-	color: green;
-    margin: 5px 0;
-    font-size: 1.2em;
+	left: 3%;
+	top: 26%;
+	position: absolute;
 }
 
 div.RiskInfo p {
     margin: 5px 0;
-    font-size: 0.9em;
+    font-size: 18px;
 }
 
 div.RiskInfo strong {
@@ -261,4 +376,75 @@ div.RiskInfo strong {
 
 #UserCoordinates {
 	text-align: center;
+}
+
+.risk-images {
+	display: flex;
+}
+
+div.rating-breakdown {
+	background-color: #afe38c;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 15px;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 10px;
+	left: 3%;
+	top: 61%;
+	position: absolute;
+}
+
+div.rating-breakdown p {
+	margin: 5px 0;
+    font-size: 18px;
+}
+
+div.rating-breakdown h3 {
+	color: green;
+    margin: 5px 0;
+    font-size: 1.2em;
+}
+
+div#CheckAllDisasters {
+	margin-top: 20px;
+	background-color: #afe38c;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+div.content {
+	padding: 0 18px;
+  	max-height: 0;
+  	overflow: hidden;
+  	transition: max-height 0.2s ease-out;
+  	background-color: #afe38c;
+	border-radius: 15px;
+}
+
+button.collapsible {
+	color: green;
+    margin: 5px 0;
+    font-size: 1.2em;
+	font-weight: bold;
+	width: 100%;
+	border-radius: 15px;
+	border: none;
+	background-color: #afe38c;
+	text-align: center;
+}
+
+.collapsible:after {
+	content: '\002B';
+	font-size: 1.2em;
+	color: green;
+	float: right;
+}
+
+.collapsible.active:after {
+	content: '\2212';
+	font-size: 1.2em;
+	color: green;
+	float: right;
 }

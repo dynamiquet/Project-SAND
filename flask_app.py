@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from ProductionCode.helper import *
 from ProductionCode.datasource import DataSource
-# comment
+
 app = Flask(__name__)
 test = DataSource()
 test.connect()
@@ -17,8 +17,8 @@ def page_not_found(e):
 def python_bug(e):
    '''Arguments: None
     Return: String of instructions
-    Purpose: In case of developer error, directs users back to homepage'''
-   #"Sorry for the error, we have a bug in our code! Please go back to the homepage!" 
+    Purpose: In case of developer error, directs users back to homepage
+    '''
    return render_template('displayerror.html')
 
 @app.route('/prevhome')
@@ -88,11 +88,10 @@ def display_county_disaster_data():
     requested_disasters_list = str(request.args.getlist('hiddenSelectedDisaster'))[2:-2]
 
     risk_values_for_disasters_dictionary = test.get_risk_values_by_county(requested_disasters_list, requested_county, requested_state)
-    updated_risk_values_for_disasters_dictionary = pluralize_disaster_names(risk_values_for_disasters_dictionary)
 
-    print(updated_risk_values_for_disasters_dictionary)
+    updated_risk_values_for_disasters_dictionary = pluralize_disaster_names(risk_values_for_disasters_dictionary)
     
-    return render_template('displaydata.html', results = risk_values_for_disasters_dictionary, state = requested_state, county=requested_county, data=risk_values_for_disasters_dictionary)
+    return render_template('displaydata.html', state = requested_state, county=requested_county, data=updated_risk_values_for_disasters_dictionary)
 
 @app.route('/top5')
 def get_top5_risk_values_for_county():
@@ -101,7 +100,11 @@ def get_top5_risk_values_for_county():
 
     county_data = test.get_county_row(requested_county, requested_state)
 
-    return render_template("displaytop5data.html", county=requested_county, state=requested_state, data=get_top_five(county_data))
+    top5_risk_values_dictionary = get_top_five(county_data)
+
+    updated_risk_values = pluralize_disaster_names(top5_risk_values_dictionary)
+
+    return render_template("displaytop5data.html", county=requested_county, state=requested_state, data=updated_risk_values)
 
 @app.route('/top5page')
 def display_top5_page():
@@ -124,4 +127,4 @@ def display_about_me_page():
     return "Page describing who we are and what our mission is."
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5138)
+    app.run()
