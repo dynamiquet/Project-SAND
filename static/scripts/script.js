@@ -255,6 +255,7 @@ async function getUserCounty(position) {
 
 //   applyColorblindMode(isChecked);
 // }
+
 /* Uses the IBM color palette that is color-blind friendly */
 function colorblindMode() {
 
@@ -267,7 +268,10 @@ function colorblindMode() {
     document.getElementById("project-title").style.borderColor = "#785EF0";
     document.getElementById("HelpfulTextAboveSearchInput").style.color = "#648FFF";
     document.getElementById("HelpfulTextAboveSearchInput").style.textShadow = "none";
-    document.getElementById("input").style.backgroundColor = "#FE6100";
+
+    if (document.getElementById("input")) {
+      document.getElementById("input").style.backgroundColor = "#FE6100";
+    }
 
     if (document.getElementById("CheckAllDisasters")) {
       document.getElementById("CheckAllDisasters").style.backgroundColor = "#DC267F";
@@ -280,6 +284,22 @@ function colorblindMode() {
     if (document.getElementById("top5box")) {
       document.getElementById("top5box").style.backgroundColor = "#DC267F";
     }
+
+    /* WILL BE CHANGED AFTER CLASS WORKSHOP */
+    if (document.getElementById("HelpfulTextAboveSearchInput2")) {
+      document.getElementById("HelpfulTextAboveSearchInput2").style.color = "#648FFF";
+      document.getElementById("HelpfulTextAboveSearchInput2").style.textShadow = "none";
+    }
+
+    if (document.getElementById("HelpfulTextAboveSearchInput3")) {
+      document.getElementById("HelpfulTextAboveSearchInput3").style.color = "#648FFF";
+      document.getElementById("HelpfulTextAboveSearchInput3").style.textShadow = "none";
+    }
+
+    if (document.getElementById("HelpfulTextAboveSearchInput4")) {
+      document.getElementById("HelpfulTextAboveSearchInput4").style.color = "#648FFF";
+      document.getElementById("HelpfulTextAboveSearchInput4").style.textShadow = "none";
+    }
   /* Revert back to the normal styling */
   } else {
     document.body.style.background = "#F5F5DC";
@@ -289,7 +309,10 @@ function colorblindMode() {
     document.getElementById("project-title").style.borderColor = "#2E8B57";
     document.getElementById("HelpfulTextAboveSearchInput").style.color = "#2E8B57";
     document.getElementById("HelpfulTextAboveSearchInput").style.textShadow = "2px 2px 3px #afe38c";
-    document.getElementById("input").style.backgroundColor = "#FFC107";
+
+    if (document.getElementById("input")) {
+      document.getElementById("input").style.backgroundColor = "#FFC107";
+    }
 
     if (document.getElementById("CheckAllDisasters")) {
       document.getElementById("CheckAllDisasters").style.backgroundColor = "#afe38c";
@@ -301,6 +324,22 @@ function colorblindMode() {
 
     if (document.getElementById("top5box")) {
       document.getElementById("top5box").style.backgroundColor = "#afe38c";
+    }
+
+    /* WILL BE CHANGED AFTER CLASS WORKSHOP */
+    if (document.getElementById("HelpfulTextAboveSearchInput2")) {
+      document.getElementById("HelpfulTextAboveSearchInput2").style.color = "#2E8B57";
+      document.getElementById("HelpfulTextAboveSearchInput2").style.textShadow = "2px 2px 3px #afe38c";
+    }
+
+    if (document.getElementById("HelpfulTextAboveSearchInput3")) {
+      document.getElementById("HelpfulTextAboveSearchInput3").style.color = "#2E8B57";
+      document.getElementById("HelpfulTextAboveSearchInput3").style.textShadow = "2px 2px 3px #afe38c";
+    }
+
+    if (document.getElementById("HelpfulTextAboveSearchInput4")) {
+      document.getElementById("HelpfulTextAboveSearchInput4").style.color = "#2E8B57";
+      document.getElementById("HelpfulTextAboveSearchInput4").style.textShadow = "2px 2px 3px #afe38c";
     }
   }
 }
