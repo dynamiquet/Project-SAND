@@ -124,7 +124,8 @@ def display_resources_page():
 
 @app.route('/about')
 def display_about_me_page():
-    return "Page describing who we are and what our mission is."
+    return render_template('about.html')
+
 
 if __name__ == '__main__':
     app.run()
