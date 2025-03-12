@@ -502,6 +502,7 @@ button.collapsible {
 }
 
 #getColorblindMode {
+	margin-top: 250px;
 	padding-top: 20px;
 	font-size: large;
 	font-weight: 600;
