@@ -153,6 +153,7 @@ tr {
 
 body{
 	background-color: #F5F5DC;
+	margin: 0 3%;
 }
 
 h2 {
@@ -292,11 +293,6 @@ h2#HelpfulTextAboveSearchInput {
 #countyResults p {
 	margin: 8px 0;
     font-size: 18px;
-}
-
-body {
-    margin-left: 3%;
-    margin-right: 3%;
 }
 
 #top5box {
@@ -475,4 +471,24 @@ div.colorblindbutton {
 	left: 3%;
 	top: 105%;
 	position: absolute;
+}
+
+section {
+	padding-bottom: 10px;
+}
+
+section p {
+	font-size: larger;
+	font-weight: 550;
+	text-align: center;
+	padding: 0px 10em;
+}
+
+footer {
+	color: rgb(0, 0, 0);
+	position: relative;
+	width: 100%;
+	top: 110px;
+	padding-top: 20px;
+	text-align: center;
 }
