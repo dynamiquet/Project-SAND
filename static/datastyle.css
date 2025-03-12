@@ -22,6 +22,15 @@ td {
 	text-align: center;
 }
 
+td[class] a {
+	color: #0dcc10;
+	border-radius: 8px;
+	background-color: #0000004d;
+}
+
+td[class] a:hover {
+	-webkit-text-fill-color: #ffb700;
+}
 .avalanche {
 	background-image: url('../static/images/avalanche.jpg');
 	background-size: cover;
@@ -464,13 +473,10 @@ button.collapsible {
 	float: right;
 }
 
-div.colorblindbutton {
-	display: flex;
-	border-radius: 15px;
-	width: 20%;
-	left: 3%;
-	top: 105%;
-	position: absolute;
+#getColorblindMode {
+	padding-top: 20px;
+	font-size: large;
+	font-weight: 600;
 }
 
 section {
