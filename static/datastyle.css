@@ -1,9 +1,15 @@
 .resourcestable a {
 	color: black;
+	font-weight: bold;
 	text-decoration: none;
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 20px;
+	font-size: 25px;
 	text-align: center;
+}
+
+.resourcestable a:hover {
+	color: #afe38c;
+	font-weight: bold;
 }
 
 .resourcestable {
@@ -14,11 +20,106 @@
 
 td {
 	text-align: center;
-	padding: 8px;
 }
 
 .avalanche {
 	background-image: url('../static/images/avalanche.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.coastalflooding {
+	background-image: url('../static/images/coastalflooding.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.coldwave {
+	background-image: url('../static/images/coldwave.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.drought {
+	background-image: url('../static/images/drought.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.earthquake {
+	background-image: url('../static/images/earthquake.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.hail {
+	background-image: url('../static/images/hail.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.heatwave {
+	background-image: url('../static/images/heatwave.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.hurricane {
+	background-image: url('../static/images/hurricane.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.icestorm {
+	background-image: url('../static/images/icestorm.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.landslide {
+	background-image: url('../static/images/landslide.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.lightning {
+	background-image: url('../static/images/lightning.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.strongwind {
+	background-image: url('../static/images/strongwind.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.tornado {
+	background-image: url('../static/images/tornado.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.tsunami {
+	background-image: url('../static/images/tsunami.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.volcano {
+	background-image: url('../static/images/volcano.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.wildfire {
+	background-image: url('../static/images/wildfire.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.winterweather {
+	background-image: url('../static/images/winterweather.jpg');
 	background-size: cover;
 	background-position: center;
 }
@@ -28,7 +129,7 @@ tr:nth-child(even) {
 }
 
 tr {
-	height: 75px;
+	height: 125px;
 }
 
 #project-title {
