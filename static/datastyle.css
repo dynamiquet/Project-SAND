@@ -1,15 +1,15 @@
 .resourcestable a {
-	color: black;
+	color: rgb(49, 195, 49);
 	font-weight: bold;
 	text-decoration: none;
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 25px;
+	font-size: 35px;
 	text-align: center;
 }
 
 .resourcestable a:hover {
 	color: #afe38c;
-	font-weight: bold;
+
 }
 
 .resourcestable {
@@ -129,7 +129,7 @@ tr:nth-child(even) {
 }
 
 tr {
-	height: 125px;
+	height: 150px;
 }
 
 #project-title {
@@ -392,7 +392,7 @@ div.rating-breakdown {
 	text-align: center;
 	margin-bottom: 10px;
 	left: 3%;
-	top: 61%;
+	top: 60%;
 	position: absolute;
 }
 
@@ -405,6 +405,25 @@ div.rating-breakdown h3 {
 	color: green;
     margin: 5px 0;
     font-size: 1.2em;
+}
+
+div.rating-legend {
+	background-color: #afe38c;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 15px;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 10px;
+	right: 3%;
+	top: 26%;
+	position: absolute;
+}
+
+div.rating-legend p {
+    margin: 5px 0;
+    font-size: 18px;
 }
 
 div#CheckAllDisasters {
@@ -447,4 +466,13 @@ button.collapsible {
 	font-size: 1.2em;
 	color: green;
 	float: right;
+}
+
+div.colorblindbutton {
+	display: flex;
+	border-radius: 15px;
+	width: 20%;
+	left: 3%;
+	top: 105%;
+	position: absolute;
 }
