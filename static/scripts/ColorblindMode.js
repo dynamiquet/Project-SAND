@@ -34,6 +34,7 @@ function setColorblindMode(colorblind_checkbox) {
 function setColorblindOn() {
     allColorblindElements = getAllColorblindElements();
     setBackgroundColors(allColorblindElements);
+    setTextShadowsOff(allColorblindElements);
 }
 
 function setColorblindOff() {
@@ -56,6 +57,7 @@ function setBackgroundColors (allColorblindElements) {
     setBackgroundColorBrightPink(allColorblindElements);
     setBackgroundColorOrange(allColorblindElements);
     setColorLightBlue(allColorblindElements);
+    setTextBlue(allColorblindElements);
 }
 
 function setTextShadowsOff (allColorblindElements){
@@ -89,6 +91,14 @@ function setBackgroundColorOrange (allColorblindElements){
     allColorblindElements.forEach(function (element) {
         if (element.classList.contains('Orange')){
             element.style.backgroundColor = "#FE6100"
+        }
+    });
+}
+
+function setTextBlue (allColorblindElements){
+    allColorblindElements.forEach(function (element) {
+        if (element.classList.contains('Text')){
+            element.style.color = "#648FFF"
         }
     });
 }
