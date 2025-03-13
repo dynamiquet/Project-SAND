@@ -181,6 +181,21 @@ def get_sorted_dangerous_disasters_by_county(countyrow):
 
     return sorted_disasters_dict
 
+def sort_risk_ratings_of_dictionary(disaster_dictionary):
+    '''
+    Arguments: disaster_dictionary (dictionary)
+    Returns: sorted dictionary with disaster ratings sorted from most severe to least severe
+    This function is meant to work with any dictionary with any number of disasters. Orders disasters from highest risk to lowest risk to make it cleaner for the user
+    '''
+    for disaster in disaster_dictionary.keys():
+        disaster_dictionary[disaster] = get_int_rating(disaster_dictionary[disaster])
+
+    sorted_disasters_dict = dict(reversed(sorted(disaster_dictionary.items(), key=lambda item: item[1])))
+
+    disaster_to_str_rating_dict(sorted_disasters_dict)
+
+    return sorted_disasters_dict
+
 def get_disaster_risk_dict(disasters_list, risk_values_list):
     '''
     Arguments: disasterslist (string), riskvalueslist (string)
@@ -227,18 +242,3 @@ def is_formatted_county_and_state(county_list):
         return True
     else:
         return False
-    
-def sort_risk_ratings_of_dictionary(disaster_dictionary):
-    '''
-    Arguments: disaster_dictionary (dictionary)
-    Returns: sorted dictionary with disaster ratings sorted from most severe to least severe
-    This function is meant to work with any dictionary with any number of disasters. Orders disasters from highest risk to lowest risk to make it cleaner for the user
-    '''
-    for disaster in disaster_dictionary.keys():
-        disaster_dictionary[disaster] = get_int_rating(disaster_dictionary[disaster])
-
-    sorted_disasters_dict = dict(reversed(sorted(disaster_dictionary.items(), key=lambda item: item[1])))
-
-    disaster_to_str_rating_dict(sorted_disasters_dict)
-
-    return sorted_disasters_dict
