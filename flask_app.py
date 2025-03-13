@@ -90,8 +90,22 @@ def display_county_disaster_data():
     risk_values_for_disasters_dictionary = test.get_risk_values_by_county(requested_disasters_list, requested_county, requested_state)
 
     updated_risk_values_for_disasters_dictionary = pluralize_disaster_names(risk_values_for_disasters_dictionary)
+
+    sorted_risk_values_dictionary = sort_risk_ratings_of_dictionary(updated_risk_values_for_disasters_dictionary)
     
-    return render_template('displaydata.html', state = requested_state, county=requested_county, data=updated_risk_values_for_disasters_dictionary)
+    return render_template('displaydata.html', state = requested_state, county=requested_county, data=sorted_risk_values_dictionary)
+
+# @app.route('/displayallcountydata')
+# def display_all_county_disaster_data():
+#     requested_county = request.args['county']
+#     requested_state = request.args['state']
+#     requested_disasters_list = "avalanche, coastalflooding, coldwave, drought, earthquake, hail, heatwave, hurricane, icestorm, landslide, lightning, riverineflooding, strongwind, tornado, tsunami, volcano, wildfire, winterweather"
+
+#     risk_values_for_disasters_dictionary = test.get_risk_values_by_county(requested_disasters_list, requested_county, requested_state)
+
+#     updated_risk_values_for_disasters_dictionary = pluralize_disaster_names(risk_values_for_disasters_dictionary)
+    
+#     return render_template('displaydata.html', state = requested_state, county=requested_county, data=updated_risk_values_for_disasters_dictionary)
 
 @app.route('/top5')
 def get_top5_risk_values_for_county():
@@ -127,4 +141,4 @@ def display_about_me_page():
     return render_template("about.html")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5134)
+    app.run(host='0.0.0.0', port=5138)
