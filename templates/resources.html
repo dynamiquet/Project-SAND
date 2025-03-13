@@ -3,19 +3,20 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='datastyle.css') }}">
         <script src="../static/scripts/script.js"></script>
         <script src="../static/scripts/Counties.js"></script>
+        <script src="../static/scripts/ColorblindMode.js"></script>
     </head>
 
     <body>
-        <a href = "/" style="text-decoration: none; color: inherit;"><h1 id="project-title">Project S.A.N.D.</h1></a>
-        <div class = 'titleSub'><em>Spreading Awareness of Natural Disasters</em></div>
+        <a href = "/" style="text-decoration: none; color: inherit;"><h1 id="project-title" class = "ColorblindElement BPink">Project S.A.N.D.</h1></a>
+            <div class = 'titleSub'><em>Spreading Awareness of Natural Disasters</em></div>
 
-        <ul id = "navigationBar_ul">
-          <li class = "navigationBar_li"><a href="/">Home</a></li>
-          <li class = "navigationBar_li"><a href="/currlocation">My Current Location</a></li>
-          <li class = "navigationBar_li"><a href="/resources">Resources</a></li>
-          <li class = "navigationBar_li"><a href="/top5page">Top 5 County Disasters</a></li>
-          <li class = "navigationBar_li"><a href="/about">About Us</a></li>
-        </ul>
+            <ul id = "navigationBar_ul" class = "ColorblindElement LGreen">
+                <li class = "navigationBar_li"><a href="/">Home</a></li>
+                <li class = "navigationBar_li"><a href="/currlocation">My Current Location</a></li>
+                <li class = "navigationBar_li"><a href="/resources">Resources</a></li>
+                <li class = "navigationBar_li"><a href="/top5page">Top 5 County Disasters</a></li>
+                <li class = "navigationBar_li"><a href="/about">About Us</a></li>
+            </ul>
 
         <div>
             <h2 id="HelpfulTextAboveSearchInput"> Click on Any of the Disasters Below to Become More Weather Aware </h2>

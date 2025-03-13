@@ -3,23 +3,24 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='datastyle.css') }}">
         <script src="../static/scripts/script.js"></script>
         <script src="../static/scripts/Counties.js"></script>
+        <script src="../static/scripts/ColorblindMode.js"></script>
     </head>
 
     <body>
-        <a href = "/" style="text-decoration: none; color: inherit;"><h1 id="project-title">Project S.A.N.D.</h1></a>
+        <a href = "/" style="text-decoration: none; color: inherit;"><h1 id="project-title" class = "ColorblindElement BPink">Project S.A.N.D.</h1></a>
         <div class = 'titleSub'><em>Spreading Awareness of Natural Disasters</em></div>
 
-        <ul id = "navigationBar_ul">
-          <li class = "navigationBar_li"><a href="/">Home</a></li>
+        <ul id = "navigationBar_ul" class = "ColorblindElement LGreen">
+          <li class = "navigationBar_li" ><a href="/">Home</a></li>
           <li class = "navigationBar_li"><a href="/currlocation">My Current Location</a></li>
           <li class = "navigationBar_li"><a href="/resources">Resources</a></li>
           <li class = "navigationBar_li"><a href="/top5page">Top 5 County Disasters</a></li>
           <li class = "navigationBar_li"><a href="/about">About Us</a></li>
         </ul>
 
-        <h2 id="HelpfulTextAboveSearchInput">Search for your county!</h2>
+        <h2 id="HelpfulTextAboveSearchInput" class = "ColorblindElement LBlue">Search for your county!</h2>
 
-        <div id="top5box">
+        <div id="top5box" class = "ColorblindElement BPink">
             <h3>Top 5 disasters a county is most at risk of experiencing</h3>
             <form action="top5">
                   <label for="state">State:</label>
@@ -88,13 +89,13 @@
                   <option value="">--Please Select a County--</option>
                 </select> 
               <div id="Submit">
-                <input type="submit" value="Submit" id="input">
+                <input type="submit" value="Submit" id="input" class = "ColorblindElement Orange">
               </div>
             </form>
         </div>
         
         <div id="getColorblindMode"> 
-          <input type="checkbox" id="colorblind-mode" onclick="colorblindMode()">
+          <input type="checkbox" id="colorblind-mode">
           <label for="colorblind-mode"> Check for Colorblind Mode (Beta)</label>
         </div>
     </body>

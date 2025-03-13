@@ -4,12 +4,13 @@
         <link rel="stylesheet" href="../static/datastyle.css">
         <script src="../static/scripts/script.js"></script>
         <script src="../static/scripts/Counties.js"></script>
+        <script src="../static/scripts/ColorblindMode.js"></script>
     </head>
     <body>
-        <a href = "/" style="text-decoration: none; color: inherit;"><h1 id="project-title">Project S.A.N.D.</h1></a>
+        <a href = "/" style="text-decoration: none; color: inherit;"><h1 id="project-title" class = "ColorblindElement BPink">Project S.A.N.D.</h1></a>
             <div class = 'titleSub'><em>Spreading Awareness of Natural Disasters</em></div>
 
-            <ul id = "navigationBar_ul">
+            <ul id = "navigationBar_ul" class = "ColorblindElement LGreen">
                 <li class = "navigationBar_li"><a href="/">Home</a></li>
                 <li class = "navigationBar_li"><a href="/currlocation">My Current Location</a></li>
                 <li class = "navigationBar_li"><a href="/resources">Resources</a></li>
@@ -17,11 +18,11 @@
                 <li class = "navigationBar_li"><a href="/about">About Us</a></li>
             </ul>
 
-            <h2 id = "HelpfulTextAboveSearchInput">Click the button below to find your county!</h2>
+            <h2 id = "HelpfulTextAboveSearchInput" class = "ColorblindElement LBlue">Click the button below to find your county!</h2>
 
             <div id = "GoogleMap"> </div>
 
-            <button type = 'button' onclick="getCurrentLocation()" id="GetLocationButton">Get my Location!</button>
+            <button type = 'button' onclick="getCurrentLocation()" id="GetLocationButton" class = "ColorblindElement Orange">Get my Location!</button>
 
             <p id = "UserCoordinates"> Your Coordinate are: Currently Unkown <br>...scary</p>
 
@@ -58,7 +59,7 @@
             </script>
 
         <div id="getColorblindMode"> 
-            <input type="checkbox" id="colorblind-mode" onclick="colorblindMode()">
+            <input type="checkbox" id="colorblind-mode">
             <label for="colorblind-mode"> Check for Colorblind Mode (Beta)</label>
         </div>
     </body>
