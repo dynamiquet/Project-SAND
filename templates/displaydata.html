@@ -29,7 +29,7 @@
                     {% elif value == "Not Applicable" %}
                         <div class="risk-images">
                             <img src='../static/images/greencheckmark.png' alt="Green check mark" style="width:30px;height:30px;">
-                            <p> {{county}}, {{state}} is not considered at risk for {{key}}. </p>
+                            <p> {{county}}, {{state}} is not considered at risk for {{key}} </p>
                         </div>
                     {% elif value == "Very Low" %}
                         <div class="risk-images">
@@ -86,12 +86,16 @@
             <button type="button" class="collapsible">Risk Icon Legend</button>
             <div class="content">
                 <img src='../static/images/redwarningsign.jpg' alt="Red warning sign" style="width:30px;height:30px;">
+                <p style="text-decoration: underline;">Very High</p>
                 <p>It is <strong>absolutely imperative</strong> for your safety that you visit the resources page for the disaster. Awareness and preparation should be a <strong>top priority.</strong></p>
                 <img src='../static/images/orangewarningsign.png' alt="Orange warning sign" style="width:30px;height:30px;">
+                <p style="text-decoration: underline;">Relatively High</p>
                 <p>It is <strong>strongly</strong> advised that you visit the resources page for the disaster. Awareness and preparation is necessary.</p>
                 <img src='../static/images/yellowarningsign.png' alt="Yellow warning sign" style="width:30px;height:30px;">
+                <p style="text-decoration: underline;">Relatively Moderate and Relatively Low</p>
                 <p>It is advised that you visit the resources page for the disaster. Awareness is recommended but immediate preparation is not needed. </p>
                 <img src='../static/images/greencheckmark.png' alt="Green check mark" style="width:30px;height:30px;">
+                <p style="text-decoration: underline;">Very Low and No Risk</p>
                 <p>Awareness and prepartion is not necessary, but there is a lot of interesting information available on our resources page.</p>
             </div>
         </div>

@@ -94,71 +94,71 @@
 
         <form action="displaycountydata" id = "getData" onsubmit="getCheckedBoxes()">
             <div id = "inputContainer">
-            <label for="state">State:</label>
-            <select id="state" name="state" onchange="updateCounties()">
-                <option value="">--Please Select a State--</option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District Of Columbia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VT">Vermont</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
-                <option value="AS">American Samoa</option>
-                <option value="GU">Guam</option>
-                <option value="MP">Mariana Islands</option>
-                <option value="PR">Puerto Rico</option>
-                <option value="VI">US Virgin Islands</option>
-            </select> 
+              <label for="state">State:</label>
+              <select id="state" name="state" onchange="updateCounties()">
+                  <option value="">--Please Select a State--</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                  <option value="AS">American Samoa</option>
+                  <option value="GU">Guam</option>
+                  <option value="MP">Mariana Islands</option>
+                  <option value="PR">Puerto Rico</option>
+                  <option value="VI">US Virgin Islands</option>
+              </select> 
 
-            <label for="county">County:</label>
-            <select id="county" name="county">
-               <option value="">--Please Select a County--</option>
-           </select> 
+              <label for="county">County:</label>
+              <select id="county" name="county">
+                <option value="">--Please Select a County--</option>
+            </select> 
            </div>
 
             <div class = 'ALLDS ColorblindElement BPink' id="ALLDS">
@@ -166,81 +166,99 @@
               <div>
                 <input type = "checkbox" name = "disaster" value = "avalanche">
                 <img src = '../static/images/avalanche.png' alt = "Icon image for avalanche" style="width:25px;height:25px;"> 
-                <label> Avalanche</label></div>
+                <label> Avalanche</label>
+              </div>
+              <div>
+                <input type = "checkbox" name = "disaster" value = "coastalflooding">
+                <img src = '../static/images/Flooding.png' alt = "Icon image for coastalflooding" style="width:25px;height:25px;">
+                <label> Coastal Flooding</label>
+            </div>
               <div>
                   <input type = "checkbox" name = "disaster" value = "coldwave">
                   <img src = '../static/images/Cold_wave.png' alt = "Icon image for cold wave" style="width:25px;height:25px;">
-                  <label> Cold Wave</label></div>
+                  <label> Cold Wave</label>
+              </div>
               <div>
                   <input type = "checkbox" name = "disaster" value = "drought">
                   <img src = '../static/images/drought.png' alt = "Icon image for drought" style="width:25px;height:25px;">
-                  <label> Drought</label></div>
+                  <label> Drought</label>
+              </div>
               <div>
                   <input type = "checkbox" name = "disaster" value = "earthquake">
                   <img src = '../static/images/earthquake.png' alt = "Icon image for earthquake" style="width:25px;height:25px;">
-                  <label> Earthquake</label></div>
-              <div>
-                  <input type = "checkbox" name = "disaster" value = "coastalflooding">
-                  <img src = '../static/images/Flooding.png' alt = "Icon image for coastalflooding" style="width:25px;height:25px;">
-                  <label> Coastal Flooding</label></div>
+                  <label> Earthquake</label>
+              </div>
             </div>
             <div class = 'disaster-container'>
               <div>
                 <input type = "checkbox" name = "disaster" value = "hail">
                 <img src = '../static/images/hail.png' alt = "Icon image for hail" style="width:25px;height:25px;"> 
-                <label> Hail</label></div>
+                <label> Hail</label>
+              </div>
               <div>
                   <input type = "checkbox" name = "disaster" value = "heatwave">
                   <img src = '../static/images/heatwave.png' alt = "Icon image for heatwave" style="width:25px;height:25px;">
-                  <label> Heat Wave</label></div>
+                  <label> Heat Wave</label>
+              </div>
               <div>
                   <input type = "checkbox" name = "disaster" value = "hurricane">
                   <img src = '../static/images/hurricane.png' alt = "Icon image for hurricane" style="width:25px;height:25px;">
-                  <label> Hurricane</label></div>
+                  <label> Hurricane</label>
+              </div>
               <div>
                   <input type = "checkbox" name = "disaster" value = "icestorm">
                   <img src = '../static/images/ice-storm.png' alt = "Icon image for icestorm" style="width:25px;height:25px;">
-                  <label> Ice Storm</label></div>
+                  <label> Ice Storm</label>
+              </div>
               <div>
                   <input type = "checkbox" name = "disaster" value = "landslide">
                   <img src = '../static/images/landslide.png' alt = "Icon image for landslide" style="width:25px;height:25px;">
-                  <label> Landslide</label></div>
+                  <label> Landslide</label>
+              </div>
             </div>
             <div class = 'disaster-container'>
               <div>
                 <input type = "checkbox" name = "disaster" value = "lightning">
                 <img src = '../static/images/lightning.png' alt = "Icon image for lightning" style="width:25px;height:25px;"> 
-                <label> Lightning</label></div>
+                <label> Lightning</label>
+              </div>
+              <div>
+                <input type = "checkbox" name = "disaster" value = "riverineflooding">
+                <img src = '../static/images/Flooding.png' alt = "Icon image for riverineflooding" style="width:25px;height:25px;"> 
+                <label> Riverine Flooding</label>
+              </div>
               <div>
                   <input type = "checkbox" name = "disaster" value = "strongwind">
                   <img src = '../static/images/strongwind.png' alt = "Icon image for strongwind" style="width:25px;height:25px;">
-                  <label"> Strong Wind</label></div>
+                  <label"> Strong Wind</label>
+              </div>
               <div>
                   <input type = "checkbox" name = "disaster" value = "tornado">
                   <img src = '../static/images/Tornado.png' alt = "Icon image for Tornado" style="width:25px;height:25px;">
-                  <label> Tornado</label></div>
+                  <label> Tornado</label>
+              </div>
               <div>
                   <input type = "checkbox" name = "disaster" value = "tsunami">
                   <img src = '../static/images/tsunami.png' alt = "Icon image for tsunami" style="width:25px;height:25px;">
-                  <label> Tsunami</label></div>
-              <div>
-                  <input type = "checkbox" name = "disaster" value = "volcano">
-                  <img src = '../static/images/volcano.png' alt = "Icon image for volcano" style="width:25px;height:25px;">
-                  <label> Volcano</label></div>
+                  <label> Tsunami</label>
+              </div>
             </div>
             <div class = "disaster-container"> 
               <div>
+                <input type = "checkbox" name = "disaster" value = "volcano">
+                <img src = '../static/images/volcano.png' alt = "Icon image for volcano" style="width:25px;height:25px;">
+                <label> Volcano</label>
+              </div>
+              <div>
                 <input type = "checkbox" name = "disaster" value = "wildfire">
                 <img src = '../static/images/wildfire.png' alt = "Icon image for wildfire" style="width:25px;height:25px;"> 
-                <label> Wildfire</label></div>
+                <label> Wildfire</label>
+              </div>
               <div>
                 <input type = "checkbox" name = "disaster" value = "winterweather">
                 <img src = '../static/images/winterweather.png' alt = "Icon image for winterweather" style="width:25px;height:25px;"> 
-                <label for="winterweather"> Winter Weather</label></div>
-              <div>
-                  <input type = "checkbox" name = "disaster" value = "riverineflooding">
-                  <img src = '../static/images/Flooding.png' alt = "Icon image for riverineflooding" style="width:25px;height:25px;"> 
-                  <label> Riverine Flooding</label></div>
+                <label for="winterweather"> Winter Weather</label>
+              </div>
             </div>
             </div>
 
@@ -251,8 +269,9 @@
 
             <input type = "hidden" id = "hiddenSelectedDisasters" name = "hiddenSelectedDisaster" value = "">
 
-            <div id = "Submit"><input type="submit" value="Submit" id="input" class = "ColorblindElement Orange"></div><br>
-
+            <div id = "Submit">
+              <input type="submit" value="Submit" id="input" class = "ColorblindElement Orange">
+            </div><br>
         </form>
 
         <div id="getColorblindModeHome"> 
