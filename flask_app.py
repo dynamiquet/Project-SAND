@@ -38,7 +38,7 @@ def display_prev_homepage():
     '''
     return message
     
-ErrorMessage = "Either your county or disaster are not valid inputs. Please check homepage to see correct usage."
+error_message = "Either your county or disaster are not valid inputs. Please check homepage to see correct usage."
 
 @app.route('/<disaster>/<county>', strict_slashes = False)
 def get_valid_county_and_disaster(disaster, county):
@@ -49,7 +49,7 @@ def get_valid_county_and_disaster(disaster, county):
     county_list = split_and_strip_strings(county)
 
     if (is_formatted_county_and_state(county_list) == False):
-        return ErrorMessage
+        return error_message
     
     county_name = county_list[0]
     state_abbrv = county_list[1]
@@ -57,7 +57,7 @@ def get_valid_county_and_disaster(disaster, county):
     if (test.is_valid_us_county(county_name, state_abbrv) and is_disaster(disaster)):
         return test.get_risk_values_by_county(disaster, county_name, state_abbrv)
     
-    return ErrorMessage
+    return error_message
 
 @app.route('/top5/<county>', strict_slashes = False)
 def get_top5_disasters_for_county(county):
@@ -68,7 +68,7 @@ def get_top5_disasters_for_county(county):
     county_list = split_and_strip_strings(county)
 
     if (is_formatted_county_and_state(county_list) == False):
-        return ErrorMessage
+        return error_message
     
     county_name = county_list[0]
     state_abbrv = county_list[1]
@@ -77,7 +77,7 @@ def get_top5_disasters_for_county(county):
         county_data = test.get_county_row(county_name, state_abbrv)
         return get_top_five(county_data)
     
-    return ErrorMessage
+    return error_message
 
 
 # New URLs 
