@@ -61,13 +61,13 @@ class DataSource:
 
                 cursor.execute(query, (county, state,))
 
-                listofriskvalues = list(cursor.fetchall()[0])
+                list_of_risk_values = list(cursor.fetchall()[0])
 
-                disasterslist = split_and_strip_strings(disasters)
+                disasters_list = split_and_strip_strings(disasters)
 
-                disasterriskdictionary = get_disaster_risk_dict(disasterslist, listofriskvalues)
+                disaster_risk_dictionary = get_disaster_risk_dict(disasters_list, list_of_risk_values)
                 
-                return disasterriskdictionary
+                return disaster_risk_dictionary
             else:
                 return "Invalid county and/or invalid disaster(s)"
         except Exception as e:
@@ -99,4 +99,3 @@ class DataSource:
 
             return None
 
-        
