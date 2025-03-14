@@ -57,7 +57,9 @@ function setBackgroundColors (allColorblindElements) {
     setBackgroundColorBrightPink(allColorblindElements);
     setBackgroundColorOrange(allColorblindElements);
     setColorLightBlue(allColorblindElements);
-    setTextBlue(allColorblindElements);
+    setTextOrange(allColorblindElements);
+    setBackgroundColorLightBlue(allColorblindElements);
+    setColorLavender(allColorblindElements);
 }
 
 function setTextShadowsOff (allColorblindElements){
@@ -79,10 +81,26 @@ function setBackgroundColorBrightPink (allColorblindElements){
     });
 }
 
+function setBackgroundColorLightBlue (allColorblindElements){
+    allColorblindElements.forEach(function (element) {
+        if (element.classList.contains('BackgroundLBlue')){
+            element.style.backgroundColor = "#98B1F3"
+        }
+    });
+}
+
 function setColorLightBlue (allColorblindElements){
     allColorblindElements.forEach(function (element) {
         if (element.classList.contains('LBlue')){
             element.style.color = "#648FFF"
+        }
+    });
+}
+
+function setColorLavender(allColorblindElements){
+    allColorblindElements.forEach(function (element) {
+        if (element.classList.contains('Lavender')){
+            element.style.color = "#785EF0"
         }
     });
 }
@@ -95,10 +113,10 @@ function setBackgroundColorOrange (allColorblindElements){
     });
 }
 
-function setTextBlue (allColorblindElements){
+function setTextOrange (allColorblindElements){
     allColorblindElements.forEach(function (element) {
         if (element.classList.contains('Text')){
-            element.style.color = "#648FFF"
+            element.style.color = "#FE6100"
         }
     });
 }

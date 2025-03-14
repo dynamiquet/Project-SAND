@@ -301,8 +301,8 @@ tr {
 }
 
 #countyResults p {
-	margin: 8px 0;
-    font-size: 18px;
+	margin: 10px 0;
+    font-size: 20px;
 }
 
 .risk-images {
@@ -349,13 +349,8 @@ div.RiskInfo {
 	position: absolute;
 }
 
-div.RiskInfo p {
-    margin: 5px 0;
-    font-size: 18px;
-}
-
 div.RiskInfo strong {
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 div.rating-breakdown {
@@ -368,13 +363,8 @@ div.rating-breakdown {
 	text-align: center;
 	margin-bottom: 10px;
 	left: 3%;
-	top: 60%;
+	top: 72%;
 	position: absolute;
-}
-
-div.rating-breakdown p {
-	margin: 5px 0;
-    font-size: 18px;
 }
 
 div.rating-breakdown h3 {
@@ -397,11 +387,6 @@ div.rating-legend {
 	position: absolute;
 }
 
-div.rating-legend p {
-    margin: 5px 0;
-    font-size: 18px;
-}
-
 div.content {
 	padding: 0 18px;
   	max-height: 0;
@@ -409,6 +394,11 @@ div.content {
   	transition: max-height 0.2s ease-out;
   	background-color: #afe38c;
 	border-radius: 15px;
+}
+
+div.content p {
+	margin: 15px 0;
+	font-size: 20px;
 }
 
 /* Only in displayerror.html */
