@@ -76,8 +76,8 @@ def main():
         if (test.is_valid_us_county(county_name, state_abbrv) == False):
             print("Not a valid county. Please check spelling and try again")
         else:
-            countydata = test.get_county_row(county_name, state_abbrv)
-            print(get_top_five(countydata))
+            county_data = test.get_county_row(county_name, state_abbrv)
+            print(get_top_five(county_data))
         
         return 0
 
