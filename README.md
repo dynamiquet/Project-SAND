@@ -1,10 +1,5 @@
 ## Project S.A.N.D.
 
-In README.md, for each code smell/naming & commenting issue:
-- Identify & describe what the code smell/naming & commenting issue was
-- Identify the file(s) and approximate lines with your solution to refactor out the code smell/naming & commenting issue
-- Explain what you did to refactor out the code smell/naming & commenting issue
-
 ## Code Design Improvements
 1. Inconsistent function, variable, and class naming style
     - In various locations among our files, there was never a consistent style on naming items. Our helper.py file was the biggest culprit of this.Multiple functions had variables seperated by underscores (example_variable), while others were simply one long word (examplevariable).
@@ -14,7 +9,7 @@ In README.md, for each code smell/naming & commenting issue:
 2. Bloater: Long Methods
     - Although not in our submitted "front-end" tagged commit, later commits introduced many javascript functions like initmap() which created a unique GoogleMaps map centered on the user's location. The problem with functions like initmap() and many more javascripts functions following it, was that they were too long!
     - To fix this, we split these bloated functions into several smaller one-dimensional functions that did one job well.
-    - For example, initmap(), would become a combination of more descriptive functions like getCurrentLocation(), getUserCounty(), setMapInfoWindow(), etc. that are smaller in size and focus on a one-layer abstraction
+    - For example, initmap(), would become a combination of more descriptive functions like getCurrentLocation(), getUserCounty(), setMapInfoWindow(), etc. that are smaller in size and focus on a one-layer abstraction. This map example is found in the javascript file script.js
 
 
 ## Front-End Design Improvements
@@ -23,7 +18,7 @@ In README.md, for each code smell/naming & commenting issue:
     - This addition was included as an option in our navigation bar present in all pages of our project.
 2. Usability Issue: Assumption of Fine motor skills to click all disaster checkboxes
     - Previously, if users wanted to view the disaster risk ratings for all available disasters, they had to click every disaster checkbox to do so. With more than 15 disasters and small checkboxes, the task depended heavily on user motor skills
-    - To address the issue, we included a "Check All Disasters!" checkbox to avoid unecessary time effort into checking all available disasters. With one click, all disasters would be checked.
+    - To address the issue, we included a "Check All Disasters!" checkbox to avoid unecessary time effort into checking all available disasters. With one click, all disasters would be checked in the homepage.
     - To avoid having users uncheck all disasters if they changed their minds, we also included the functionality to uncheck all disasters of the "Check All Disasters!" checkbox is unchecked.
 
 ---
