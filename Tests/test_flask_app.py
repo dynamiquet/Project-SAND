@@ -26,11 +26,11 @@ class TestSANDPage(unittest.TestCase):
       test2 = self.app.get('/Earthquake,Tornado/Los Angeles,CA', follow_redirects=True)
       self.assertEqual(b'{"earthquake":"Very High","tornado":"Relatively High"}\n', test2.data)
 
-      Edgetest1 = self.app.get('/Earthquake,Tornado/Los Angeles', follow_redirects=True)
-      self.assertEqual(b'Either your county or disaster are not valid inputs. Please check homepage to see correct usage.', Edgetest1.data)
+      edge_test1 = self.app.get('/Earthquake,Tornado/Los Angeles', follow_redirects=True)
+      self.assertEqual(b'Either your county or disaster are not valid inputs. Please check homepage to see correct usage.', edge_test1.data)
 
-      Edgetest2 = self.app.get('/Earthquake/Rice,MN/POTATOES', follow_redirects=True)
-      self.assertIn(b'Sorry for the error!', Edgetest2.data)
+      edge_test2 = self.app.get('/Earthquake/Rice,MN/POTATOES', follow_redirects=True)
+      self.assertIn(b'Sorry for the error!', edge_test2.data)
 
     def test_top5_pages(self):
       ''' Argument: instance of TestSANDPage
@@ -41,8 +41,8 @@ class TestSANDPage(unittest.TestCase):
       test1 = self.app.get('/top5/Los Angeles, CA', follow_redirects=True)
       self.assertEqual(b'{"earthquake":"Very High","landslide":"Relatively High","lightning":"Relatively High","tornado":"Relatively High","wildfire":"Very High"}\n', test1.data)
 
-      Edgetest1 = self.app.get('/top5/LosAngel', follow_redirects=True)
-      self.assertEqual(b'Either your county or disaster are not valid inputs. Please check homepage to see correct usage.', Edgetest1.data)
+      edge_test1 = self.app.get('/top5/LosAngel', follow_redirects=True)
+      self.assertEqual(b'Either your county or disaster are not valid inputs. Please check homepage to see correct usage.', edge_test1.data)
 
-      Edgetest2 = self.app.get('/top100/', follow_redirects=True)
-      self.assertIn(b'Sorry for the error!', Edgetest2.data)
+      edge_test2 = self.app.get('/top100/', follow_redirects=True)
+      self.assertIn(b'Sorry for the error!', edge_test2.data)

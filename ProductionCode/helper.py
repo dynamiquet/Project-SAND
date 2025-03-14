@@ -26,7 +26,7 @@ def get_int_rating(table_rating):
     '''
 
     # Each key is a rating from the dataset and is associated with an integer value
-    string_rating_dict = {"Insufficient Data":0, "Not Applicable":1, "No Rating":2, "Very Low":3, "Relatively Low":4, "Relatively Moderate":5,
+    string_rating_dict = {"No Rating":0, "Insufficient Data":1, "Not Applicable":2, "Very Low":3, "Relatively Low":4, "Relatively Moderate":5,
                         "Relatively High":6, "Very High":7}
     
     # Convert string rating into an integer for sorting
@@ -43,34 +43,34 @@ def get_string_rating(int_rating):
     '''
 
     # Each key is an integer and is associated with a rating from the dataset
-    intratingdict = {0:"Insufficient Data", 1:"Not Applicable", 2:"No Rating", 3:"Very Low", 4:"Relatively Low", 5:"Relatively Moderate",
+    int_rating_dict = {0:"No Rating", 1:"Insufficient Data", 2:"Not Applicable", 3:"Very Low", 4:"Relatively Low", 5:"Relatively Moderate",
                      6:"Relatively High", 7:"Very High"}
     
     # Revert ratings for back into data hazards rating labels
-    string_rating = intratingdict[int_rating]
+    string_rating = int_rating_dict[int_rating]
 
     return string_rating
 
-def get_top_five(countyrow):
+def get_top_five(county_row):
     ''' 
     Arguments: Takes in a countyrowdata as a list
     Returns: A dictionary
     Purpose: Returns the top 5 most hazardous disaster's in a given county
     '''
-    sorted_disasters_dict = get_sorted_dangerous_disasters_by_county(countyrow)
+    sorted_disasters_dict = get_sorted_dangerous_disasters_by_county(county_row)
 
     top_5_disasters = get_top_num_items_in_dict(sorted_disasters_dict, 5)
 
     return top_5_disasters
 
-def split_and_strip_strings(string):
+def split_and_strip_strings(input_string):
     ''' 
     Arguments: Takes in user string
     Returns: List of split disasters
     Purpose: Cleans up user string for code usability
     '''
     new_split_list = []
-    split_string = string.split(',')
+    split_string = input_string.split(',')
     
     for entry in split_string:
         new_split_list.append(entry.lstrip())
@@ -149,26 +149,26 @@ def get_filtered_county_data(target_county_data):
 
     return target_county_data
 
-def get_top_num_items_in_dict(dict, requested_num):
+def get_top_num_items_in_dict(input_dict, requested_num):
     ''' 
     Arguments: Dictionary and integer
     Returns: Dictionary
     Purpose: Pops the given amount of lowest items in the dictionary
     '''
-    dict_length = len(dict)
+    dict_length = len(input_dict)
 
-    for int in range(0, dict_length - requested_num):
-        dict.popitem()
+    for i in range(0, dict_length - requested_num):
+        input_dict.popitem()
 
-    return dict
+    return input_dict
 
-def get_sorted_dangerous_disasters_by_county(countyrow):
+def get_sorted_dangerous_disasters_by_county(county_row):
     ''' 
     Arguments: List of county row data
     Returns: Sorted dictionary
     Purpose: Returns a dictionary with most hazardous disasters in a county in descending order
     '''
-    county_data = get_filtered_county_data(countyrow)
+    county_data = get_filtered_county_data(county_row)
 
     disaster_rating_dict = initialize_disaster_rating_dict()
 

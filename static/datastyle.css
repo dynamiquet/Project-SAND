@@ -1,3 +1,114 @@
+/* Shared by every page */
+#project-title {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-color: #afe38c;
+	color: #000000;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	margin-bottom: -1.1em;
+	border-top: 5px solid #2E8B57;
+	border-left: 5px solid #2E8B57;
+	border-right: 5px solid #2E8B57;
+}
+
+#navigationBar_ul{
+	list-style-type: none;
+	margin: 0;
+  	padding: 0;
+  	overflow: hidden;
+	background-color: #2E8B57;
+	margin-bottom: 1em;
+	box-shadow: 0 5px 5px 0 #296b46;
+}
+
+.navigationBar_li{
+	float: left;
+}
+
+.navigationBar_li a {
+	display: block;
+	color: white;
+	padding: 14px 16px;
+  	text-decoration: none;
+  }
+
+.navigationBar_li a:hover {
+	background-color: #D2691E;
+}
+
+.titleSub{
+	text-align: center;
+	margin-bottom: 1em;
+	color: rgb(32, 32, 32);
+}
+
+body {
+	background-color: #F5F5DC;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+h2#HelpfulTextAboveSearchInput {
+	color: #2E8B57;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	text-shadow: 2px 2px 3px #afe38c;
+	border-bottom: 10px;
+	border-top: 10px;
+}
+
+#getColorblindMode {
+	bottom: 100%;
+	padding-top: 20px;
+	font-size: large;
+	font-weight: 600;
+}
+
+/* Only in index.html*/
+.ALLDS {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row;
+	background-color: #afe38c;
+	border-radius: 15px;
+}
+
+.disaster-container{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 10px;
+	align-items: left;
+}
+
+#inputContainer {
+    display: flex;
+    gap: 15px;
+}
+
+#inputContainer input {
+    width: 150px;
+    padding: 8px;
+    text-align: center;
+}
+
+#getData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: 30px;
+}
+
+div#CheckAllDisasters {
+	margin-top: 20px;
+	background-color: #afe38c;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+/* Only in resources.html */
 .resourcestable a {
 	color: rgb(49, 195, 49);
 	font-weight: bold;
@@ -141,124 +252,21 @@ tr {
 	height: 150px;
 }
 
-#project-title {
-	padding-top: 1em;
-	padding-bottom: 1em;
+/* Only in top5.html */
+#top5box {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
 	background-color: #afe38c;
-	color: #000000;
+	border-radius: 15px;
 	text-align: center;
-	font-family: Verdana, Geneva, sans-serif;
-	margin-bottom: -1.1em;
-	border-top: 5px solid #2E8B57;
-	border-left: 5px solid #2E8B57;
-	border-right: 5px solid #2E8B57;
+	align-items: center;
+    width: 700px;
+    padding: 10px;
+    margin: 0 auto;
 }
 
-.resources {
-	text-align: center;
-	font-family: Verdana, Geneva, sans-serif;
-	color: black;
-}
-
-body {
-	background-color: #F5F5DC;
-	margin-left: 5%;
-	margin-right: 5%;
-}
-
-h2 {
-	color: #2E8B57;
-	text-align: center;
-	font-family: Verdana, Geneva, sans-serif;
-	text-shadow: 2px 2px 3px #afe38c;
-}
-
-h2#HelpfulTextAboveSearchInput {
-	color: #2E8B57;
-	text-align: center;
-	font-family: Verdana, Geneva, sans-serif;
-	text-shadow: 2px 2px 3px #afe38c;
-	border-bottom: 10px;
-	border-top: 10px;
-}
-
-h2#HelpfulTextAboveSearchInput2 {
-	color: #2E8B57;
-	text-align: center;
-	font-family: Verdana, Geneva, sans-serif;
-	text-shadow: 2px 2px 3px #afe38c;
-	border-bottom: 10px;
-	border-top: 10px;
-}
-
-h2#HelpfulTextAboveSearchInput3 {
-	color: #2E8B57;
-	text-align: center;
-	font-family: Verdana, Geneva, sans-serif;
-	text-shadow: 2px 2px 3px #afe38c;
-	border-bottom: 10px;
-	border-top: 10px;
-}
-
-h2#HelpfulTextAboveSearchInput4 {
-	color: #2E8B57;
-	text-align: center;
-	font-family: Verdana, Geneva, sans-serif;
-	text-shadow: 2px 2px 3px #afe38c;
-	border-bottom: 10px;
-	border-top: 10px;
-}
-
-#navigationBar_ul{
-	list-style-type: none;
-	margin: 0;
-  	padding: 0;
-  	overflow: hidden;
-	background-color: #2E8B57;
-	margin-bottom: 1em;
-	box-shadow: 0 5px 5px 0 #296b46;
-}
-
-.navigationBar_li{
-	float: left;
-}
-
-.navigationBar_li a {
-	display: block;
-	color: white;
-	padding: 14px 16px;
-  	text-decoration: none;
-  }
-
-.navigationBar_li a:hover {
-	background-color: #D2691E;
-}
-
-.titleSub{
-	text-align: center;
-	margin-bottom: 1em;
-	color: rgb(32, 32, 32);
-}
-
-#getData {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    margin-top: 30px;
-}
-
-#inputContainer {
-    display: flex;
-    gap: 15px;
-}
-
-#inputContainer input {
-    width: 150px;
-    padding: 8px;
-    text-align: center;
-}
-
+/* Shared by top5.html and index.html */
 #Submit {
     display: flex;
 	padding-top: 1em;
@@ -278,42 +286,7 @@ h2#HelpfulTextAboveSearchInput4 {
     background-color: #D2691E;
 }
 
-.ALLDS {
-	margin-top: 10px;
-	display: flex;
-	flex-direction: row;
-	background-color: #afe38c;
-	border-radius: 15px;
-}
-
-.disaster-container{
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	padding: 10px;
-	align-items: left;
-}
-
-.searchoptions {
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    top: 10em;
-    right: 3%;
-}
-
-#searchtitle {
-	margin-bottom: -18px;
-	color: #2E8B57
-}
-
-#searchcontainer {
-	display: flex;
-	background-color: #afe38c;
-	padding: 10px;
-}
-
+/* Shared by displaydata.html and displaytop5data.html */
 #countyResults {
 	display: flex;
 	align-items: center;
@@ -328,21 +301,38 @@ h2#HelpfulTextAboveSearchInput4 {
 }
 
 #countyResults p {
-	margin: 8px 0;
-    font-size: 18px;
+	margin: 10px 0;
+    font-size: 20px;
 }
 
-#top5box {
-	margin-top: 10px;
+.risk-images {
 	display: flex;
-	flex-direction: column;
-	background-color: #afe38c;
+}
+
+button.collapsible {
+	color: green;
+    margin: 5px 0;
+    font-size: 1.2em;
+	font-weight: bold;
+	width: 100%;
 	border-radius: 15px;
+	border: none;
+	background-color: #afe38c;
 	text-align: center;
-	align-items: center;
-    width: 700px;
-    padding: 10px;
-    margin: 0 auto;
+}
+
+.collapsible:after {
+	content: '\002B';
+	font-size: 1.2em;
+	color: green;
+	float: right;
+}
+
+.collapsible.active:after {
+	content: '\2212';
+	font-size: 1.2em;
+	color: green;
+	float: right;
 }
 
 div.RiskInfo {
@@ -359,15 +349,59 @@ div.RiskInfo {
 	position: absolute;
 }
 
-div.RiskInfo p {
-    margin: 5px 0;
-    font-size: 18px;
-}
-
 div.RiskInfo strong {
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
+div.rating-breakdown {
+	background-color: #afe38c;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 15px;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 10px;
+	left: 3%;
+	top: 72%;
+	position: absolute;
+}
+
+div.rating-breakdown h3 {
+	color: green;
+    margin: 5px 0;
+    font-size: 1.2em;
+}
+
+div.rating-legend {
+	background-color: #afe38c;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 15px;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 10px;
+	right: 3%;
+	top: 26%;
+	position: absolute;
+}
+
+div.content {
+	padding: 0 18px;
+  	max-height: 0;
+  	overflow: hidden;
+  	transition: max-height 0.2s ease-out;
+  	background-color: #afe38c;
+	border-radius: 15px;
+}
+
+div.content p {
+	margin: 15px 0;
+	font-size: 20px;
+}
+
+/* Only in displayerror.html */
 .errorDisplay {
 	background-color: #afe38c;
     width: 700px;
@@ -378,6 +412,7 @@ div.RiskInfo strong {
 	text-align: center;
 }
 
+/* Only in getlocation.html */
 #GoogleMap {
     height: 400px;
     width: 60%;
@@ -411,102 +446,7 @@ div.RiskInfo strong {
 	text-align: center;
 }
 
-.risk-images {
-	display: flex;
-}
-
-div.rating-breakdown {
-	background-color: #afe38c;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	border-radius: 15px;
-	width: 20%;
-	text-align: center;
-	margin-bottom: 10px;
-	left: 3%;
-	top: 60%;
-	position: absolute;
-}
-
-div.rating-breakdown p {
-	margin: 5px 0;
-    font-size: 18px;
-}
-
-div.rating-breakdown h3 {
-	color: green;
-    margin: 5px 0;
-    font-size: 1.2em;
-}
-
-div.rating-legend {
-	background-color: #afe38c;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	border-radius: 15px;
-	width: 20%;
-	text-align: center;
-	margin-bottom: 10px;
-	right: 3%;
-	top: 26%;
-	position: absolute;
-}
-
-div.rating-legend p {
-    margin: 5px 0;
-    font-size: 18px;
-}
-
-div#CheckAllDisasters {
-	margin-top: 20px;
-	background-color: #afe38c;
-	padding: 10px;
-	border-radius: 10px;
-}
-
-div.content {
-	padding: 0 18px;
-  	max-height: 0;
-  	overflow: hidden;
-  	transition: max-height 0.2s ease-out;
-  	background-color: #afe38c;
-	border-radius: 15px;
-}
-
-button.collapsible {
-	color: green;
-    margin: 5px 0;
-    font-size: 1.2em;
-	font-weight: bold;
-	width: 100%;
-	border-radius: 15px;
-	border: none;
-	background-color: #afe38c;
-	text-align: center;
-}
-
-.collapsible:after {
-	content: '\002B';
-	font-size: 1.2em;
-	color: green;
-	float: right;
-}
-
-.collapsible.active:after {
-	content: '\2212';
-	font-size: 1.2em;
-	color: green;
-	float: right;
-}
-
-#getColorblindMode {
-	bottom: 100%;
-	padding-top: 20px;
-	font-size: large;
-	font-weight: 600;
-}
+/* Only in about.html */
 
 section {
 	padding-bottom: 10px;

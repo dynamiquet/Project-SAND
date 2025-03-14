@@ -56,8 +56,8 @@ class ProjectMethodsTests(unittest.TestCase):
         '''Argument: instance of ProjectMethodsTests
         Tests to see if get_top_five correctly returns the five disasters that a county is most at risk of experiencing 
         '''
-        countydata = test.get_county_row("Los Angeles", "CA")
-        result = get_top_five(countydata)
+        county_data = test.get_county_row("Los Angeles", "CA")
+        result = get_top_five(county_data)
         self.assertEqual(len(result), 5)  # Ensure exactly 5 disasters returned
 
         for disaster, rating in result.items():

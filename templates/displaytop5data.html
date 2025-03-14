@@ -6,6 +6,7 @@
         <script src="../static/scripts/Counties.js"></script>
         <script src="../static/scripts/CollapsibleElements.js"></script>
         <script src="../static/scripts/ColorblindMode.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
@@ -20,8 +21,8 @@
                 <li class = "navigationBar_li"><a href="/about">About Us</a></li>
             </ul>
         
-        <div id="countyResults" class = "ColorblindElement BPink">
-            <h2 id="HelpfulTextAboveSearchInput" class = "ColorblindElement LBlue">The five disasters {{county}}, {{state}} is most at risk for are:</h2>
+        <div id="countyResults" class = "ColorblindElement BackgroundLBlue">
+            <h2 id="HelpfulTextAboveSearchInput" class = "ColorblindElement Text">The five disasters {{county}}, {{state}} is most at risk for are:</h2>
             <ul>
                 {% for key, value in data.items() %}
                     {% if value == "Insufficient Data" or value == "No Rating" %}
@@ -61,9 +62,9 @@
             </ul>
         </div>
 
-        <div class = "RiskInfo ColorblindElement BPink">
-            <button type="button" class="collapsible ColorblindElement BPink Text">Risk Methodology</button>
-            <div class = "content ColorblindElement BPink">
+        <div class = "RiskInfo ColorblindElement BackgroundLBlue">
+            <button type="button" class="collapsible ColorblindElement BackgroundLBlue Text">Risk Methodology</button>
+            <div class = "content ColorblindElement BackgroundLBlue">
             <p> Our natural hazard risk ratings are calculated by multiplying the likelihood of a natural hazard event 
                 ocurring with the consequences of the natural hazard event on the area</p>
             <strong> Risk = Likelihood x Consequences</strong>
@@ -71,9 +72,9 @@
             </div>
         </div>
 
-        <div class="rating-breakdown ColorblindElement BPink">
-            <button type="button" class="collapsible ColorblindElement BPink Text">Rating Breakdown</button>
-            <div class = "content ColorblindElement BPink">
+        <div class="rating-breakdown ColorblindElement BackgroundLBlue">
+            <button type="button" class="collapsible ColorblindElement BackgroundLBlue Text">Rating Breakdown</button>
+            <div class = "content ColorblindElement BackgroundLBlue">
             <p> Very Low: It is extremely unlikely for the disaster to occur</p>
             <p> Relatively Low: It is unlikely for the disaster to occur</p>
             <p> Relatively Moderate: It is likely for the disaster to occur </p>
@@ -82,9 +83,9 @@
             </div>
         </div>
 
-        <div class="rating-legend ColorblindElement BPink">
-            <button type="button" class="collapsible ColorblindElement BPink Text">Risk Icon Legend</button>
-            <div class="content ColorblindElement BPink">
+        <div class="rating-legend ColorblindElement BackgroundLBlue">
+            <button type="button" class="collapsible ColorblindElement BackgroundLBlue Text">Risk Icon Legend</button>
+            <div class="content ColorblindElement BackgroundLBlue">
                 <img src='../static/images/redwarningsign.jpg' alt="Red warning sign" style="width:30px;height:30px;">
                 <p>It is <strong>absolutely imperative</strong> for your safety that you visit the resources page for the disaster. Awareness and preparation should be a <strong>top priority.</strong></p>
                 <img src='../static/images/orangewarningsign.png' alt="Orange warning sign" style="width:30px;height:30px;">
@@ -98,7 +99,7 @@
 
         <div id="getColorblindMode"> 
             <input type="checkbox" id="colorblind-mode">
-            <label for="colorblind-mode"> Check for Colorblind Mode (Beta)</label>
+            <label for="colorblind-mode"> Check for Colorblind Mode </label>
         </div>
     </body>
 </html>
