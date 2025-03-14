@@ -43,7 +43,7 @@ def get_string_rating(int_rating):
     '''
 
     # Each key is an integer and is associated with a rating from the dataset
-    int_rating_dict = {0:"No Rating", 1:"Not Applicable", 2:"Insufficient Data", 3:"Very Low", 4:"Relatively Low", 5:"Relatively Moderate",
+    int_rating_dict = {0:"No Rating", 1:"Insufficient Data", 2:"Not Applicable", 3:"Very Low", 4:"Relatively Low", 5:"Relatively Moderate",
                      6:"Relatively High", 7:"Very High"}
     
     # Revert ratings for back into data hazards rating labels
