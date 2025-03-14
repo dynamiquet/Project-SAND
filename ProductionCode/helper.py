@@ -26,7 +26,7 @@ def get_int_rating(table_rating):
     '''
 
     # Each key is a rating from the dataset and is associated with an integer value
-    string_rating_dict = {"Insufficient Data":0, "Not Applicable":1, "No Rating":2, "Very Low":3, "Relatively Low":4, "Relatively Moderate":5,
+    string_rating_dict = {"No Rating":0, "Insufficient Data":1, "Not Applicable":2, "Very Low":3, "Relatively Low":4, "Relatively Moderate":5,
                         "Relatively High":6, "Very High":7}
     
     # Convert string rating into an integer for sorting
@@ -43,7 +43,7 @@ def get_string_rating(int_rating):
     '''
 
     # Each key is an integer and is associated with a rating from the dataset
-    intratingdict = {0:"Insufficient Data", 1:"Not Applicable", 2:"No Rating", 3:"Very Low", 4:"Relatively Low", 5:"Relatively Moderate",
+    intratingdict = {0:"No Rating", 1:"Insufficient Data", 2:"Not Applicable", 3:"Very Low", 4:"Relatively Low", 5:"Relatively Moderate",
                      6:"Relatively High", 7:"Very High"}
     
     # Revert ratings for back into data hazards rating labels

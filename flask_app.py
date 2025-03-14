@@ -92,6 +92,8 @@ def display_county_disaster_data():
     updated_risk_values_for_disasters_dictionary = pluralize_disaster_names(risk_values_for_disasters_dictionary)
 
     sorted_risk_values_dictionary = sort_risk_ratings_of_dictionary(updated_risk_values_for_disasters_dictionary)
+
+    print(sorted_risk_values_dictionary)
     
     return render_template('displaydata.html', state = requested_state, county=requested_county, data=sorted_risk_values_dictionary)
 
@@ -141,4 +143,4 @@ def display_about_me_page():
     return render_template("about.html")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5138)
+    app.run()
