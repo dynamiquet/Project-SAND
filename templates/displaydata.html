@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Project S.A.N.D.</title>
-        <link rel="stylesheet" href="../static/datastyle.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='datastyle.css') }}">
         <script src="../static/scripts/script.js"></script>
         <script src="../static/scripts/Counties.js"></script>
         <script src="../static/scripts/CollapsibleElements.js"></script>
@@ -62,27 +62,36 @@
             </ul>
         </div>
 
-        <div class = "RiskInfo ColorblindElement BackgroundLBlue">
-            <button type="button" class="collapsible ColorblindElement BackgroundLBlue Text">Risk Methodology</button>
-            <div class = "content ColorblindElement BackgroundLBlue">
-            <p> Our natural hazard risk ratings are calculated by multiplying the likelihood of a natural hazard event 
-                ocurring with the consequences of the natural hazard event on the area</p>
-            <strong> Risk = Likelihood x Consequences</strong>
-            <p>Our rating categories range from "Very Low" up to "Very High"</p>
+        <div id = "leftHandInfodisplaydata">
+            <div class = "RiskInfo ColorblindElement BackgroundLBlue">
+                <button type="button" class="collapsible ColorblindElement BackgroundLBlue Text">Risk Methodology</button>
+                <div class = "content ColorblindElement BackgroundLBlue">
+                <p> Our natural hazard risk ratings are calculated by multiplying the likelihood of a natural hazard event 
+                    ocurring with the consequences of the natural hazard event on the area</p>
+                <strong> Risk = Likelihood x Consequences</strong>
+                <p>Our rating categories range from "Very Low" up to "Very High"</p>
+                </div>
             </div>
+    
+            <div class="rating-breakdown ColorblindElement BackgroundLBlue">
+                <button type="button" class="collapsible ColorblindElement BackgroundLBlue Text">Rating Breakdown</button>
+                <div class = "content ColorblindElement BackgroundLBlue">
+                <p> Very Low: It is extremely unlikely for the disaster to occur</p>
+                <p> Relatively Low: It is unlikely for the disaster to occur</p>
+                <p> Relatively Moderate: It is likely for the disaster to occur </p>
+                <p> Relatively High: It is somewhat likely for the disaster to occur</p>
+                <p> Very High: It is extremely likely for the disaster to occur</p>
+                </div>
+            </div>
+    
+            <div id="getColorblindMode"> 
+                <input type="checkbox" id="colorblind-mode">
+                <label for="colorblind-mode"> Check for Colorblind Mode </label>
+            </div>
+    
         </div>
 
-        <div class="rating-breakdown ColorblindElement BackgroundLBlue">
-            <button type="button" class="collapsible ColorblindElement BackgroundLBlue Text">Rating Breakdown</button>
-            <div class = "content ColorblindElement BackgroundLBlue">
-            <p> Very Low: It is extremely unlikely for the disaster to occur</p>
-            <p> Relatively Low: It is unlikely for the disaster to occur</p>
-            <p> Relatively Moderate: It is likely for the disaster to occur </p>
-            <p> Relatively High: It is somewhat likely for the disaster to occur</p>
-            <p> Very High: It is extremely likely for the disaster to occur</p>
-            </div>
-        </div>
-
+        <div class = rightHandInfo>
         <div class="rating-legend ColorblindElement BackgroundLBlue">
             <button type="button" class="collapsible ColorblindElement BackgroundLBlue Text">Risk Icon Legend</button>
             <div class="content ColorblindElement BackgroundLBlue">
@@ -100,10 +109,7 @@
                 <p>Awareness and prepartion is not necessary, but there is a lot of interesting information available on our resources page.</p>
             </div>
         </div>
-
-        <div id="getColorblindMode"> 
-            <input type="checkbox" id="colorblind-mode">
-            <label for="colorblind-mode"> Check for Colorblind Mode </label>
         </div>
+
     </body>
 </html>

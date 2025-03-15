@@ -20,7 +20,8 @@
                 <li class = "navigationBar_li"><a href="/top5page">Top 5 County Disasters</a></li>
                 <li class = "navigationBar_li"><a href="/about">About Us</a></li>
             </ul>
-        
+    
+
         <div id="countyResults" class = "ColorblindElement BackgroundLBlue">
             <h2 id="HelpfulTextAboveSearchInput" class = "ColorblindElement Text">The five disasters {{county}}, {{state}} is most at risk for are:</h2>
             <ul>
@@ -62,6 +63,7 @@
             </ul>
         </div>
 
+        <div class = "leftHandInfo">
         <div class = "RiskInfo ColorblindElement BackgroundLBlue">
             <button type="button" class="collapsible ColorblindElement BackgroundLBlue Text">Risk Methodology</button>
             <div class = "content ColorblindElement BackgroundLBlue">
@@ -83,6 +85,14 @@
             </div>
         </div>
 
+        <div id="getColorblindMode"> 
+            <input type="checkbox" id="colorblind-mode">
+            <label for="colorblind-mode"> Check for Colorblind Mode </label>
+        </div>
+
+        </div>
+
+        <div class = "rightHandInfo">
         <div class="rating-legend ColorblindElement BackgroundLBlue">
             <button type="button" class="collapsible ColorblindElement BackgroundLBlue Text">Risk Icon Legend</button>
             <div class="content ColorblindElement BackgroundLBlue">
@@ -96,10 +106,7 @@
                 <p>Awareness and prepartion is not necessary, but there is a lot of interesting information available on our resources page.</p>
             </div>
         </div>
-
-        <div id="getColorblindMode"> 
-            <input type="checkbox" id="colorblind-mode">
-            <label for="colorblind-mode"> Check for Colorblind Mode </label>
         </div>
+
     </body>
 </html>
