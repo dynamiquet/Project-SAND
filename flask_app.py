@@ -131,4 +131,4 @@ def display_about_me_page():
     return render_template("about.html")
 
 if __name__ == '__main__':
-    app.run(port = 5100)
+    app.run(port = 5100, debug=True)

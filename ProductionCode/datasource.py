@@ -1,6 +1,9 @@
 import psycopg2
-import ProductionCode.psqlConfig as config
 from ProductionCode.helper import *
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 class DataSource:
     
@@ -9,7 +12,7 @@ class DataSource:
         Constructor that initiates connection to database
         '''
         self.connection = self.connect()
-
+ 
     def connect(self):
         '''
         Initiates connection to database using information in the psqlConfig.py file.
@@ -17,7 +20,12 @@ class DataSource:
         '''
 
         try:
-            connection = psycopg2.connect(database=config.database, user=config.user, password=config.password, host="localhost")
+            connection = psycopg2.connect(
+                database=os.getenv("database"),
+                user=os.getenv("user"),
+                password=os.getenv("password"),
+                host=os.getenv("host")
+            )
         except Exception as e:
             print("Connection error: ", e)
             exit()

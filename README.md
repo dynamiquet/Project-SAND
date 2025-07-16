@@ -1,7 +1,12 @@
 # Project SAND
 
-## Description
-Project SAND is a comprehensive solution for [brief description of what your project does]. This project aims to [explain the main goal or purpose of your project]. It is built using [mention the main technologies or frameworks used], ensuring high performance and scalability.
+Project SAND is a dataset-centered web application that allows users to interact in meaningful and useful ways with FEMA's dataset that contains ***up-to-date??*** data about natural disasters in the United States.
+comprehensive solution for [brief description of what your project does]. This project aims to [explain the main goal or purpose of your project]. It is built using [mention the main technologies or frameworks used], ensuring high performance and scalability.
+
+## Sample Use Cases
+- Feature 1: [Brief description of feature 1]
+- Feature 2: [Brief description of feature 2]
+- Feature 3: [Brief description of feature 3]
 
 ## Features
 - Feature 1: [Brief description of feature 1]

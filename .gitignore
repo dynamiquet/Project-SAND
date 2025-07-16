@@ -1,6 +1,9 @@
 # psql file
 psqlConfig.py
 
+# My virtual environment
+myvenv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
