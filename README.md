@@ -1,137 +1,146 @@
-# Project SAND
+# Project S.A.N.D.
 
-Project SAND is a dataset-centered web application that allows users to interact in meaningful and useful ways with FEMA's dataset that contains ***up-to-date??*** data about natural disasters in the United States.
-comprehensive solution for [brief description of what your project does]. This project aims to [explain the main goal or purpose of your project]. It is built using [mention the main technologies or frameworks used], ensuring high performance and scalability.
+Project S.A.N.D. (Spreading Awareness of Natural Disasters) is a Python project that provides both a command-line interface and a Flask web UI to explore FEMA's National Risk Index (NRI) data at the U.S. county level. The codebase includes tools to query hazard ratings for specific disaster types, return the top-5 hazards for a county, and render interactive pages that display county-level risk information.
 
-## Sample Use Cases
-- Feature 1: [Brief description of feature 1]
-- Feature 2: [Brief description of feature 2]
-- Feature 3: [Brief description of feature 3]
+**Key capabilities**
 
-## Features
-- Feature 1: [Brief description of feature 1]
-- Feature 2: [Brief description of feature 2]
-- Feature 3: [Brief description of feature 3]
+- Return a county's top-5 most hazardous disaster types (CLI and web API).
+- Query hazard ratings for one or more disasters in a county (CLI).
+- Browser-based UI with templates and JavaScript to select counties and disasters.
 
-## Installation
-To install and set up the project locally, follow these steps:
+**Stack**: Python, Flask, PostgreSQL (via `psycopg2`), simple HTML/CSS/JS for the frontend.
 
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/your-username/project_SAND.git
-    ```
-2. Navigate to the project directory:
-    ```sh
-    cd project_SAND
-    ```
-3. Install the dependencies:
-    ```sh
-    npm install
-    ```
+**Ports / defaults**: The Flask app runs on port `5100` when started with `python3 flask_app.py`.
 
-## Usage
-To run the project, use the following command:
+**Repository layout**
+
+- `command_line.py` — CLI entrypoint. Usage: `--disaster <disasters> --county <County,ST>` or `--top5 <County,ST>`.
+- `flask_app.py` — Flask application with routes used by the web UI and API endpoints.
+- `ProductionCode/datasource.py` — database connection and data access (expects a `COUNTY_AND_RISKVALUES` table).
+- `ProductionCode/helper.py` — utility functions (validation, sorting, formatting, disaster lists).
+- `Data/` — CSV files and SQL to create the table (`createtable.sql`).
+- `templates/`, `static/` — web templates and static assets used by the Flask app.
+- `Tests/` — unit tests for CLI and Flask routes (`test_cl.py`, `test_flask_app.py`).
+
+## Quick start (How to use)
+
+1. Create and activate a virtual environment:
+
 ```sh
-npm start
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
 ```
-For detailed usage instructions, refer to the [usage documentation](link-to-usage-docs).
+
+2. Install dependencies:
+
+```sh
+pip install -r requirements.txt
+```
+
+If `requirements.txt` is missing or incomplete, at minimum install:
+
+```sh
+pip install Flask psycopg2-binary python-dotenv pytest
+```
+
+3. Create a PostgreSQL database (local or remote) and load the schema in `Data/createtable.sql` into it. Example using `psql`:
+
+```sh
+# replace names as desired)
+createdb sand_db
+# run table creation script
+psql -d sand_db -f Data/createtable.sql
+```
+
+4. Load the CSV data into the `COUNTY_AND_RISKVALUES` table. You can use `COPY` or a GUI tool. Example (psql):
+
+```sql
+\copy COUNTY_AND_RISKVALUES FROM 'Data/County_and_Disasters_only.csv' DELIMITER ',' CSV HEADER;
+```
+
+5. Provide DB credentials via environment variables. Create a `.env` file in the project root with:
+
+```
+database=<your_database_name>
+user=<db_user>
+password=<db_password>
+host=localhost
+```
+
+The `ProductionCode/datasource.py` uses these variables (via `python-dotenv`) to connect.
+
+## CLI usage
+
+All CLI behavior is implemented in `command_line.py`. Run examples from the repository root.
+
+- Query one or multiple disasters in a county (comma-separated disasters):
+
+```sh
+python3 command_line.py --disaster 'Tornado' --county 'Los Angeles,CA'
+python3 command_line.py --disaster 'Tornado,Earthquake' --county 'Los Angeles,CA'
+```
+
+- Get top-5 hazards for a county:
+
+```sh
+python3 command_line.py --top5 'Rice,MN'
+```
+
+Notes:
+
+- County input must be in the format `Name,ST` (e.g. `Los Angeles,CA`).
+- The CLI validates disaster names against the built-in list in `ProductionCode/helper.py`.
+
+## Web UI
+
+Start the Flask app (it listens on port `5100` in development mode):
+
+```sh
+python3 flask_app.py
+```
+
+Routes of interest:
+
+- `/` — homepage (template `index.html`).
+- `/<disaster>/<county>` — returns hazard ratings for the given disaster(s) and county.
+- `/top5/<county>` — returns the top-5 hazards for `county`.
+- `/displaycountydata` and `/top5` (with query parameters) — used by the web UI forms.
+
+If you want to call the API directly, use the same patterns as the CLI but in the URL, for example:
+
+```
+http://localhost:5100/Earthquake/Los%20Angeles,CA
+http://localhost:5100/top5/Los%20Angeles,CA
+```
+
+## Tests
+
+The project includes `unittest` tests in `Tests/` that exercise the CLI and Flask routes. Run them with:
+
+```sh
+pytest -q
+# OR
+python -m unittest discover -v Tests
+```
+
+The tests rely on a working DB connection and populated `COUNTY_AND_RISKVALUES` table (see Data setup above).
 
 ## Contributing
-We welcome contributions! Please read our [contributing guidelines](link-to-contributing-guidelines) to get started.
+
+- Fork, create a topic branch, add tests for behavior changes, and submit a pull request.
+- Keep changes focused; follow PEP8 for Python code and document any schema changes.
 
 ## License
-This project is licensed under the [MIT License](LICENSE).
+
+This project is available under the MIT License — see `LICENSE`.
 
 ## Contact
-For any questions or feedback, please reach out to [Dynamique Twizere] at [twizered@carleton.edu].
+
+Maintainer: Dynamique Twizere — `twizered@carleton.edu`
 
 
 
-
-
-
-## Project S.A.N.D.
-
-## Code Design Improvements
-1. Inconsistent function, variable, and class naming style
-    - In various locations among our files, there was never a consistent style on naming items. Our helper.py file was the biggest culprit of this.Multiple functions had variables seperated by underscores (example_variable), while others were simply one long word (examplevariable).
-    - Specifically, get_string_rating() and get_disaster_risk_dict() had variables called "intratingdict" and "riskvaluelistindex" which should be seperated. These functions found in heplper.py were on lines 38 and 188.
-    - To fix inconsistent naming, we combed over files like helper.py to fix inconsistent variable naming conventions and made them clearer in context and seperated by underscores.
-
-2. Bloater: Long Methods
-    - Although not in our submitted "front-end" tagged commit, later commits introduced many javascript functions like initmap() which created a unique GoogleMaps map centered on the user's location. The problem with functions like initmap() and many more javascripts functions following it, was that they were too long!
-    - To fix this, we split these bloated functions into several smaller one-dimensional functions that did one job well.
-    - For example, initmap(), would become a combination of more descriptive functions like getCurrentLocation(), getUserCounty(), setMapInfoWindow(), etc. that are smaller in size and focus on a one-layer abstraction. This map example is found in the javascript file script.js
-
-
-## Front-End Design Improvements
-1. Usability Issue: Unware of Current County Name
-    - Our website depended heavily on user knowledge of their current county. To fix this potential issue, we included a "My Current Location" page which grabs the user's coordinates, and disaplys their county name in a GoogleMaps map.
-    - This addition was included as an option in our navigation bar present in all pages of our project.
-2. Usability Issue: Assumption of Fine motor skills to click all disaster checkboxes
-    - Previously, if users wanted to view the disaster risk ratings for all available disasters, they had to click every disaster checkbox to do so. With more than 15 disasters and small checkboxes, the task depended heavily on user motor skills
-    - To address the issue, we included a "Check All Disasters!" checkbox to avoid unecessary time effort into checking all available disasters. With one click, all disasters would be checked in the homepage.
-    - To avoid having users uncheck all disasters if they changed their minds, we also included the functionality to uncheck all disasters of the "Check All Disasters!" checkbox is unchecked.
-
----
-## Previous CIDER and Functionality Descriptions:
-
-### Functionality
-This program allows the user to interact with our dataset that contains data about natural disasters in the United States collected by FEMA.
-
-### Using Website (Flask)
-In order to use this website concatenate arguments into the browser with ' / ' followed by either: 
-
-Usage One: name of disaster(s) seperated by commas / name of US county, State abbreviation
-
-    Example: 
-    (existing url)/Tornado,Earthquake/Los Angeles,CA
-This returns the hazard rating for the type of disaster(s) in the given county as recorded by FEMA's dataset
-
-Usage Two: top5/name of US county, State abbreviation
-
-    Example: (existing url)/top5/Rice,MN
-This returns the top five most hazardous disaster's in a given county
-
-### Using CLI
-You may use the program to obtain National Risk Index data about a particular disaster in a particular county in the U.S. by running the following commands:
-
-Command Line Function 1:
-```
-python3 command_line.py --disaster 'type_of_disaster(s)' --county 'name_of_US_county, State_abbreviation'
-```
-Purpose: Returns a hazard rating for each disaster given in the targeted county
-
-
-Command Line Function 2: 
-```
-python3 command_line.py --top5 'name_of_US_county, State_abbreviation'
-```
-
-Purpose: Returns the top 5 most hazardous disaster's in a given county
-
-## Webpage "Don't Make Me Think" implementations
-### Scanability
-
-My page enables scanability by being simple and following standard webpage practices. 
-
-At the top center, the home page title is bolded and has the largest font size of all texts. Below it, is a navigation bar with short and explicit names for what pages they direct you to.
-
-Continuing the top-down scan, huge text describes what a user should search for. The text boxes also have placeholders for the kind of accepted searches.
-
-The available disasters are neatly placed in a box with icons visually describing the kind of disaster.
-
-At the end, a big orange submit button is there catching user attention.
-
-### Satisficing
-
-My web page hopefully encourages no thinking! Given the explicit names of titles, buttons, and input forms a user should be easily able to get what they are searching for. 
-
-### Muddling through
-
-Given the simple layout, users can click and input anything and be directed to proper usage or other resources. 
-
-If they get lost, the first option in the navigation bar is a "Home" page for quick and easy access to the original homepage to start over! If they are otherwise used to clicking the title to go back to the homepage, that is also available! (Currently only for displaying data, but will be integrated to all pages)
 
 
 
